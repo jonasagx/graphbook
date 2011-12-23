@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 ###########################################################################
-# Copyright (c) 2011 Minh Van Nguyen <nguyenminh2@gmail.com>
+# Copyright (c) 2011 Minh Van Nguyen <mvngu.name@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -82,8 +82,8 @@ def to_year_range(cline):
 
     Convert the copyright line to use a year range, if necessary.
     """
-    # substring preceding "Minh Van Nguyen <nguyenminh2"
-    s = cline.split("Minh Van Nguyen <nguyenminh2")[0].strip()
+    # substring preceding "Minh Van Nguyen <mvngu.name"
+    s = cline.split("Minh Van Nguyen <mvngu.name")[0].strip()
     # substring following "Copyright (C)", i.e. get the copyright years
     yearlist = s.split("Copyright (C)")[-1].strip()
     if "," in yearlist:
@@ -109,11 +109,11 @@ def update_copyright(f):
     infile = open(f, "r")
     has_copyright = False  # assume that f doesn't have copyright information
     for line in infile:
-        if "Copyright (C)" in line and "Minh Van Nguyen <nguyenminh2" in line:
+        if "Copyright (C)" in line and "Minh Van Nguyen <mvngu.name" in line:
             has_copyright = True
             cline = to_year_range(line.strip())
-            # substring preceding "Minh Van Nguyen <nguyenminh2"
-            s = cline.split("Minh Van Nguyen <nguyenminh2")[0].strip()
+            # substring preceding "Minh Van Nguyen <mvngu.name"
+            s = cline.split("Minh Van Nguyen <mvngu.name")[0].strip()
             latest_year = ""
             # copyright with multi-years
             if "--" in s:
