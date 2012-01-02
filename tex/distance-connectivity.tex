@@ -865,6 +865,171 @@ vertices. Then the following are equivalent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+\section{Expander graphs and Ramanujan graphs}
+
+%%% this needs references, more examples, and proofs
+
+In combinatorics, an expander graph is a sparse graph that has strong
+connectivity properties.
+Expander graphs have many applications - for example, to cryptography,
+and the theory of error-correcting codes.
+
+The {\it edge expansion} $h(G)$ of a graph 
+$G=(V,E)$ is defined as
+
+\[
+    h(G) = \min_{0 < |S| \le \frac{|V|}{2} } \frac{|\partial(S)|}{|S|}\,,
+\]
+where the minimum is over all nonempty sets $S$ of at most 
+$|V| / 2$ vertices and 
+$\partial(S)$ is the edge boundary of $S$, i.e., the set of 
+edges with exactly one endpoint in $S$.
+\index{edge!boundary}
+\index{edge!expansion} 
+
+The {\it vertex expansion} (or {\it vertex isoperimetric number}) 
+$h_{out}(G)$ of a graph $G$ is defined as
+
+\[
+    h_{\text{out}}(G) 
+= \min_{0 < |S|\le \frac{|V|}{2}} \frac{|\partial_{\text{out}}(S)|}{|S|}\,,
+\]
+where $\partial_{\text{out}}(S)$ is the outer boundary of $S$, i.e., 
+the set of vertices in 
+$V(G)\setminus S$ with at least one neighbor in $S$.
+\index{outer boundary}
+\index{vertex!expansion} 
+\index{isoperimetric number}
+\index{vertex!isoperimetric number}
+
+\begin{verbatim}
+
+sage: G = PSL(2, 5)
+sage: X = G.cayley_graph()
+sage: V = X.vertices()
+sage: S = [V[1], V[3], V[7], V[10], V[13], V[ 14], V[23]]            # random "small" subset of vertices
+sage: delS = X.edge_boundary(S)
+sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
+1.00000000000000
+sage: S = [V[1], V[3], V[7], V[12], V[24], V[37]]                     # random "small" subset of vertices
+sage: delS = X.edge_boundary(S)
+sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
+1.50000000000000
+sage: S = [V[2], V[8], V[13], V[27], V[32], V[44], V[57]]              # random "small" subset of vertices
+sage: delS = X.edge_boundary(S)
+sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
+1.42857142857143
+sage: S = [V[0], V[6], V[11], V[16], V[21], V[29], V[35], V[45],V[53]]     # random "small" subset of vertices
+sage: delS = X.edge_boundary(S)
+sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
+1.77777777777778
+sage: n = len(X.vertices())
+sage: J = range(n)       
+sage: J30 = Subsets(J, int(n/2))
+sage: K = J30.random_element()
+sage: K
+{0, 2, 3, 4, 5, 6, 8, 9, 11, 13, 16, 18, 19, 21, 24, 25, 26, 28, 29, 30, 36, 37, 38, 40, 42, 45, 46, 49, 53, 57}
+sage: S = [V[i] for i in K]                   #  30 vertices, randomly selected
+sage: delS = [v for v in V if min([X.distance(a,v) for a in S]) == 1]
+sage: RR(len(delS))/RR(len(S))
+0.800000000000000
+
+\end{verbatim}
+
+
+A family $\mathcal{G} = \{G_1, G_2, \ldots \}$ of $d$-regular graphs is an 
+{\it edge expander family} if there is a constant $c > 0$ such that 
+$h(G) \ge c$ for each $G \in \mathcal{G}$. 
+\index{ edge expander family} 
+A vertex expander family is defined similarly, using $h_{out}(G)$
+instead.
+\index{expander graph}
+
+\subsection{Ramanujan graphs} 
+
+Let $G$ be a connected $d$-regular graph with $n$ vertices, and let 
+$\lambda_0 \geq \lambda_1 \geq \ldots \geq \lambda_{n-1}$ 
+be the eigenvalues of the adjacency matrix of 
+$G$. Because $G$ is connected and $d$-regular, its eigenvalues satisfy 
+$d = \lambda_0 > \lambda_1 \geq \ldots \geq \lambda_{n-1} \geq -d$. 
+Whenever there exists $\lambda_i$ with $| \lambda_i | < d$, define
+
+\[
+    \lambda(G) = \max_{|\lambda_i| < d} |\lambda_i|.\,
+\]
+A $d$-regular graph $G$ is a {\it Ramanujan graph} if $\lambda(G)$ is defined and 
+$\lambda(G) \leq 2\sqrt{d-1}$.
+\index{Ramanujan graph} 
+
+
+Let $q$ be a prime power such that $q\equiv 1 \pmod{4}$. Note that this implies that 
+the finite field $GF(q)$ contains a square root of $-1$.
+
+Now let $V=GF(q)$ and $E=\{\{a,b\}\in GF(q)\times GF(q)\ |\ (a-b)\in GF(q)^{\times})^2 \}$. 
+This set is well defined since $a - b = (-1)\cdot (b - a)$, and since  
+$-1$ is a square, it follows that $a - $b is a square if and only if $b - a$ is a square.
+
+By definition G = (V, E) is the {\it Paley graph} of order $q$.
+\index{Paley graph}
+
+The following facts are known about Paley graphs.
+\begin{itemize}
+\item
+The eigenvalues of Paley graphs are $\frac{q-1}{2}$ (with multiplicity $1$) and 
+$\frac{-1 \pm \sqrt{q}}{2}$ (both with multiplicity $\frac{q-1}{2}$).
+
+\item
+It is known that a Paley graph is a Ramanujan graph. 
+
+\item
+It is known that the family of Paley graphs of prime order is
+a vertex expander graph family.
+
+\item
+If $q=p^r$, where $p$ is prime, then $Aut(G)$ has order $q(q-1)/2$.
+
+\end{itemize}
+
+Here is Sage code for the Paley graph\footnote{Thanks to Chris Godsil;
+included by permission.}:
+
+\begin{verbatim}
+
+def Paley(q):
+	K.<a> = GF(q)
+	return Graph([K, lambda i,j: i != j and (i-j).is_square()])
+
+\end{verbatim}
+
+Below is an example.
+
+\begin{verbatim}
+
+sage: X = Paley(13)
+sage: X.vertices()
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]          
+sage: X.is_vertex_transitive()
+True
+sage: X.degree_sequence()
+[6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+sage: X.spectrum()
+[6, 1.302775637731995?, 1.302775637731995?, 1.302775637731995?,
+1.302775637731995?, 1.302775637731995?, 1.302775637731995?,
+-2.302775637731995?, -2.302775637731995?, -2.302775637731995?,
+-2.302775637731995?, -2.302775637731995?, -2.302775637731995?]
+sage: G = X.automorphism_group()
+sage: G.cardinality()
+78
+sage: 13*12/2
+78
+
+\end{verbatim}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Menger's theorem}
 \index{Menger's theorem}
 
