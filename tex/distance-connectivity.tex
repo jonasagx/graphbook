@@ -909,19 +909,19 @@ $V(G)\setminus S$ with at least one neighbor in $S$.
 sage: G = PSL(2, 5)
 sage: X = G.cayley_graph()
 sage: V = X.vertices()
-sage: S = [V[1], V[3], V[7], V[10], V[13], V[ 14], V[23]]            # random "small" subset of vertices
+sage: S = [V[1], V[3], V[7], V[10], V[13], V[ 14], V[23]]        
 sage: delS = X.edge_boundary(S)
 sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
 1.00000000000000
-sage: S = [V[1], V[3], V[7], V[12], V[24], V[37]]                     # random "small" subset of vertices
+sage: S = [V[1], V[3], V[7], V[12], V[24], V[37]]           
 sage: delS = X.edge_boundary(S)
 sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
 1.50000000000000
-sage: S = [V[2], V[8], V[13], V[27], V[32], V[44], V[57]]              # random "small" subset of vertices
+sage: S = [V[2], V[8], V[13], V[27], V[32], V[44], V[57]]     
 sage: delS = X.edge_boundary(S)
 sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
 1.42857142857143
-sage: S = [V[0], V[6], V[11], V[16], V[21], V[29], V[35], V[45],V[53]]     # random "small" subset of vertices
+sage: S = [V[0], V[6], V[11], V[16], V[21], V[29], V[35], V[45],V[53]]  
 sage: delS = X.edge_boundary(S)
 sage: edge_expan_XS = len(delS)/len(S); RR(edge_expan_XS)
 1.77777777777778
@@ -930,7 +930,8 @@ sage: J = range(n)
 sage: J30 = Subsets(J, int(n/2))
 sage: K = J30.random_element()
 sage: K
-{0, 2, 3, 4, 5, 6, 8, 9, 11, 13, 16, 18, 19, 21, 24, 25, 26, 28, 29, 30, 36, 37, 38, 40, 42, 45, 46, 49, 53, 57}
+{0, 2, 3, 4, 5, 6, 8, 9, 11, 13, 16, 18, 19, 21, 24, 25, 26, 28, 29, 
+ 30, 36, 37, 38, 40, 42, 45, 46, 49, 53, 57}
 sage: S = [V[i] for i in K]                   #  30 vertices, randomly selected
 sage: delS = [v for v in V if min([X.distance(a,v) for a in S]) == 1]
 sage: RR(len(delS))/RR(len(S))
@@ -1428,10 +1429,13 @@ as a basic reference.
 \begin{itemize}
 
 \item
+Spectrum of a graph
 
 \item
+Laplacian spectrum of a graph
 
 \item
+Applications
 
 \end{itemize}
 
@@ -1441,11 +1445,6 @@ $n = \vert V \vert$ vertices. The adjacency matrix of $G$ is the
 $n \times n$ matrix $A = A( G ) = (a_{v,w} )_{ v,w \in V }$ with rows 
 and columns indexed by $V$ and entries $a_{v,w}$ denoting the number
 of edges from $v$ to $w$.
-
-(We may consider $A$ as a linear transformation on the vector space 
-$F^V$ of maps from $V$ into $F$, where $F$ is some field such as 
-${\mathbb{R}}$ or ${\mathbb{C}}$. Now it is meaningful to consider 
-what happens with $A$ when we choose a different basis in $F^V$.)
 
 The {\it spectrum} of $G$ is by definition the spectrum of $A$, 
 that is, its multi-set of eigenvalues together with their multiplicities. 
@@ -1457,7 +1456,8 @@ the polynomial $p_A$ defined by $p_A ( x ) = \det (A- x I )$.
 \subsection{The Laplacian spectrum}
 
 
-Given a simple graph $G$ with $n$ vertices $V=\{v_1,\dots, v_n\}$, 
+Recall from \S \ref{subsection:Laplacian_matrix}
+that, given a simple graph $G$ with $n$ vertices $V=\{v_1,\dots, v_n\}$, 
 its (vertex) {\it Laplacian matrix} 
 $L=(\ell_{i,j})_{n \times n}$ is defined as:
 \index{Laplacian matrix} 
@@ -1469,8 +1469,6 @@ $L=(\ell_{i,j})_{n \times n}$ is defined as:
 0 & \mbox{otherwise}. 
 \end{cases} 
 \]
-(We will discuss the Laplacian more in later sections,
-incuding many examples.)
 The {\it Laplacian spectrum} is by definition the spectrum of the
 vertex Laplacian of $G$, 
 that is, its multi-set of eigenvalues together with their multiplicities. 
@@ -1527,10 +1525,10 @@ has zero diagonal ($a_{v,v} = 0$), and is a 0-1 matrix
 A number $\lambda$ is eigenvalue of $A$ if and only if it is a 
 zero of the polynomial $p_A$. Since $A$ is real and symmetric, 
 all its eigenvalues are real and $A$ is diagonalizable. 
-IN particular, for each eigenvalue, its algebraic multiplicity 
+In particular, for each eigenvalue, its algebraic multiplicity 
 (that is, its multiplicity as a root of the characteristic
 polynomial) coincides with its geometric multiplicity (that is, the 
-dimension of the correspondingeigenspace).
+dimension of the corresponding eigenspace).
 
 \begin{theorem}
 Let $G$ be a connected graph of diameter $d$. 
@@ -1544,7 +1542,7 @@ $(A - \lambda_1 I) ... (A - \lambda_r I) = 0$, so that
 $A^r$ is a linear combination of $I, A, ... , A^{r-1}$. 
 But if the distance from the vertex $v\in V$ to the vertex $w\in V$ is 
 $r$, then $(A^i )_{v,w} = 0$ for $0 \le i \le r - 1$ and 
-$(A^r )_{v,w} > 0$, contradiction. Hence $t > r$.
+$(A^r )_{v,w} > 0$, contradiction. Hence $d > r$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

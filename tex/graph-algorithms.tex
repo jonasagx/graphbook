@@ -1047,7 +1047,15 @@ resume another round of the while loop that starts on
 line~\ref{alg:DFS:while_loop_tests_non_empty_stack}, the previous
 vertex $v$ have been popped\index{stack!pop} off $S$ and the neighbors
 (respectively, out-neighbors\index{out-neighbor}) of $v$ have been
-pushed\index{stack!push} onto $S$. To explore a path starting at $v$,
+pushed\index{stack!push} onto $S$. 
+For example, in step 2 of Figure 
+\ref{fig:graph_algorithms:depth_first_search_undirected}, 
+vertex 5 is considered in DFS (in contrast to the vertex 2 
+in step 2 of the BFS in the graph in Figure 
+\ref{fig:graph_algorithms:breadth_first_search_undirected}) 
+because DFS is organized by the LIFO protocol
+(in contrast to the FIFO protocol of BFS).
+To explore a path starting at $v$,
 we choose any unexplored neighbors of $v$ by popping an element off
 $S$ and repeat the for loop starting on
 line~\ref{alg:DFS:for_loop_visit_neighbors}. Repeat the DFS\index{DFS}
@@ -1066,8 +1074,10 @@ Theorem~\ref{thm:graph_algorithms:BFS:worst_case_time_complexity}.
 Arguing along the same lines as in the proof of
 Theorem~\ref{thm:graph_algorithms:BFS:list_D_length_shortest_paths},
 we can also show that the list $D$ returned by DFS\index{DFS} contains
-lengths of any shortest paths from the starting vertex $s$ to any
-other vertex in the tree $T$.
+lengths of any shortest paths in the tree $T$ 
+from the starting vertex $s$ to any other vertex 
+in $T$ (but not necessarily for shortest paths in
+the original graph $G$).
 
 \begin{figure}[!htbp]
 \centering
