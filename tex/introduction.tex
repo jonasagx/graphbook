@@ -406,17 +406,20 @@ given:
 \begin{itemize}
 \item A finite set $V$ whose elements are pairs $(v, w_v)$, where $v$
   is called a \emph{vertex}\index{vertex!multigraph} and $w_v \in \R$
-  is called its \emph{weight}\index{weight!multigraph}. (Sometimes,
+  is the \emph{vertex weight}\index{weight!multigraph}. (Sometimes,
   the pair $(v, w_v)$ is called the vertex.)
 
-\item A finite set $E$ whose elements are called
-  \emph{edges}\index{edge!multigraph}. We do not necessarily assume
-  that $E \subseteq V^{(2)}$, where $V^{(2)}$ is the set of unordered
-  pairs of vertices.\footnote{
+\item A finite set $E$ whose elements are
+  \emph{weighted edges}\index{edge!multigraph}. We do not necessarily
+  assume that $E \subseteq V^{(2)}$, where $V^{(2)}$ is the set of
+  unordered pairs of vertices.\footnote{
     However, we always assume that $E \subseteq \R \times V^{(2)}$,
     where the $\R$-component is called the
     \emph{weight}\index{edge!weight} of the edge.
   }
+  Each weighted edge can be represented as a $3$-tuple of the form
+  $(w_e, u, v)$, where $(u,v)$ is the edge in question and
+  $w_e \in \R$ is the \emph{edge weight}.
 
 \item An incidence\index{incidence!function} function
 %%
@@ -535,6 +538,8 @@ weighted outdegree of that vertex,
 \]
 In other words, it is the sum of the weights of the edges incident to
 that vertex, regarding the graph as an undirected weighted graph.
+Unweighted degrees are a special case of weighted degrees.  For
+unweighted degrees, we merely set each edge weight to unity.
 
 \begin{definition}
 Let $G=(V,E,h)$ be an unweighted multidigraph. The \emph{line graph}
