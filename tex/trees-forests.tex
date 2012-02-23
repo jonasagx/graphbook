@@ -1234,8 +1234,11 @@ extracted from $Q$ and processed. Line~\ref{alg:prim:extract_min}
 extracts a vertex $u$ from $Q$ based on the key $\cost$, thus moving
 $u$ to the vertex set of $T$. Line~\ref{alg:prim:neighbors_u}
 considers all vertices adjacent to $u$. In an undirected graph, these
-are the neighbors of $u$; in a digraph, we replace $\adj(u)$ with the
-out-neighbors $\oadj(u)$. The while loop updates the $\cost$ and
+are simply the neighbors of $u$. (In a digraph, one could try to 
+replace $\adj(u)$ with the out-neighbors $\oadj(u)$. Unfortunately,
+in the digraph case the Prim algorithm in general fails to find 
+a minimum spanning tree with the same orientation as the original 
+digraph.) The while loop updates the $\cost$ and
 $\parent$ fields of each vertex $v$ adjacent to $u$ that is not in
 $T$. If $\parent[v] \neq \texttt{NULL}$, then $\cost[v] < \infty$ and
 $\cost[v]$ is the weight of an edge connecting $v$ to some vertex
