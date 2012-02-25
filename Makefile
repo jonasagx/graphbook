@@ -16,8 +16,10 @@
 
 # Make sure you have a proper and working LaTeX/TeX distribution.
 
+PLOT =
 FILE = book
 TEX_MASTER = $(FILE).tex
+PLOT_MASTER = $(PLOT).tex
 
 # Compile everything. This is usually done by executing the command
 #
@@ -40,6 +42,19 @@ pdf:
 	 pdflatex -shell-escape $(TEX_MASTER))
 	(TEXINPUTS=.:style:style/tex/context/third/pgf/basiclayer:style/tex/context/third/pgf/frontendlayer:style/tex/context/third/pgf/math:style/tex/context/third/pgf/systemlayer:style/tex/context/third/pgf/utilities:style/context/third/pgfplots:style/tex/generic/pgf/basiclayer:style/tex/generic/pgf/frontendlayer/svg:style/tex/generic/pgf/frontendlayer/tikz/libraries/circuits:style/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization:style/tex/generic/pgf/frontendlayer/tikz/libraries/graphs:style/tex/generic/pgf/frontendlayer/tikz/libraries:style/tex/generic/pgf/frontendlayer/tikz:style/tex/generic/pgf/libraries/datavisualization:style/tex/generic/pgf/libraries/decorations:style/tex/generic/pgf/libraries:style/tex/generic/pgf/libraries/shapes/circuits:style/tex/generic/pgf/libraries/shapes:style/tex/generic/pgf/math:style/tex/generic/pgf/modules:style/tex/generic/pgf/rendering:style/tex/generic/pgf/systemlayer:style/tex/generic/pgf/utilities:style/generic/pgfplots:style/generic/pgfplots/libs:style/generic/pgfplots/liststructure:style/generic/pgfplots/numtable:style/generic/pgfplots/oldpgfcompatib:style/generic/pgfplots/oldpgfplotscompatib:style/generic/pgfplots/sys:style/generic/pgfplots/util:style/latex/pgfplots:style/latex/pgfplots/libs:style/plain/pgfplots:style/tex/latex/pgf/basiclayer:style/tex/latex/pgf/compatibility:style/tex/latex/pgf/doc:style/tex/latex/pgf/frontendlayer/libraries:style/tex/latex/pgf/frontendlayer:style/tex/latex/pgf/math:style/tex/latex/pgf/systemlayer:style/tex/latex/pgf/utilities:style/tex/plain/pgf/basiclayer:style/tex/plain/pgf/frontendlayer:style/tex/plain/pgf/math:style/tex/plain/pgf/systemlayer:style/tex/plain/pgf/utilities:${TEXINPUTS:-:} && export TEXINPUTS && \
 	 pdflatex -shell-escape $(TEX_MASTER))
+
+plot:
+	make pdf-plot
+	make pdf-plot
+	make clean
+	mv $(PLOT)-figure0.pdf $(PLOT).pdf
+	pdfcrop $(PLOT).pdf $(PLOT).pdf.tmp && mv $(PLOT).pdf.tmp $(PLOT).pdf
+
+pdf-plot:
+	(TEXINPUTS=.:style:style/tex/context/third/pgf/basiclayer:style/tex/context/third/pgf/frontendlayer:style/tex/context/third/pgf/math:style/tex/context/third/pgf/systemlayer:style/tex/context/third/pgf/utilities:style/context/third/pgfplots:style/tex/generic/pgf/basiclayer:style/tex/generic/pgf/frontendlayer/svg:style/tex/generic/pgf/frontendlayer/tikz/libraries/circuits:style/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization:style/tex/generic/pgf/frontendlayer/tikz/libraries/graphs:style/tex/generic/pgf/frontendlayer/tikz/libraries:style/tex/generic/pgf/frontendlayer/tikz:style/tex/generic/pgf/libraries/datavisualization:style/tex/generic/pgf/libraries/decorations:style/tex/generic/pgf/libraries:style/tex/generic/pgf/libraries/shapes/circuits:style/tex/generic/pgf/libraries/shapes:style/tex/generic/pgf/math:style/tex/generic/pgf/modules:style/tex/generic/pgf/rendering:style/tex/generic/pgf/systemlayer:style/tex/generic/pgf/utilities:style/generic/pgfplots:style/generic/pgfplots/libs:style/generic/pgfplots/liststructure:style/generic/pgfplots/numtable:style/generic/pgfplots/oldpgfcompatib:style/generic/pgfplots/oldpgfplotscompatib:style/generic/pgfplots/sys:style/generic/pgfplots/util:style/latex/pgfplots:style/latex/pgfplots/libs:style/plain/pgfplots:style/tex/latex/pgf/basiclayer:style/tex/latex/pgf/compatibility:style/tex/latex/pgf/doc:style/tex/latex/pgf/frontendlayer/libraries:style/tex/latex/pgf/frontendlayer:style/tex/latex/pgf/math:style/tex/latex/pgf/systemlayer:style/tex/latex/pgf/utilities:style/tex/plain/pgf/basiclayer:style/tex/plain/pgf/frontendlayer:style/tex/plain/pgf/math:style/tex/plain/pgf/systemlayer:style/tex/plain/pgf/utilities:${TEXINPUTS:-:} && export TEXINPUTS && \
+	 pdflatex -shell-escape $(PLOT_MASTER))
+	(TEXINPUTS=.:style:style/tex/context/third/pgf/basiclayer:style/tex/context/third/pgf/frontendlayer:style/tex/context/third/pgf/math:style/tex/context/third/pgf/systemlayer:style/tex/context/third/pgf/utilities:style/context/third/pgfplots:style/tex/generic/pgf/basiclayer:style/tex/generic/pgf/frontendlayer/svg:style/tex/generic/pgf/frontendlayer/tikz/libraries/circuits:style/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization:style/tex/generic/pgf/frontendlayer/tikz/libraries/graphs:style/tex/generic/pgf/frontendlayer/tikz/libraries:style/tex/generic/pgf/frontendlayer/tikz:style/tex/generic/pgf/libraries/datavisualization:style/tex/generic/pgf/libraries/decorations:style/tex/generic/pgf/libraries:style/tex/generic/pgf/libraries/shapes/circuits:style/tex/generic/pgf/libraries/shapes:style/tex/generic/pgf/math:style/tex/generic/pgf/modules:style/tex/generic/pgf/rendering:style/tex/generic/pgf/systemlayer:style/tex/generic/pgf/utilities:style/generic/pgfplots:style/generic/pgfplots/libs:style/generic/pgfplots/liststructure:style/generic/pgfplots/numtable:style/generic/pgfplots/oldpgfcompatib:style/generic/pgfplots/oldpgfplotscompatib:style/generic/pgfplots/sys:style/generic/pgfplots/util:style/latex/pgfplots:style/latex/pgfplots/libs:style/plain/pgfplots:style/tex/latex/pgf/basiclayer:style/tex/latex/pgf/compatibility:style/tex/latex/pgf/doc:style/tex/latex/pgf/frontendlayer/libraries:style/tex/latex/pgf/frontendlayer:style/tex/latex/pgf/math:style/tex/latex/pgf/systemlayer:style/tex/latex/pgf/utilities:style/tex/plain/pgf/basiclayer:style/tex/plain/pgf/frontendlayer:style/tex/plain/pgf/math:style/tex/plain/pgf/systemlayer:style/tex/plain/pgf/utilities:${TEXINPUTS:-:} && export TEXINPUTS && \
+	 pdflatex -shell-escape $(PLOT_MASTER))
 
 # Clean junk files. Compiling the book usually produces a lot of junk
 # files that you don't need. Delete those junk files here. If there's a
