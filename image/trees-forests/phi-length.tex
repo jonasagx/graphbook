@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{external}
+\tikzexternalize{phi-length}
+
+\begin{document}
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel=$n$,%
+    ylabel=length of $\varphi(n)$
+  ]
+\addplot+[only marks,mark size=0.2pt] file {data/trees-forests/phi-length.dat};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\end{document}
