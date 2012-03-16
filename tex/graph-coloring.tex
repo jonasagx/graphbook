@@ -251,17 +251,17 @@ $k$ colors is called a {\it $k$-edge-coloring}.
 \index{edge coloring}
 
 \begin{example}
-\label{example:graph-coloring:heawood-graph-example}
+\label{eg:graph_coloring:heawood_graph_example}
 The Heawood graph, shown in Figure
-\ref{fig:graph-coloring:heawood-graph-vertex-coloring-example},
+\ref{fig:graph_coloring:heawood_graph_vertex_coloring_example},
 is an undirected graph with $14$ vertices and $21$ edges, named after
 Percy John Heawood.
 It is a $3$-regular, distance-transitive, distance-regular graph.
 It has chromatic number $2$ and chromatic index $3$.
 An edge-coloring is shown in Figure
-\ref{fig:graph-coloring:heawood-graph-edge-coloring-example}.
+\ref{fig:graph_coloring:heawood_graph_edge_coloring_example}.
 A vertex-coloring is shown in Figure
-\ref{fig:graph-coloring:heawood-graph-vertex-coloring-example}.
+\ref{fig:graph_coloring:heawood_graph_vertex_coloring_example}.
 
 Recall, a graph is vertex-transitive if its automorphism
 group acts transitively upon its vertices.
@@ -286,7 +286,7 @@ sage: G.line_graph().chromatic_number()  # chromatic index
 \centering
 \includegraphics[scale=0.7]{image/graph-coloring/heawood-graph-edge-coloring-example}
 \caption{The Heawood graph and an edge-coloring example.}
-\label{fig:graph-coloring:heawood-graph-edge-coloring-example}
+\label{fig:graph_coloring:heawood_graph_edge_coloring_example}
 \end{figure}
 
 \begin{lstlisting}
@@ -305,20 +305,20 @@ sage: G.chromatic_number()
 \index{graph!Heawood}
 \includegraphics[scale=0.7]{image/graph-coloring/heawood-graph-vertex-coloring-example}
 \caption{The Heawood graph and an vertex-coloring example.}
-\label{fig:graph-coloring:heawood-graph-vertex-coloring-example}
+\label{fig:graph_coloring:heawood_graph_vertex_coloring_example}
 \end{figure}
 
 \begin{example}
-\label{example:graph-coloring:icosahedral-graph-vertex-coloring-example}
+\label{eg:graph_coloring:icosahedral_graph_vertex_coloring_example}
 The Icosahedral graph, shown in Figure
-\ref{fig:graph-coloring:icosahedral-graph-vertex-coloring-example},
+\ref{fig:graph_coloring:icosahedral_graph_vertex_coloring_example},
 is a particular projection of the edges of the solid icosahedron
 onto the plane. It is a $4$-regular graph with $30$ edges and $12$ vertices.
 It has chromatic number $4$ and chromatic index $5$.
 An edge-coloring is shown in Figure
-\ref{fig:graph-coloring:icosahedral-graph-edge-coloring-example}.
+\ref{fig:graph_coloring:icosahedral_graph_edge_coloring_example}.
 A vertex-coloring is shown in Figure
-\ref{fig:graph-coloring:icosahedral-graph-vertex-coloring-example}.
+\ref{fig:graph_coloring:icosahedral_graph_vertex_coloring_example}.
 \end{example}
 
 \begin{lstlisting}
@@ -334,7 +334,7 @@ sage: G.show(vertex_colors = d)
 \centering
 \includegraphics[scale=0.7]{image/graph-coloring/icosahedral-graph-vertex-coloring-example}
 \caption{An icosahedral graph vertex-coloring example.}
-\label{fig:graph-coloring:icosahedral-graph-vertex-coloring-example}
+\label{fig:graph_coloring:icosahedral_graph_vertex_coloring_example}
 \end{figure}
 
 \begin{lstlisting}
@@ -367,7 +367,7 @@ sage: G.show(edge_colors = d)
 \index{graph!icosahedral}
 \includegraphics[scale=0.7]{image/graph-coloring/icosahedral-graph-edge-coloring-example}
 \caption{An icosahedral graph edge-coloring example.}
-\label{fig:graph-coloring:icosahedral-graph-edge-coloring-example}
+\label{fig:graph_coloring:icosahedral_graph_edge_coloring_example}
 \end{figure}
 
 As in the case of vertex-coloring, the edge-coloring decision problem is
@@ -401,7 +401,7 @@ can reach $2\Delta(G)-2$ in regular graphs.
 \begin{example}
 \label{eg:graph_coloring:pappas_graph_edge_coloring_example}
 The Pappus graph, shown in Figure
-\ref{fig:graph-coloring:pappas-graph-edge-coloring-example},
+\ref{fig:graph_coloring:pappas_graph_edge_coloring_example},
  is $3$-regular, symmetric, and distance-regular with 18 vertices and
 27 edges, named after Pappus of Alexandria.
 The Pappus graph has girth 6, diameter 4, radius 4, chromatic number
@@ -442,7 +442,7 @@ sage: G.plot(edge_colors = d).show()
 \index{graph!Pappas}
 \includegraphics[scale=0.7]{image/graph-coloring/pappas-graph-edge-coloring-example}
 \caption{A Pappas graph edge-coloring example.}
-\label{fig:graph-coloring:pappas-graph-edge-coloring-example}
+\label{fig:graph_coloring:pappas_graph_edge_coloring_example}
 \end{figure}
 
 \begin{itemize}
@@ -624,7 +624,7 @@ Physics          &                    &    $\times$  &    $\times$    &    \\  \
 If we let $0$=Calculus, $1$=Chemistry, $2$=English,
 $3$=History, $4$=Physics, then the corresponding graph can be
 constructed and drawn in Sage using the following commands
-(see Figure \ref{fig:graph-coloring-scheduling}).
+(see Figure \ref{fig:graph_coloring:scheduling}).
 \end{example}
 
 \begin{lstlisting}
@@ -639,7 +639,7 @@ sage: G.coloring()
 \includegraphics[height=4cm,width=5cm]{image/graph-coloring/graph-coloring-scheduling}
 \end{center}
 \caption{An application of graph coloring to scheduling.}
-\label{fig:graph-coloring-scheduling}
+\label{fig:graph_coloring:scheduling}
 \end{figure}
 
 \begin{theorem}
