@@ -307,7 +307,8 @@ E
 =
 \{va,\, vw,\, wx,\, wy,\, xb,\, xc,\, yd,\, yz,\, ze,\, zf\}
 \]
-and root vertex $v$. Verify that $T$ is a binary\index{binary tree}
+and root vertex $v$. Verify that $T$ is a binary
+\index{binary tree}
 tree. Suppose that $x$ is the root\index{vertex!root} of the branch we
 want to remove from $T$. Find all children of $x$ and
 cut\index{branch cut} off the branch rooted at $x$ from $T$. Is the
@@ -1585,6 +1586,345 @@ sage: G = Graph(A, format="adjacency_matrix", weighted=True)
 sage: boruvka(G).edges()
 [(0, 1, 1), (0, 2, 5), (1, 4, 3), (2, 3, 2)]
 \end{lstlisting}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Circuit matrix}
+\label{subsection:circuit_matrix}
+
+Recall, the term {\it cycle} refers to a closed path. If $G$
+is a digraph then a cycle refers to a 
+sequence of edges which form a path in the associated 
+undirected graph. If
+repeated vertices are allowed, it is more often called a {\it closed
+walk}. If the path is a simple path, with no repeated vertices or edges
+other than the starting and ending vertices, it may also be called a
+{\it simple cycle} or {\it  circuit}. A cycle in
+a directed graph is called a {\it directed cycle}.
+
+Let $Z_1$, \dots, $Z_M$ denote an enumeration of the 
+cycles (simple closed paths) of 
+$G$. The {\it cycle matrix} or {\it circuit matrix} is a
+$M\times m$ matrix $C=(c_{ij})$ whose rows are
+parameterized by the cycles and whose columns are
+parameterized by the edges $E=\{e_1,\dots, e_m\}$, where
+\index{circuit matrix}
+\index{cycle matrix}
+
+\[
+c_{ij} =
+\left\{
+\begin{array}{ll}
+1,& e_i\in Z_i,\\
+0, & {\rm otherwise}.\\
+\end{array}
+\right.
+\]
+
+Recall the incidence matrix was defined in 
+\S \ref{section:incidence_matrix}.
+
+\begin{theorem}
+If $G$ is a directed graph then the rows of 
+the incidence matrix $D(G)$ are
+orthogonal to the rows of $C(G)$. 
+
+%
+% \[
+% 0\to {\mathbb{R}}^n 
+% \xrightarrow{D^t}
+%  {\mathbb{R}}^m 
+% \xrightarrow{Q}
+%  {\mathbb{R}}^M
+% \to 0,
+% \]
+%
+
+\end{theorem}
+
+\begin{proof}
+We first show that $C\cdot D^t = 0$.
+Consider the $i$th row of $C$ and $j$th column of $D^t$.
+There are non-zero entries in the corresponding entries of
+these vectors if and only if the $j$th vertex of $G$ is 
+incident to an edge which occurs in the $i$th cycle
+of $G$. Assume this entry is non-zero. 
+Since $G$ is a directed graph, there is another vertex 
+(the other vertex defining this edge) for which the 
+associated entry is the same but with opposite sign.
+Therefore the dot product of the $i$th row of $Q$ and 
+$j$th column of $D^t$ is zero.
+\end{proof}
+
+The theorem above implies that the 
+column space of the matrix
+$C^t$ (namely, the image of the
+associated linear transformation)
+is contained in the kernel of the incidence matrix
+$D$.
+
+
+Let $F$ be a field. There is a general result called 
+{\it Sylvester's Law of Nullity} which says that
+\index{Sylvester's Law of Nullity}
+if $K$ is an $r\times s$ matrix over $F$
+and $L$ is an $s\times t$ matrix over $F$
+(so $KL$ is defined), and if 
+
+\[
+KL=0,
+\]
+then
+
+\[
+{\rm rank}_F(K)+{\rm rank}_F(L)\leq s.
+\]
+(This is an immediate corollary of the
+rank plus nullity theorem from linear algebra.)
+It follows from this fact that
+
+\[
+{\rm rank}_{\mathbb{Q}}(D)+{\rm rank}_{\mathbb{Q}}(C)\leq m.
+\]
+As a corollary to Theorem \ref{thrm:rank-of-incident-matrix},
+we see that
+
+\[
+{\rm rank}_{\mathbb{Q}}(D)\leq m-n+1.
+\]
+
+\begin{theorem}
+If $G$ is a directed graph then 
+
+\[
+{\rm rank}_{\mathbb{Q}}(C) = m-n+1.
+\]
+\end{theorem}
+
+\begin{proof}
+To show that equality is attained, we exhibit 
+$m-n+1$ linearly independent rows of $C$. 
+Let $T=(V(T),E(T))$ be a spanning tree for $G$.
+This tree has $n-1$ edges and so $G$ has
+$m-n+1$ edges not in $T$. 
+Let $e\notin E(T)$ be such an edge. 
+The graph $T+e$ is a cycle. 
+Recall such a cycle is called a fundamental cycle
+(associated to $T$). There are exactly $m-n+1$
+such cycles.
+%%% such cycles were defined in \S 3.2
+Note that no other fundamental cycle ``supports'' edge $e$. 
+Suppose that $e$ is the $i$th edge in $E(G)$.
+The row of $C$ associated to the cycle $T+e$
+has a $1$ in the $i$th coordinate. Every other
+row of $C$ associated to a fundamental cycle
+has a $0$ in the $i$th coordinate. Therefore, the
+rows of $C$ associated to these $m-n+1$
+fundamental cycles are linearly independent.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Cutset matrix}
+\label{subsection:cutset_matrix}
+
+The term {\it cutset} (or {\it edge cutset})
+refers to a sequence of edges in a connected graph $G=(V,E)$ which, 
+when removed from $G$, creates a disconnected graph
+and, furthermore, that no proper subset of these edges has
+this property. When a graph can be disconnected by removing
+only one edge, that edge is called a {\it bridge}.
+\index{cutset}
+\index{bridge}
+
+A cutset can be associated to each vertex $v\in V$ as follows.
+
+\begin{lemma}
+\label{lemma:cutset}
+The subset $S_v\subset E$ of all the edges incident to 
+$v$ forms forms a cutset.
+\end{lemma}
+
+This uses only the definitions and is left to the interested 
+reader as an exercise.
+
+
+Let $S_1$, \dots, $S_N$ denote the cutsets of $G$.
+The {\it cutset matrix} $N\times m$ matrix $Q=(q_{ij})$ whose rows are
+parameterized by the cutsets and whose columns are
+parameterized by the edges $E=\{e_1,\dots, e_m\}$, where
+\index{cutset!matrix}
+
+\[
+q_{ij} =
+\left\{
+\begin{array}{ll}
+1,& e_i\in S_i,\\
+0, & {\rm otherwise}.\\
+\end{array}
+\right.
+\]
+
+
+\begin{theorem}
+\label{thrm:rank-cutset_matrix}
+If $G$ is a connected digraph then 
+
+\[
+{\rm rank}_{\mathbb{Q}}(Q) = n-1.
+\]
+\end{theorem}
+
+The analog of this theorem for undirected graphs is false (as the
+examples below show). However, the undirected analog does work
+if you use the rank over $GF(2)$.
+
+\begin{proof}
+Let $G$ be any connected graph (directed or not).
+By Lemma \ref{lemma:cutset} above, for each $v\in V$ there is a
+cut-set $S_v$ consisting of all edges incident to $v$.
+The characteristic vector $q_v = (q_1,\dots,q_m)$ of this set
+($q_i = 1$ if $e_i\in S_v$ and $q_i = 0$  otherwise)
+gives us a row vector in the incidence matrix and in the 
+cut-set matrix. Moreover, all such rows in the incidence
+matrix are of this form, so 
+
+\[
+{\rm rank}_{\mathbb{Q}}(Q) 
+\geq  {\rm rank}_{\mathbb{Q}}(C) 
+= n-1.
+\]
+
+Suppose now $G$ is a directed graph.
+We show equality must hold.
+Let $S$ be any edge cutset in $G$ and, for each
+$v\in V$, let $S_v$ denote the associated cutset as 
+above. If $S$ defined a partitioning
+
+\[
+V = V_1\cup V_2
+\]
+then
+
+\[
+S = \sum_{v\in V_1} S_v
+= \sum_{v\in V_2} S_v,
+\]
+where the sum of two cutsets is simply the formal
+sum as oriented edges in the free abelian group
+${\mathbb{Z}}[E]$. From this it is clear that
+the dimension of the row-span of $Q$ is equal to the 
+dimension of the row-span of the submatrix of
+$Q$ given by the $S_v$'s.
+\end{proof}
+
+
+\begin{example}
+To construct the example, we will make use of the 
+following Python function.
+
+\begin{verbatim}
+
+def edge_cutset_matrix(G):
+    """
+    Returns the edge cutset matrix of the connected graph $G$.
+    """
+    V = G.vertices()
+    E = G.edges()
+    rows = []
+    for v1 in V:
+        for v2 in V:
+            if v1 != v2:
+                S = G.edge_cut(v1, v2, value_only=False)[1]
+                char_S = lambda e: int(bool(e in S))
+                rows.append([char_S(e) for e in E])
+    Q = matrix(rows)
+    return Q
+
+\end{verbatim}
+
+We use the function above in the examples below.
+
+For the cube graph in three dimensions 
+(shown in Figure
+\ref{fig:trees-forests:cube3-graph-example}), and for the 
+Desargues graph (shown in Figure
+\ref{fig:trees-forests:desargues-graph-example}), the undirected
+analog of Theorem \ref{thrm:rank-cutset_matrix}
+does hold.
+
+\begin{verbatim}
+ 
+sage: G = graphs.CubeGraph(3) 
+sage: G
+3-Cube: Graph on 8 vertices
+sage: Q = edge_cutset_matrix(G)
+sage: rank(Q)
+7
+sage: G = graphs.DesarguesGraph()
+sage: G
+Desargues Graph: Graph on 20 vertices
+sage: edge_cutset_matrix(G).rank()
+19
+
+\end{verbatim}
+
+\begin{figure}[!htbp]
+\centering
+\index{matrix!cutset}
+\index{graph!cube}
+\includegraphics{image/trees-forests/cube3-graph-example}
+\caption{The $3$-dimensional cube graph.}
+\label{fig:trees-forests:cube3-graph-example}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\index{graph!Desargues}
+\includegraphics{image/trees-forests/desargues-graph-example}
+\caption{The Desargues graph.}
+\label{fig:trees-forests:desargues-graph-example}
+\end{figure}
+
+On the other hand, for the Frucht graph
+(shown in Figure
+\ref{fig:trees-forests:frucht-graph-example}),
+
+\begin{verbatim}
+
+sage: G = graphs.FruchtGraph()
+sage: G
+Frucht graph: Graph on 12 vertices
+sage: edge_cutset_matrix(G).rank()
+12
+
+\end{verbatim}
+
+\begin{figure}[!htbp]
+\centering
+\index{graph!Desargues}
+\includegraphics{image/trees-forests/frucht-graph-example}
+\caption{The Frucht graph.}
+\label{fig:trees-forests:frucht-graph-example}
+\end{figure}
+
+\end{example}
+
+
+These shall be discussed further in \S \ref{section:flows-cuts}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3325,5 +3665,12 @@ leaves. \\
     Yerger\index{Yerger, Carl R.}~\cite{BenjaminYerger2006} provide a
     combinatorial proof that $\tau(W_n) = L_{2n} - 2$. Present the
     Benjamin-Yerger combinatorial proof.
+\item
+Let $G$ be the Dodecahedral graph,
+implemented in Sage as 
+{\tt G = graphs.DodecahedralGraph()}.
+Does its cutset matrix satisfy the undirected analog of Theorem
+\ref{thrm:rank-cutset_matrix}?
+
   \end{enumerate}
 \end{problem}
