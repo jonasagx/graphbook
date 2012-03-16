@@ -1941,6 +1941,84 @@ runtime of $O(\lg n)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Soft heaps}
+
+In 2000, Chazelle\index{Chazelle, Bernard}~\cite{Chazelle2000a}
+introduced the soft heap as an efficient data structure for priority
+queues.  He applied~\cite{Chazelle2000b} the soft heap to realize a
+very efficient implementation of an algorithm for finding minimum
+spanning trees.  The main idea behind soft heaps is to allow some
+elements of a heap to have their keys increased, a process called
+corruption.  The number of corrupted elements are bounded above by
+$\varepsilon n$, where $\varepsilon$ is the error parameter and $n$ is
+the number of elements inserted into the heap.  The benefit of
+allowing corruption is performance.  In return for allowing some
+elements to be corrupted, each operation supported by soft heaps runs
+in amortized time $O(\log \frac{1}{\varepsilon})$.  In this section,
+we describe an implementation of soft heaps as presented
+in~\cite{KaplanZwick2009}.
+
+Soft heaps support the following operations:
+%%
+\begin{itemize}
+\item $\makeHeap(e)$ --- Construct a new soft heap with $e$ as the
+  only element.  The original key of $e$ is $\MyKey[e]$.
+
+\item $\MyInsert(P, e)$ --- Given a soft heap $P$ and an element $e$
+  with original key $\MyKey[e]$, insert $e$ into $P$.
+
+\item $\MyDelete(e)$ --- Let $e$ be contained in exactly one soft
+  heap.  This operation removes $e$ from that soft heap.
+
+\item $\MyMeld(P, Q)$ --- Merge the given soft heaps $P$ and $Q$ into
+  one soft heap.  The soft heaps $P$ and $Q$ are destroyed in the
+  process.
+
+\item $\MyExtractMin(P)$ --- Find an element with the minimum current
+  key in the soft heap $P$, return that element, and remove it from
+  $P$.
+\end{itemize}
+%%
+Note the requirement for the operation $\MyExtractMin(P)$.  This
+operation returns an element whose current key is minimum relative to
+all other elements in $P$.  The current key $\MyCkey[e]$ of an element
+$e$ in $P$ may be larger than its original key $\MyKey[e]$.  By
+allowing keys to be corrupted, we gain a speed-up in the above
+operations.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Data structure}
+
+In the implementation of Kaplan and Zwick~\cite{KaplanZwick2009}, a
+soft heap is composed of various binary trees.  This implementation is
+markedly different from the binomial trees implementation proposed by
+Chazelle~\cite{Chazelle2000a}.  In the Kaplan-Zwick implementation,
+the left and right children~(if each exists) of a node $x$ in a binary
+tree are denoted $\LeftChild[x]$ and $\RightChild[x]$, respectively.
+The expression $\LeftChild[x] = \bot$ means that $x$ does not have a
+left child.  Similarly, $\RightChild[x] = \bot$ means that $x$ lacks a
+right child.  The symbol $\bot$ represents null.  Each node in a
+binary tree is associated with an integer rank $\MyRank[x]$ that never
+changes as long as the node remains in the tree.  If $k = \MyRank[x]$,
+then each of $\LeftChild[x]$ and $\RightChild[x]$ has rank $k - 1$.
+The rank of a binary tree is the rank of its root node.  Another
+quantity associated with a node $x$ of rank $k$ is the target size,
+denoted $\MySize[x] = s_k$ and defined as
+\[
+s_k
+=
+\begin{cases}
+1, & \text{if } k \leq r, \\
+\left\lceil 3s_{k-1} / 2 \right\rceil, & \text{otherwise}
+\end{cases}
+\]
+where $r = \left\lceil \lg \frac{1}{\varepsilon} \right\rceil + 5$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Problems}
 
 \begin{quote}
@@ -2119,19 +2197,6 @@ No problem is so formidable that you can't walk away from it. \\
   takes amortized $O(1)$ time. Describe and provide pseudocode of the
   above $2$-$3$ heap operations. Under which conditions would $2$-$3$
   heaps be more efficient than Fibonacci heaps?
-
-\item In 2000, Chazelle\index{Chazelle, Bernard}~\cite{Chazelle2000a}
-  introduced the soft heap, which can perform common heap operations
-  in amortized $O(1)$ time. He then applied~\cite{Chazelle2000b} the
-  soft heap to realize a very efficient implementation of an algorithm
-  for finding minimum spanning trees. In 2009,
-  Kaplan\index{Kaplan, Haim} and
-  Zwick\index{Zwick, Uri}~\cite{KaplanZwick2009} provided a simple
-  implementation and analysis of Chazelle's soft heap. Describe soft
-  heaps and provide pseudocode of common heap operations. Prove the
-  correctness of the algorithms and provide runtime analyses. Describe
-  how to use soft heap to realize an efficient implementation of an
-  algorithm to produce minimum spanning trees.
 
 \item Explain any differences between the binary
   heap-order\index{binary heap!order property} property, the
