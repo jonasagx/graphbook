@@ -1235,10 +1235,10 @@ extracted from $Q$ and processed. Line~\ref{alg:prim:extract_min}
 extracts a vertex $u$ from $Q$ based on the key $\cost$, thus moving
 $u$ to the vertex set of $T$. Line~\ref{alg:prim:neighbors_u}
 considers all vertices adjacent to $u$. In an undirected graph, these
-are simply the neighbors of $u$. (In a digraph, one could try to 
+are simply the neighbors of $u$. (In a digraph, one could try to
 replace $\adj(u)$ with the out-neighbors $\oadj(u)$. Unfortunately,
-in the digraph case the Prim algorithm in general fails to find 
-a minimum spanning tree with the same orientation as the original 
+in the digraph case the Prim algorithm in general fails to find
+a minimum spanning tree with the same orientation as the original
 digraph.) The while loop updates the $\cost$ and
 $\parent$ fields of each vertex $v$ adjacent to $u$ that is not in
 $T$. If $\parent[v] \neq \texttt{NULL}$, then $\cost[v] < \infty$ and
@@ -1596,8 +1596,8 @@ sage: boruvka(G).edges()
 \label{subsection:circuit_matrix}
 
 Recall, the term {\it cycle} refers to a closed path. If $G$
-is a digraph then a cycle refers to a 
-sequence of edges which form a path in the associated 
+is a digraph then a cycle refers to a
+sequence of edges which form a path in the associated
 undirected graph. If
 repeated vertices are allowed, it is more often called a {\it closed
 walk}. If the path is a simple path, with no repeated vertices or edges
@@ -1605,8 +1605,8 @@ other than the starting and ending vertices, it may also be called a
 {\it simple cycle} or {\it  circuit}. A cycle in
 a directed graph is called a {\it directed cycle}.
 
-Let $Z_1$, \dots, $Z_M$ denote an enumeration of the 
-cycles (simple closed paths) of 
+Let $Z_1$, \dots, $Z_M$ denote an enumeration of the
+cycles (simple closed paths) of
 $G$. The {\it cycle matrix} or {\it circuit matrix} is a
 $M\times m$ matrix $C=(c_{ij})$ whose rows are
 parameterized by the cycles and whose columns are
@@ -1624,19 +1624,19 @@ c_{ij} =
 \right.
 \]
 
-Recall the incidence matrix was defined in 
+Recall the incidence matrix was defined in
 \S \ref{section:incidence_matrix}.
 
 \begin{theorem}
-If $G$ is a directed graph then the rows of 
+If $G$ is a directed graph then the rows of
 the incidence matrix $D(G)$ are
-orthogonal to the rows of $C(G)$. 
+orthogonal to the rows of $C(G)$.
 
 %
 % \[
-% 0\to {\mathbb{R}}^n 
+% 0\to {\mathbb{R}}^n
 % \xrightarrow{D^t}
-%  {\mathbb{R}}^m 
+%  {\mathbb{R}}^m
 % \xrightarrow{Q}
 %  {\mathbb{R}}^M
 % \to 0,
@@ -1649,17 +1649,17 @@ orthogonal to the rows of $C(G)$.
 We first show that $C\cdot D^t = 0$.
 Consider the $i$th row of $C$ and $j$th column of $D^t$.
 There are non-zero entries in the corresponding entries of
-these vectors if and only if the $j$th vertex of $G$ is 
+these vectors if and only if the $j$th vertex of $G$ is
 incident to an edge which occurs in the $i$th cycle
-of $G$. Assume this entry is non-zero. 
-Since $G$ is a directed graph, there is another vertex 
-(the other vertex defining this edge) for which the 
+of $G$. Assume this entry is non-zero.
+Since $G$ is a directed graph, there is another vertex
+(the other vertex defining this edge) for which the
 associated entry is the same but with opposite sign.
-Therefore the dot product of the $i$th row of $Q$ and 
+Therefore the dot product of the $i$th row of $Q$ and
 $j$th column of $D^t$ is zero.
 \end{proof}
 
-The theorem above implies that the 
+The theorem above implies that the
 column space of the matrix
 $C^t$ (namely, the image of the
 associated linear transformation)
@@ -1667,12 +1667,12 @@ is contained in the kernel of the incidence matrix
 $D$.
 
 
-Let $F$ be a field. There is a general result called 
+Let $F$ be a field. There is a general result called
 {\it Sylvester's Law of Nullity} which says that
 \index{Sylvester's Law of Nullity}
 if $K$ is an $r\times s$ matrix over $F$
 and $L$ is an $s\times t$ matrix over $F$
-(so $KL$ is defined), and if 
+(so $KL$ is defined), and if
 
 \[
 KL=0,
@@ -1697,7 +1697,7 @@ we see that
 \]
 
 \begin{theorem}
-If $G$ is a directed graph then 
+If $G$ is a directed graph then
 
 \[
 {\rm rank}_{\mathbb{Q}}(C) = m-n+1.
@@ -1705,18 +1705,18 @@ If $G$ is a directed graph then
 \end{theorem}
 
 \begin{proof}
-To show that equality is attained, we exhibit 
-$m-n+1$ linearly independent rows of $C$. 
+To show that equality is attained, we exhibit
+$m-n+1$ linearly independent rows of $C$.
 Let $T=(V(T),E(T))$ be a spanning tree for $G$.
 This tree has $n-1$ edges and so $G$ has
-$m-n+1$ edges not in $T$. 
-Let $e\notin E(T)$ be such an edge. 
-The graph $T+e$ is a cycle. 
+$m-n+1$ edges not in $T$.
+Let $e\notin E(T)$ be such an edge.
+The graph $T+e$ is a cycle.
 Recall such a cycle is called a fundamental cycle
 (associated to $T$). There are exactly $m-n+1$
 such cycles.
 %%% such cycles were defined in \S 3.2
-Note that no other fundamental cycle ``supports'' edge $e$. 
+Note that no other fundamental cycle ``supports'' edge $e$.
 Suppose that $e$ is the $i$th edge in $E(G)$.
 The row of $C$ associated to the cycle $T+e$
 has a $1$ in the $i$th coordinate. Every other
@@ -1741,7 +1741,7 @@ fundamental cycles are linearly independent.
 \label{subsection:cutset_matrix}
 
 The term {\it cutset} (or {\it edge cutset})
-refers to a sequence of edges in a connected graph $G=(V,E)$ which, 
+refers to a sequence of edges in a connected graph $G=(V,E)$ which,
 when removed from $G$, creates a disconnected graph
 and, furthermore, that no proper subset of these edges has
 this property. When a graph can be disconnected by removing
@@ -1753,11 +1753,11 @@ A cutset can be associated to each vertex $v\in V$ as follows.
 
 \begin{lemma}
 \label{lemma:cutset}
-The subset $S_v\subset E$ of all the edges incident to 
+The subset $S_v\subset E$ of all the edges incident to
 $v$ forms forms a cutset.
 \end{lemma}
 
-This uses only the definitions and is left to the interested 
+This uses only the definitions and is left to the interested
 reader as an exercise.
 
 
@@ -1780,7 +1780,7 @@ q_{ij} =
 
 \begin{theorem}
 \label{thrm:rank-cutset_matrix}
-If $G$ is a connected digraph then 
+If $G$ is a connected digraph then
 
 \[
 {\rm rank}_{\mathbb{Q}}(Q) = n-1.
@@ -1797,20 +1797,20 @@ By Lemma \ref{lemma:cutset} above, for each $v\in V$ there is a
 cut-set $S_v$ consisting of all edges incident to $v$.
 The characteristic vector $q_v = (q_1,\dots,q_m)$ of this set
 ($q_i = 1$ if $e_i\in S_v$ and $q_i = 0$  otherwise)
-gives us a row vector in the incidence matrix and in the 
+gives us a row vector in the incidence matrix and in the
 cut-set matrix. Moreover, all such rows in the incidence
-matrix are of this form, so 
+matrix are of this form, so
 
 \[
-{\rm rank}_{\mathbb{Q}}(Q) 
-\geq  {\rm rank}_{\mathbb{Q}}(C) 
+{\rm rank}_{\mathbb{Q}}(Q)
+\geq  {\rm rank}_{\mathbb{Q}}(C)
 = n-1.
 \]
 
 Suppose now $G$ is a directed graph.
 We show equality must hold.
 Let $S$ be any edge cutset in $G$ and, for each
-$v\in V$, let $S_v$ denote the associated cutset as 
+$v\in V$, let $S_v$ denote the associated cutset as
 above. If $S$ defined a partitioning
 
 \[
@@ -1825,7 +1825,7 @@ S = \sum_{v\in V_1} S_v
 where the sum of two cutsets is simply the formal
 sum as oriented edges in the free abelian group
 ${\mathbb{Z}}[E]$. From this it is clear that
-the dimension of the row-span of $Q$ is equal to the 
+the dimension of the row-span of $Q$ is equal to the
 dimension of the row-span of the submatrix of
 $Q$ given by the $S_v$'s.
 \end{proof}
@@ -1833,7 +1833,7 @@ $Q$ given by the $S_v$'s.
 
 \begin{example}
 \rm
-To construct the example, we will make use of the 
+To construct the example, we will make use of the
 following Python function.
 
 \begin{lstlisting}
@@ -1863,7 +1863,7 @@ Figure~\ref{fig:trees-forests:desargues-graph-example}), the
 undirected analog of Theorem \ref{thrm:rank-cutset_matrix} does hold.
 %%
 \begin{lstlisting}
-sage: G = graphs.CubeGraph(3) 
+sage: G = graphs.CubeGraph(3)
 sage: G
 3-Cube: Graph on 8 vertices
 sage: Q = edge_cutset_matrix(G)
@@ -3657,7 +3657,7 @@ leaves. \\
     Benjamin-Yerger combinatorial proof.
 \item
 Let $G$ be the Dodecahedral graph,
-implemented in Sage as 
+implemented in Sage as
 {\tt G = graphs.DodecahedralGraph()}.
 Does its cutset matrix satisfy the undirected analog of Theorem
 \ref{thrm:rank-cutset_matrix}?
