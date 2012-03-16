@@ -76,14 +76,14 @@ correspondence with the partitions of $V$ into $t$ independent sets.
 
 \begin{example}
 \label{example:graph_coloring:dyck_graph_example}
-The Dyck graph, shown in Figure \ref{fig:graph_coloring:dyck_graph_example},
-is a 3-regular graph with 32 vertices and 48 edges,
-named after Walther von Dyck.
-
-It is Hamiltonian with 120 distinct Hamiltonian cycles. It has
-chromatic number 2 (in other words, is bipartite),
-chromatic index 3, radius 5, diameter 5 and girth
-6. It is also a 3-vertex-connected and a 3-edge-connected graph.
+\rm
+The Dyck graph, shown in
+Figure~\ref{fig:graph_coloring:dyck_graph_example}, is named after
+Walther von Dyck.  It is a 3-regular graph with 32 vertices and 48
+edges.  The graph is Hamiltonian with 120 distinct Hamiltonian cycles.
+It has chromatic number 2~(in other words, is bipartite), chromatic
+index 3, radius 5, diameter 5 and girth 6.  It is also a
+3-vertex-connected and a 3-edge-connected graph.\qed
 \end{example}
 
 \begin{lstlisting}
@@ -187,14 +187,14 @@ sage: for u in g:
 
 \begin{example}
 \label{eg:graph_coloring:frucht_graph_vertex_coloring_example}
-A Frucht graph,
-shown in Figure~\ref{fig:graph_coloring:frucht_graph_vertex_coloring_example},
-has 12 nodes and 18 edges. It is $3$-regular,
-planar and it is Hamiltonian. It is named after Robert Frucht.
-The Frucht graph has no nontrivial symmetries.
-It has chromatic number 3, chromatic index 3, radius 3, diameter 4 and
-girth 3.
-It is3-vertex-connected and 3-edge-connected graph.
+\rm
+A Frucht graph, shown in
+Figure~\ref{fig:graph_coloring:frucht_graph_vertex_coloring_example},
+has 12 nodes and 18 edges.  It is $3$-regular, planar and Hamiltonian.
+It is named after Robert Frucht.  The Frucht graph has no nontrivial
+symmetries.  It has chromatic number 3, chromatic index 3, radius 3,
+diameter 4 and girth 3.  It is 3-vertex-connected and 3-edge-connected
+graph.\qed
 \end{example}
 
 \begin{lstlisting}
@@ -252,25 +252,23 @@ $k$ colors is called a {\it $k$-edge-coloring}.
 
 \begin{example}
 \label{eg:graph_coloring:heawood_graph_example}
-The Heawood graph, shown in Figure
-\ref{fig:graph_coloring:heawood_graph_vertex_coloring_example},
-is an undirected graph with $14$ vertices and $21$ edges, named after
-Percy John Heawood.
-It is a $3$-regular, distance-transitive, distance-regular graph.
-It has chromatic number $2$ and chromatic index $3$.
-An edge-coloring is shown in Figure
-\ref{fig:graph_coloring:heawood_graph_edge_coloring_example}.
-A vertex-coloring is shown in Figure
-\ref{fig:graph_coloring:heawood_graph_vertex_coloring_example}.
+\rm
+The Heawood graph,\index{Heawood graph} shown in
+Figure~\ref{fig:graph_coloring:heawood_graph_vertex_coloring_example},
+is named after Percy John Heawood.  It is an undirected graph with
+$14$ vertices and $21$ edges.  It is a $3$-regular,
+distance-transitive, distance-regular graph.  It has chromatic number
+$2$ and chromatic index $3$.  An edge-coloring is shown in
+Figure~\ref{fig:graph_coloring:heawood_graph_edge_coloring_example}.
+A vertex-coloring is shown in
+Figure~\ref{fig:graph_coloring:heawood_graph_vertex_coloring_example}.
 
-Recall, a graph is vertex-transitive if its automorphism
-group acts transitively upon its vertices.
-
-The automorphism group of the Heawood graph is isomorphic to the
-projective linear group $PGL2(7)$, a group of order $336$. It acts
-transitively on the vertices and on the edges of the
-graph. Therefore, this graph is vertex-transitive.
-\index{Heawood graph}
+Recall that a graph is vertex-transitive if its automorphism group
+acts transitively upon its vertices.  The automorphism group of the
+Heawood graph is isomorphic to the projective linear group $\PGL2(7)$,
+a group of order $336$.  It acts transitively on the vertices and on
+the edges of the graph.  Therefore, this graph is
+vertex-transitive.\qed
 \end{example}
 
 \begin{lstlisting}
@@ -310,15 +308,16 @@ sage: G.chromatic_number()
 
 \begin{example}
 \label{eg:graph_coloring:icosahedral_graph_vertex_coloring_example}
-The Icosahedral graph, shown in Figure
-\ref{fig:graph_coloring:icosahedral_graph_vertex_coloring_example},
-is a particular projection of the edges of the solid icosahedron
-onto the plane. It is a $4$-regular graph with $30$ edges and $12$ vertices.
-It has chromatic number $4$ and chromatic index $5$.
-An edge-coloring is shown in Figure
-\ref{fig:graph_coloring:icosahedral_graph_edge_coloring_example}.
-A vertex-coloring is shown in Figure
-\ref{fig:graph_coloring:icosahedral_graph_vertex_coloring_example}.
+\rm
+The Icosahedral graph, shown in
+Figure~\ref{fig:graph_coloring:icosahedral_graph_vertex_coloring_example},
+is a particular projection of the edges of the solid icosahedron onto
+the plane.  It is a $4$-regular graph with $30$ edges and $12$
+vertices.  It has chromatic number $4$ and chromatic index $5$.  An
+edge-coloring is shown in
+Figure~\ref{fig:graph_coloring:icosahedral_graph_edge_coloring_example}.
+A vertex-coloring is shown in
+Figure~\ref{fig:graph_coloring:icosahedral_graph_vertex_coloring_example}.\qed
 \end{example}
 
 \begin{lstlisting}
@@ -400,13 +399,14 @@ can reach $2\Delta(G)-2$ in regular graphs.
 
 \begin{example}
 \label{eg:graph_coloring:pappas_graph_edge_coloring_example}
-The Pappus graph, shown in Figure
-\ref{fig:graph_coloring:pappas_graph_edge_coloring_example},
- is $3$-regular, symmetric, and distance-regular with 18 vertices and
-27 edges, named after Pappus of Alexandria.
-The Pappus graph has girth 6, diameter 4, radius 4, chromatic number
-2 (i.e., is bipartite),
-chromatic index 3 and is both 3-vertex-connected and 3-edge-connected.
+\rm
+The Pappus graph, shown in
+Figure~\ref{fig:graph_coloring:pappas_graph_edge_coloring_example}, is
+named after Pappus of Alexandria.  It is $3$-regular, symmetric, and
+distance-regular with 18 vertices and 27 edges.  The Pappus graph has
+girth 6, diameter 4, radius 4, chromatic number 2~(i.e.~is bipartite),
+chromatic index 3 and is both 3-vertex-connected and
+3-edge-connected.\qed
 \end{example}
 
 \begin{lstlisting}
@@ -603,26 +603,26 @@ needs to attend both meetings.
 
 \begin{example}
 \label{eg:coloring}
-Suppose the $\times$ in the table below
-indicated that the student in that column is attending the class in that
-row.
+\rm
+Suppose the $\times$ in the table below indicated that the student in
+that column is attending the class in that row.
 
 \begin{center}
 \begin{tabular}{c|cccc}
-                  &  Bob            &  Carol         &       Ted      &    Zoe   \\ \hline
-Calculus          &                 &    $\times$   &  $\times$      &           \\
-Chemistry        &    $\times$     &   $\times$   &    $\times$   &    $\times$   \\
-English            &    $\times$     &   $\times$   &    $\times$   &    $\times$   \\
-History          &    $\times$     &              &             &    $\times$     \\
-Physics          &                    &    $\times$  &    $\times$    &    \\  \hline
-
+          & Bob      & Carol    & Ted      & Zoe      \\\hline
+Calculus  &          & $\times$ & $\times$ &          \\
+Chemistry & $\times$ & $\times$ & $\times$ & $\times$ \\
+English   & $\times$ & $\times$ & $\times$ & $\times$ \\
+History   & $\times$ &          &          & $\times$ \\
+Physics   &          & $\times$ & $\times$ &          \\\hline
 \end{tabular}
 \end{center}
-
-If we let $0$=Calculus, $1$=Chemistry, $2$=English,
-$3$=History, $4$=Physics, then the corresponding graph can be
-constructed and drawn in Sage using the following commands
-(see Figure \ref{fig:graph_coloring:scheduling}).
+%%
+Let $0 = \text{Calculus}$, $1 = \text{Chemistry}$,
+$2 = \text{English}$, $3 = \text{History}$, and $4 = \text{Physics}$.
+Then the corresponding graph can be constructed and drawn in Sage
+using the following commands~(see
+Figure~\ref{fig:graph_coloring:scheduling}).\qed
 \end{example}
 
 \begin{lstlisting}
