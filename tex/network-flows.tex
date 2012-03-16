@@ -34,14 +34,14 @@ Yellen~\cite{GrossYellen1999}.
 Let $G=(V,E,i,h)$ be an unweighted multidigraph, as in
 Definition \ref{def:introduction:graph-version3}.
 
-If $F$ is a field such as ${\mathbb{R}}$ or $GF(q)$ or a 
-ring such as ${\mathbb{Z}}$, let 
+If $F$ is a field such as ${\mathbb{R}}$ or $GF(q)$ or a
+ring such as ${\mathbb{Z}}$, let
 
 \[
 C^0(G, F)=\{f:V\to F\},\ \ \ \ C^1(G, F)=\{f:E\to F\},
 \]
 be the sets of $F$-valued functions defined on $V$ and
-$E$, respectively. 
+$E$, respectively.
 \index{$C^0(G, F)$}
 \index{$C^1(G, F)$}
 If $F$ is a field then these are $F$-inner
@@ -68,7 +68,7 @@ f_i(v)=
 0, & {\rm otherwise},
 \end{array}
 \right.
-\ \ \ \ \ 
+\ \ \ \ \
 g_j(e)=
 \left\{
 \begin{array}{ll}
@@ -94,7 +94,7 @@ $E'\subset E$, is a binary ${|E|}$-tuple
 \[
 {\rm vec}(G')=(a_1,a_2,\dots, a_{|E|}) \in GF(2)^{|E|},
 \]
-where 
+where
 
 \[
 a_i=a_i(E')=
@@ -112,17 +112,17 @@ In particular, this defines a mapping
 \]
 
 
-For any non-trivial partition 
+For any non-trivial partition
 
 \[
-V = V_1\cup V_2,\ \ \ \ \ V_i\not= \emptyset, \ \ \ V_1\cap V_2= \emptyset, 
+V = V_1\cup V_2,\ \ \ \ \ V_i\not= \emptyset, \ \ \ V_1\cap V_2= \emptyset,
 \]
 the set of all edges $e=(v_1,v_2)\in E$, with $v_i\in V_i$ ($i=1,2$),
-is called a {\it cocycle}\footnote{Also called an {\it edge cut subgraph} 
+is called a {\it cocycle}\footnote{Also called an {\it edge cut subgraph}
 or {\it disconnecting set} or
-{\it seg} or {\it edge cutset}.} of $G$. 
-A cocycle with a minimal set of edges is a  
-{\it bond} (or {\it cut set}) of $G$.  
+{\it seg} or {\it edge cutset}.} of $G$.
+A cocycle with a minimal set of edges is a
+{\it bond} (or {\it cut set}) of $G$.
 An {\it Euler subgraph} is either a cycle
 or a union of edge-disjoint cycles.
 \index{bond}
@@ -136,11 +136,11 @@ or a union of edge-disjoint cycles.
 The set of cycles of $G$ is denoted $Z(G)$ and the set of
 cocycles is denoted $Z^*(G)$.
 
-The $F$-vector space spanned by the vector representations of 
+The $F$-vector space spanned by the vector representations of
 all the cycles is called the {\it cycle space} of $G$, denoted
-${\mathcal Z}(G)={\mathcal Z}(G,F)$. 
+${\mathcal Z}(G)={\mathcal Z}(G,F)$.
 \index{cycle space}
-This is the kernel of the incidence 
+This is the kernel of the incidence
 matrix of $G$ (\S 14.2 in Godsil and Royle \cite{GodsilRoyle2004}).
 Define
 
@@ -153,34 +153,34 @@ D:C^1(G,F)\to C^0(G,F),\\
 With respect to these bases ${\mathcal F}$ and
 ${\mathcal G}$, the matrix
 representing the linear transformation $D:C^1(G,F)\to C^0(G,F)$
-is the incidence matrix. An element of the kernel of $D$ is 
+is the incidence matrix. An element of the kernel of $D$ is
 sometimes called a {\it flow} (see Biggs \cite{Biggs1997})
 or {\it circulation} (see below).
 \index{flow}
 \index{circulation}
-Therefore, this is sometimes also referred to as the 
+Therefore, this is sometimes also referred to as the
 {\it space of flows} or the {\it circulation space}.
 \index{flow space}
 \index{circulation space}
 
 It may be regarded as a subspace of $C^1(G,F)$ of dimension $n(G)$.
-When $F$ is a finite field, sometimes\footnote{Jungnickel and 
-Vanstone in \cite{JungnickelVanstone1997} call 
+When $F$ is a finite field, sometimes\footnote{Jungnickel and
+Vanstone in \cite{JungnickelVanstone1997} call
 this the {\it even graphical code} of $G$.}
 the cycle space is called the {\it cycle code of $G$}.
 \index{cycle code}
 
 
-Let $F$ be a field such as ${\mathbb{R}}$ or $GF(q)$, for some prime 
+Let $F$ be a field such as ${\mathbb{R}}$ or $GF(q)$, for some prime
 power $q$. Let $G$ be a digraph.
-Some define a {\it circulation} (or {\it flow}) on $G=(V,E)$ 
+Some define a {\it circulation} (or {\it flow}) on $G=(V,E)$
 \index{circulation}
 to be a function
 
 \[
 f:E\to F,
 \]
-satisfying\footnote{Note: In addition, some authors add the 
+satisfying\footnote{Note: In addition, some authors add the
 condition $f(e)\geq 0$ - see e.g., Chung \cite{Chung2005}.}
 
 \begin{itemize}
@@ -190,21 +190,21 @@ $\sum_{u\in V,\ (u,v)\in E} f(u,v) = \sum_{w\in V,\ (v,w)\in E} f(v, w)$.
 (Note: this is simply the condition that $f$ belongs to the
 kernel of $D$.)
 
-Suppose $G$ has a subgraph $H$ and 
+Suppose $G$ has a subgraph $H$ and
 $f$ is a circulation of $G$ such that $f$ is a constant function
 on $H$ and $0$ elsewhere. We call such a circulation a
 {\it characteristic function} of $H$.
 For example, if $G$ has a cycle $C$ and if $f$ is the
 characteristic function on $C$, then $f$ is a circulation.
 
-The {\it circulation space} ${\mathcal C}$ is the $F$-vector space of 
-circulation functions. 
-The cycle space ``clearly'' may be identified with 
+The {\it circulation space} ${\mathcal C}$ is the $F$-vector space of
+circulation functions.
+The cycle space ``clearly'' may be identified with
 a subspace of the circulation space,
 since the $F$-vector space spanned by the characteristic
-functions of cycles may be identified with the cycle space of $G$. 
+functions of cycles may be identified with the cycle space of $G$.
 In fact, these spaces are isomorphic.
-Under the inner product (\ref{eqn:inner-product}), i.e., 
+Under the inner product (\ref{eqn:inner-product}), i.e.,
 \index{circulation space}
 
 \begin{equation}
@@ -230,13 +230,13 @@ d_x, & {\rm if}\ (x, y) \in E,\\
 \right.
 \]
 where $d_x$ denotes the out-degree.
-The Perron-Frobenius Theorem states that there exists a unique 
+The Perron-Frobenius Theorem states that there exists a unique
 left eigenvector $\phi$ such that (when regarded as a function
-$\phi:V\to {\mathbb{R}}$) $\phi (v) > 0$, for all $v\in V$ and 
+$\phi:V\to {\mathbb{R}}$) $\phi (v) > 0$, for all $v\in V$ and
 $\phi P  = \rho \phi$, where $\rho$ is the spectral radius of
 $G$. We scale $\phi$ so that $\sum_{v\in V}  \phi(v) = 1$.
 (This vector is sometimes called the {\it Perron vector}.)
- Let $F_\phi (u, v) = \phi(v)P (u, v)$. 
+ Let $F_\phi (u, v) = \phi(v)P (u, v)$.
 {\it Fact:} $F_\phi$ is a circulation.
 For a proof, see F. Chung \cite{Chung2005}.
 }
@@ -248,14 +248,14 @@ For a proof, see F. Chung \cite{Chung2005}.
  as described above. Thefore, the circulation functions gives a
  coordinate-free version of the cycle space.
 
-The $F$-vector space spanned by the vector representations of 
-all the segs is called the {\it cocycle space} (or the {\it cut space}) of $G$, 
+The $F$-vector space spanned by the vector representations of
+all the segs is called the {\it cocycle space} (or the {\it cut space}) of $G$,
 denoted ${\mathcal Z}^*(G)={\mathcal Z}^*(G,F)$.
-This is the column space of the transpose of the incidence 
-matrix of $G$ (\S 14.1 in Godsil and Royle \cite{GodsilRoyle2004}). It may be 
+This is the column space of the transpose of the incidence
+matrix of $G$ (\S 14.1 in Godsil and Royle \cite{GodsilRoyle2004}). It may be
 regarded as a subspace of $C^1(G,F)$ of dimension the rank of $G$,
 $r(G)$.
-When $F$ is a finite field, sometimes the cocycle space is called 
+When $F$ is a finite field, sometimes the cocycle space is called
 the {\it cocycle code of $G$}.
 \index{cocycle code}
 \index{cocycle space}
@@ -276,20 +276,20 @@ Here is another proof.
 By Theorem~2.3 in Bondy and Murty~\cite[p.27]{BondyMurty1976},
 an edge of $G$ is an edge cut if and only if it
 is contained in no cycle.
-Therefore, the vector representation of any 
-cocycle is supported on a set of indices which is disjoint from the 
+Therefore, the vector representation of any
+cocycle is supported on a set of indices which is disjoint from the
 support of the vector representation of any
-cycle. Therefore, there is a basis of the cycle space which is 
+cycle. Therefore, there is a basis of the cycle space which is
 orthogonal to a basis of the cocycle space.
 \end{proof}
 
 \begin{proposition}
 {\rm
 Let $F=GF(2)$.
-The cycle code of a graph $G=(V,E)$ is a linear binary block code of 
+The cycle code of a graph $G=(V,E)$ is a linear binary block code of
 length $|E|$,  dimension equal to the nullity of the graph, $n(G)$,
 and minimum distance equal to the girth of $G$.
-If $C\subset GF(2)^{|E|}$ is the cycle code associated to $G$  
+If $C\subset GF(2)^{|E|}$ is the cycle code associated to $G$
 and $C^*$ is the cocycle code associated to $G$ then
 $C^*$ is the dual code of $C$. In particular,
 the cocycle code of $G$ is a linear binary block code of length
@@ -301,7 +301,7 @@ This follows from Hakimi-Bredeson \cite{HakimiBredeson1968}
 (see also Jungnickel-Vanstone \cite{JungnickelVanstone1997})
 in the binary case\footnote{It is likely true
 in the non-binary case as well, but no
-proof seems to be in the literature.}. 
+proof seems to be in the literature.}.
 
 \begin{proof}[Solution]
 Let $d$ denote the minimum distance of the code $C$.
@@ -312,17 +312,17 @@ vector ${\rm vec}(K)\in GF(2)^{|E|}$ is an element of the
 cycle code $C\subset GF(2)^{|E|}$. This implies $d\leq \gamma$.
 
 In the other direction, suppose $K_1$ and $K_2$ are
-cycles in $G$ with associated support vectors 
+cycles in $G$ with associated support vectors
 $v_1={\rm vec}(K_1)$, $v_2={\rm vec}(K_2)$.
 Assume that at least one of these cycles is a cycle
-of minimum length, say $K_1$, so the weight of its corresponding 
+of minimum length, say $K_1$, so the weight of its corresponding
 support vector is equal to the girth $\gamma$.
-The only way that 
-${\rm wt}(v_1+v_2)<\min\{{\rm wt}(v_1),{\rm wt}(v_2)\}$ 
+The only way that
+${\rm wt}(v_1+v_2)<\min\{{\rm wt}(v_1),{\rm wt}(v_2)\}$
 can occur is if $K_1$ and $K_2$ have some
 edges in common. In this case, the vector
-$v_1+v_2$ represents a subgraph 
-which is either a cycle or it is a 
+$v_1+v_2$ represents a subgraph
+which is either a cycle or it is a
 union of disjoint cycles. In either case, by
 minimality of $K_1$, these new cycles must be at least as
 long. Therefore, $d\geq \gamma$, as desired.
@@ -337,11 +337,11 @@ contains a unique cycle. The cycles which arise in this way are called
 the {\it fundamental cycles} of $G$, denoted $cyc(T,e)$.
 \index{fundamental cycles}
 
-%If $G$ is connected, one can construct the generator 
-%matrix of the cycle code $C$ in standard form as follows. 
+%If $G$ is connected, one can construct the generator
+%matrix of the cycle code $C$ in standard form as follows.
 %Fix a spanning tree $T$ of $G$ and index the
-%edges of $G$ so that the edges in the complementary subgraph $\overline{T}$ 
-%(namely, $E(\overline{T}) = E(G)-E(T)$) occur before the edges of $T$. 
+%edges of $G$ so that the edges in the complementary subgraph $\overline{T}$
+%(namely, $E(\overline{T}) = E(G)-E(T)$) occur before the edges of $T$.
 %If you define the generator matrix $A$ of $C$ to be that matrix whose
 %rows are the vector representation of the fundamental cycles
 %$cyc(T,e)$, as $e$ runs through the edges in $\overline{T}$
@@ -353,7 +353,7 @@ the {\it fundamental cycles} of $G$, denoted $cyc(T,e)$.
 \label{example:cycle-space}
 {\rm
 Consider the graph below, with edges labeled as indicated, together
-with a spanning tree, depicted to its right, in 
+with a spanning tree, depicted to its right, in
 Figure \ref{fig:cycle-space1}.
 
 
@@ -365,30 +365,30 @@ Figure \ref{fig:cycle-space1}.
 \begin{picture}(250.00,100.00)(-40.00,0.00)
 
 \thinlines
-\put(0.00,0.00){\line(1,0){50.00}} 
-\put(17.00,30.00){$0$} 
-\put(0.00,0.00){\line(1,1){50.00}} 
-\put(25.00,-15.00){$1$} 
-\put(50.00,0.00){\line(0,1){50.00}} 
-\put(55.00,20.00){$2$} 
-\put(50.00,0.00){\line(1,0){50.00}} 
-\put(75.00,-15.00){$3$} 
+\put(0.00,0.00){\line(1,0){50.00}}
+\put(17.00,30.00){$0$}
+\put(0.00,0.00){\line(1,1){50.00}}
+\put(25.00,-15.00){$1$}
+\put(50.00,0.00){\line(0,1){50.00}}
+\put(55.00,20.00){$2$}
+\put(50.00,0.00){\line(1,0){50.00}}
+\put(75.00,-15.00){$3$}
 
-\put(100.00,0.00){\line(1,0){50.00}} 
-\put(117.00,30.00){$4$} 
+\put(100.00,0.00){\line(1,0){50.00}}
+\put(117.00,30.00){$4$}
 \put(100.00,0.00){\line(1,1){50.00}}
-\put(125.00,-15.00){$5$} 
+\put(125.00,-15.00){$5$}
 
-\put(150.00,50.00){\line(1,0){50.00}} 
-\put(175.00,57.00){$7$} 
+\put(150.00,50.00){\line(1,0){50.00}}
+\put(175.00,57.00){$7$}
 \put(150.00,50.00){\line(0,-1){50.00}}
-\put(155.00,20.00){$6$}  
-\put(200.00,50.00){\line(0,-1){50.00}} 
-\put(187.00,20.00){$8$}  
-\put(225.00,57.00){$9$} 
-\put(200.00,50.00){\line(1,0){50.00}} 
+\put(155.00,20.00){$6$}
+\put(200.00,50.00){\line(0,-1){50.00}}
+\put(187.00,20.00){$8$}
+\put(225.00,57.00){$9$}
+\put(200.00,50.00){\line(1,0){50.00}}
 
-\put(232.00,17.00){$10$}  
+\put(232.00,17.00){$10$}
 \put(200.00,0.00){\line(1,1){50.00}}
 \end{picture}
 
@@ -398,24 +398,24 @@ Figure \ref{fig:cycle-space1}.
 \begin{picture}(550.00,100.00)(-80.0,0.00)
 
 %\linethickness{0.9mm}
-\put(0.00,0.00){\line(1,0){50.00}} 
+\put(0.00,0.00){\line(1,0){50.00}}
 
 %\linethickness{1.9mm}
-\put(0.00,0.00){\line(1,1){50.00}} 
-%\put(50.00,0.00){\line(0,1){50.00}} 
+\put(0.00,0.00){\line(1,1){50.00}}
+%\put(50.00,0.00){\line(0,1){50.00}}
 
 %\linethickness{0.9mm}
-\put(50.00,0.00){\line(1,0){50.00}} 
-\put(100.00,0.00){\line(1,0){50.00}} 
+\put(50.00,0.00){\line(1,0){50.00}}
+\put(100.00,0.00){\line(1,0){50.00}}
 
 %\linethickness{1.9mm}
 \put(100.00,0.00){\line(1,1){50.00}}
 
 %\linethickness{0.9mm}
-\put(150.00,50.00){\line(1,0){50.00}} 
-%\put(150.00,50.00){\line(0,-1){50.00}} 
-\put(200.00,50.00){\line(0,-1){50.00}} 
-\put(200.00,50.00){\line(1,0){50.00}} 
+\put(150.00,50.00){\line(1,0){50.00}}
+%\put(150.00,50.00){\line(0,-1){50.00}}
+\put(200.00,50.00){\line(0,-1){50.00}}
+\put(200.00,50.00){\line(1,0){50.00}}
 
 \end{picture}
 \end{tabular}
@@ -449,22 +449,22 @@ representation
 g_3 = (0,0,0,0,0,0,0,0,1,1,1).
 \]
 \end{itemize}
-The vectors $\{g_1,g_2,g_3\}$ form a basis of the cycle space 
+The vectors $\{g_1,g_2,g_3\}$ form a basis of the cycle space
 of $G$ over $GF(2)$.
 }
 \end{example}
 
-The {\it cocycle space} of a graph $G$ (also known as 
+The {\it cocycle space} of a graph $G$ (also known as
 the {\it bond space of $G$} or the {\it cut-set space} of $G$)
 is the $F$-vector space spanned by the characteristic
-functions of bonds. 
+functions of bonds.
 
 
 \begin{example}
 \label{example:cocycle-space}
 {\rm
 Consider the graph below, with edges labeled as indicated, together
-with an example of a bond, depicted to its right, in 
+with an example of a bond, depicted to its right, in
 Figure \ref{fig:cocycle-space1}.
 
 
@@ -476,30 +476,30 @@ Figure \ref{fig:cocycle-space1}.
 \begin{picture}(250.00,100.00)(-40.00,0.00)
 
 \thinlines
-\put(0.00,0.00){\line(1,0){50.00}} 
-\put(17.00,30.00){$0$} 
-\put(0.00,0.00){\line(1,1){50.00}} 
-\put(25.00,-15.00){$1$} 
-\put(50.00,0.00){\line(0,1){50.00}} 
-\put(55.00,20.00){$2$} 
-\put(50.00,0.00){\line(1,0){50.00}} 
-\put(75.00,-15.00){$3$} 
+\put(0.00,0.00){\line(1,0){50.00}}
+\put(17.00,30.00){$0$}
+\put(0.00,0.00){\line(1,1){50.00}}
+\put(25.00,-15.00){$1$}
+\put(50.00,0.00){\line(0,1){50.00}}
+\put(55.00,20.00){$2$}
+\put(50.00,0.00){\line(1,0){50.00}}
+\put(75.00,-15.00){$3$}
 
-\put(100.00,0.00){\line(1,0){50.00}} 
-\put(117.00,30.00){$4$} 
+\put(100.00,0.00){\line(1,0){50.00}}
+\put(117.00,30.00){$4$}
 \put(100.00,0.00){\line(1,1){50.00}}
-\put(125.00,-15.00){$5$} 
+\put(125.00,-15.00){$5$}
 
-\put(150.00,50.00){\line(1,0){50.00}} 
-\put(175.00,57.00){$7$} 
+\put(150.00,50.00){\line(1,0){50.00}}
+\put(175.00,57.00){$7$}
 \put(150.00,50.00){\line(0,-1){50.00}}
-\put(155.00,20.00){$6$}  
-\put(200.00,50.00){\line(0,-1){50.00}} 
-\put(187.00,20.00){$8$}  
-\put(225.00,57.00){$9$} 
-\put(200.00,50.00){\line(1,0){50.00}} 
+\put(155.00,20.00){$6$}
+\put(200.00,50.00){\line(0,-1){50.00}}
+\put(187.00,20.00){$8$}
+\put(225.00,57.00){$9$}
+\put(200.00,50.00){\line(1,0){50.00}}
 
-\put(232.00,17.00){$10$}  
+\put(232.00,17.00){$10$}
 \put(200.00,0.00){\line(1,1){50.00}}
 \end{picture}
 
@@ -509,26 +509,26 @@ Figure \ref{fig:cocycle-space1}.
 \begin{picture}(550.00,100.00)(-80.0,0.00)
 
 %\linethickness{0.9mm}
-\put(0.00,0.00){\line(1,0){50.00}} 
+\put(0.00,0.00){\line(1,0){50.00}}
 
 %\linethickness{1.9mm}
-\put(0.00,0.00){\line(1,1){50.00}} 
-%\put(50.00,0.00){\line(0,1){50.00}} 
+\put(0.00,0.00){\line(1,1){50.00}}
+%\put(50.00,0.00){\line(0,1){50.00}}
 
 % moved bond segment to the end
-\put(100.00,0.00){\line(1,0){50.00}} 
+\put(100.00,0.00){\line(1,0){50.00}}
 
 %\linethickness{1.9mm}
 \put(100.00,0.00){\line(1,1){50.00}}
 
 %\linethickness{0.9mm}
-\put(150.00,50.00){\line(1,0){50.00}} 
-%\put(150.00,50.00){\line(0,-1){50.00}} 
-\put(200.00,50.00){\line(0,-1){50.00}} 
-\put(200.00,50.00){\line(1,0){50.00}} 
+\put(150.00,50.00){\line(1,0){50.00}}
+%\put(150.00,50.00){\line(0,-1){50.00}}
+\put(200.00,50.00){\line(0,-1){50.00}}
+\put(200.00,50.00){\line(1,0){50.00}}
 
 \linethickness{0.9mm}
-\put(50.00,0.00){\line(1,0){50.00}} 
+\put(50.00,0.00){\line(1,0){50.00}}
 \end{picture}
 \end{tabular}
 \caption{A graph and a bond of it.}
@@ -596,13 +596,13 @@ representation
 b_8 = (0,0,0,0,0,0,0,0,0,1,1).
 \]
 \end{itemize}
-The vectors $\{b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8\}$ form a basis of the 
-cocycle space of $G$ over $GF(2)$. 
+The vectors $\{b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8\}$ form a basis of the
+cocycle space of $G$ over $GF(2)$.
 
 Note that these vectors are orthogonal to the basis vectors of
 the cycle space in Example \ref{example:cycle-space}. Note also that
 the xor sum of two cuts is not a cut.For example, if you xor the bond
-$4,5$ with the bond $4,6$ then you get the subgraph foormed by the 
+$4,5$ with the bond $4,6$ then you get the subgraph foormed by the
 edges $5,6$ and that is not a disconnecting cut of $G$.
 }
 \end{example}
@@ -612,25 +612,25 @@ edges $5,6$ and that is not a disconnecting cut of $G$.
 
 \subsection{Electrical networks}
 
-We present, as an application of 
+We present, as an application of
 circuit matrices and incidence matrices, and
 abstract definition of an electrical network.
 
 We define an electrical network abstractly as follows.
-Let $G=(V,E)$ be a simple connected directed graph having $n$ 
+Let $G=(V,E)$ be a simple connected directed graph having $n$
 vertices and $m$ edges. We have a {\it current} function
 
 \[
 i:E\to {\mathbb{R}},
 \]
-and a {\it voltage} function 
+and a {\it voltage} function
 
 \[
 v:E\to {\mathbb{R}},
 \]
 subject to three conditions. If we index the edges, say as
 $E=\{e_1,\dots ,e_m\}$, then these functions may (and sometimes will)
-be regarded as column vectors in ${\mathbb{R}}^m$. 
+be regarded as column vectors in ${\mathbb{R}}^m$.
 \index{current}
 \index{voltage}
 \index{electrical network}
@@ -646,7 +646,7 @@ are the following.
 \label{eqn:node-law}
 Ai = \vec{0},
 \end{equation}
-where $A$ is the incidence matrix and $i$ is regarded as 
+where $A$ is the incidence matrix and $i$ is regarded as
 a column vector.
 \index{Kirchhoff's current law}
 This equation comes from the fact that the algebraic sum of the
@@ -658,15 +658,15 @@ currents going into a node is zero.
 \label{eqn:voltage-law}
 Cv = \vec{0},
 \end{equation}
-where $C$ is the circuit matrix and $v$ is regarded as 
+where $C$ is the circuit matrix and $v$ is regarded as
 a column vector.
 \index{Kirchhoff's voltage law}
 This equation comes from the fact that the algebraic sum of the
 voltage drops around a closed loop is zero.
 
 \item
-In a network with resistors but no inductors or capacitors, there is a 
-relationship between $i$ and $v$ given by 
+In a network with resistors but no inductors or capacitors, there is a
+relationship between $i$ and $v$ given by
 
 \[
 Ri=v+b,
@@ -684,12 +684,12 @@ and $R$ is a ``resistor matrix.''
 \section{Chip firing games}
 
 Chip firing games on graphs (which are just
-pure fun) relate to ``abelian sandpile models'' from physics to 
+pure fun) relate to ``abelian sandpile models'' from physics to
 ``rotor-routing models'' from theoretical computer scientists
 (designing efficient computer multiprocessor circuits) to ``self-organized
-criticality'' (a subdiscipline of dynamical systems) to 
+criticality'' (a subdiscipline of dynamical systems) to
 ``algebraic potential theory'' on a graph \cite{Biggs1997} to cryptography
-(via the Biggs cryptosystem). Moreover, it relates the concepts of the 
+(via the Biggs cryptosystem). Moreover, it relates the concepts of the
 Laplacian of the graph to the tree number to the circulation space
 of the graph to the incidence matrix, as well as many other
 ideas. Some good references are \cite{Durgin2009}, \cite{PerkinsonEtAl2009},
@@ -700,13 +700,13 @@ ideas. Some good references are \cite{Durgin2009}, \cite{PerkinsonEtAl2009},
 \subsubsection{Basic set-up}
 
 A {\it chip firing game} always starts with a directed
-multigraph $G$ having no loops. A {\it configuration} is a 
+multigraph $G$ having no loops. A {\it configuration} is a
 vertex-weighting, i.e., a function
 $s:V\to {\mathbb{R}}$. The players are represented by the
 vertices of $G$ and the vertex-weights represent the number of
 chips each player (represented by that vertex) has.
 The initial vertex-weighting is called the {\it starting configuration} of $G$.
-Let vertex $v$ have outgoing degree $d_+(v)$. If the weight of 
+Let vertex $v$ have outgoing degree $d_+(v)$. If the weight of
 vertex $v$ is $\geq d_+(v)$ (so that player can afford to give away
 all their chips) then that vertex is called {\it active}.
 \index{active vertex}
@@ -724,7 +724,7 @@ def active_vertices(G, s):
 
     INPUT:
      G - a graph
-     s - a configuration (implemented as a list 
+     s - a configuration (implemented as a list
                           or a dictionary keyed on
                           the vertices of the graph)
 
@@ -744,7 +744,7 @@ def active_vertices(G, s):
 \end{Verbatim}
 If $v$ is active then when you fire $v$ you must also change the
 configuration. The new configuration $s'$ will satisfy
-$s'(v) = s(v)-d_+(v)$ and $s'(v')=s(v')+1$ for each 
+$s'(v) = s(v)-d_+(v)$ and $s'(v')=s(v')+1$ for each
 neighbor $v'$ of $v$. In other words, $v$ will give away one chip to
 each of its $d_+(v)$ neighbors. If $x:V\to \{0,1\}^{|V|}\subset {\mathbb{R}}^{|V|}$ is
 the representation vector (``characteristic function'') of a vertex
@@ -759,9 +759,9 @@ where $L$ is the vertex Laplacian. It turns out that the column sums
 of $L$ are all $0$, so this operation does not change the total
 number of chips. We use the notation
 
-\[ 
+\[
 s\overset{v}{\to} s',
-\] 
+\]
 to indicate that the configuration $s'$ is the
 result of firing vertex $v$ in configuration $s$.
 
@@ -777,22 +777,22 @@ Consider the graph
 \begin{picture}(250.00,100.00)(-250.00,0.00)
 
 \thinlines
-\put(0.00,50.00){\line(1,0){100.00}} 
-\put(-1.00,47.00){$\bullet$} 
-\put(-13.00,50.00){$0$} 
-\put(0.00,50.00){\line(1,1){50.00}} 
-\put(50.00,112.00){$1$} 
-\put(45.00,97.00){$\bullet$} 
-\put(100.00,50.00){\line(-1,1){50.00}} 
-\put(105.00,50.00){$2$} 
-\put(95.00,47.00){$\bullet$} 
-\put(100.00,50.00){\line(0,-1){50.00}} 
-\put(105.00,0.00){$3$} 
-\put(95.00,-3.00){$\bullet$} 
+\put(0.00,50.00){\line(1,0){100.00}}
+\put(-1.00,47.00){$\bullet$}
+\put(-13.00,50.00){$0$}
+\put(0.00,50.00){\line(1,1){50.00}}
+\put(50.00,112.00){$1$}
+\put(45.00,97.00){$\bullet$}
+\put(100.00,50.00){\line(-1,1){50.00}}
+\put(105.00,50.00){$2$}
+\put(95.00,47.00){$\bullet$}
+\put(100.00,50.00){\line(0,-1){50.00}}
+\put(105.00,0.00){$3$}
+\put(95.00,-3.00){$\bullet$}
 
-\put(0.00,0.00){\line(1,0){100.00}} 
-\put(-13.00,0.00){$4$} 
-\put(-1.00,-3.00){$\bullet$} 
+\put(0.00,0.00){\line(1,0){100.00}}
+\put(-13.00,0.00){$4$}
+\put(-1.00,-3.00){$\bullet$}
 
 \end{picture}
 \caption{A graph with $5$ vertices.}
@@ -801,7 +801,7 @@ Consider the graph
 This graph has incidence matrix
 
 \[
-D = 
+D =
 \left(
 \begin{array}{ccccc}
 -1 & -1 & 0 & 0 & 0 \\
@@ -815,7 +815,7 @@ D =
 and Laplacian
 
 \[
-L = D\cdot \, ^tD = 
+L = D\cdot \, ^tD =
 \left(
 \begin{array}{ccccc}
 2 & -1 & 0-1 & 0 & 0 \\
@@ -826,8 +826,8 @@ L = D\cdot \, ^tD =
 \end{array}
 \right).
 \]
-Suppose the initial configuration is 
-$s = (3,1,0,1,1)$, i.e., 
+Suppose the initial configuration is
+$s = (3,1,0,1,1)$, i.e.,
 
 \begin{itemize}
 \item
@@ -842,7 +842,7 @@ player $3$ has $1$ dollar,
 player $4$ has $1$ dollar.
 \end{itemize}
 Notice player $0$ is active. If we fire $0$ then we get the new
-configuration $s'=(1,2,1,1,1)$. Indeed, if 
+configuration $s'=(1,2,1,1,1)$. Indeed, if
 we compute $s'=s-Lx(0)$, we get:
 
 \[
@@ -944,23 +944,23 @@ called ``the source,'' which has special firing properties.
 In the dollar game variant, the source is only fired when
 not other vertex is active.
 We shall consider the dollar game variant here, following
-Biggs \cite{Biggs2007}. 
+Biggs \cite{Biggs2007}.
 \index{sandpile model}
 \index{dollar game}
 
 We select a distinguished vertex $q\in V$, called the
 ``source\footnote{Biggs humorously calls $q$ ``the government.''},''
 which has a special property to be described below.
-For the dollar game, a {\it configuration} is a 
-function $s:V\to {\mathbb{R}}$ for which 
+For the dollar game, a {\it configuration} is a
+function $s:V\to {\mathbb{R}}$ for which
 
 \[
 \sum_{v\in V} s(v) = 0,\ \ \ \
 \]
 and $s(v)\geq 0$ for all $v\in V$ with $v\not= q$.
-A vertex $v\not= q$ can be fired if and only if 
+A vertex $v\not= q$ can be fired if and only if
 $\deg (v)\leq s(v)$ (i.e., it ``has enough chips'').
-The equation (\ref{eqn:fire}) describes the 
+The equation (\ref{eqn:fire}) describes the
 new configuration after firing a vertex.
 \index{configuration}
 
@@ -975,7 +975,7 @@ def fire(G, s, v0):
 
     INPUT:
      G - a graph
-     s - a configuration (implemented as a list 
+     s - a configuration (implemented as a list
                           or a dictionary keyed on
                           the vertices of the graph)
      v - a vertex of the graph
@@ -1007,7 +1007,7 @@ def fire(G, s, v0):
 We say $s:V\to {\mathbb{R}}$ is a {\it stable} configuration
 if $0\leq s(v)<\deg(v)$, for all $v\not= q$.
 The source vertex $q$ can only be fired when
-no other vertex can be fired, that is only in the case when 
+no other vertex can be fired, that is only in the case when
 a stable configuration has been reached.
 \index{configuration!stable}
 
@@ -1021,7 +1021,7 @@ def stable_vertices(G, s, source = None):
 
     INPUT:
      G - a graph
-     s - a configuration (implemented as a list 
+     s - a configuration (implemented as a list
                           or a dictionary keyed on
                           the vertices of the graph)
 
@@ -1045,18 +1045,18 @@ def stable_vertices(G, s, source = None):
 Suppose we are in a configuration $s_1$.
 We say a sequence vertices $S=(w_1, w_2,\dots, w_k)$,
 $w_i\in V$ not necessarily distinct, is
-{\it legal} if, 
+{\it legal} if,
 \index{legal firing sequence}
 \begin{itemize}
 \item
 $w_1$ is active in configuration $s_1$,
 \item
 for each $i$ with $1\leq i<k$, $s_{i+1}$ is obtained
-from $s_i$ by firing $w_i$ in configuration 
-$s_i$, 
+from $s_i$ by firing $w_i$ in configuration
+$s_i$,
 \item
 for each $i$ with $1\leq i<k$, $w_{i+1}$ is active
-in the configuration $s_{i+1}$ defined in the 
+in the configuration $s_{i+1}$ defined in the
 previous step,
 \item
 the source vertex $q$ occurs in $S$ only if
@@ -1068,7 +1068,7 @@ of $S$. A configuration $s$ is {\it recurrent}
 if there is a legal sequence starting at $s$ which leads back to $s$.
 A configuration is {\it critical}
 \index{configuration!critical}
-if it recurrent and stable. 
+if it recurrent and stable.
 
 Here is some \sage/{\tt Python} code for determining a stable
 vertex resulting from a legal sequence of firings
@@ -1083,8 +1083,8 @@ def stabilize(G, s, source, legal_sequence = False):
     Returns the stable configuration of the graph originating from
     the given configuration s. If legal_sequence = True then the
     sequence of firings is also returned. By van den Heuvel [1],
-    the number of firings needed to compute a critical configuration 
-    is < 3(S+2|E|)|V|^2, where S is the sum of the positive 
+    the number of firings needed to compute a critical configuration
+    is < 3(S+2|E|)|V|^2, where S is the sum of the positive
     weights in the configuration.
 
     EXAMPLES:
@@ -1128,25 +1128,25 @@ incidence matrix $D$ and its transpose $^tD$ can be regarded as
 homomorphisms
 
 \[
-D : C^1(G,{\mathbb{Z}})\to C^0(G,{\mathbb{Z}}) \ \ \ \ {\rm and}\ \ \ \ \ 
+D : C^1(G,{\mathbb{Z}})\to C^0(G,{\mathbb{Z}}) \ \ \ \ {\rm and}\ \ \ \ \
 ^tD : C^0(G,{\mathbb{Z}})\to C^1(G,{\mathbb{Z}}).
 \]
-We can also regard the Laplacian $L = D\cdot \, ^tD$ as a homomorphism 
+We can also regard the Laplacian $L = D\cdot \, ^tD$ as a homomorphism
 \index{Laplacian}
 $C^0(G,{\mathbb{Z}})\to C^0(G,{\mathbb{Z}})$. Denote by
-$\sigma : C^0(G,{\mathbb{Z}})\to {\mathbb{Z}}$ the homomorphism defined by 
+$\sigma : C^0(G,{\mathbb{Z}})\to {\mathbb{Z}}$ the homomorphism defined by
 
 \[
 \sigma(f) = \sum_{v\in V} f(v).
 \]
-Denote by $K(G)$ the set of {\it critical configurations} 
+Denote by $K(G)$ the set of {\it critical configurations}
 on a graph $G$.
-\index{critical configurations} 
+\index{critical configurations}
 
 \begin{lemma} (Biggs \cite{Biggs2007})
 {\rm
 The set $K(G)$ of critical configurations on a connected graph $G$ is in
-bijective correspondence with the abelian group 
+bijective correspondence with the abelian group
 ${\rm Ker} (\sigma)/{\rm Im}( Q)$.
 }
 \end{lemma}
@@ -1174,22 +1174,22 @@ Consider again the graph
 \begin{picture}(250.00,100.00)(-250.00,0.00)
 
 \thinlines
-\put(0.00,50.00){\line(1,0){100.00}} 
-\put(-1.00,47.00){$\bullet$} 
-\put(-13.00,50.00){$0$} 
-\put(0.00,50.00){\line(1,1){50.00}} 
-\put(50.00,112.00){$1$} 
-\put(45.00,97.00){$\bullet$} 
-\put(100.00,50.00){\line(-1,1){50.00}} 
-\put(105.00,50.00){$2$} 
-\put(95.00,47.00){$\bullet$} 
-\put(100.00,50.00){\line(0,-1){50.00}} 
-\put(105.00,0.00){$3$} 
-\put(95.00,-3.00){$\bullet$} 
+\put(0.00,50.00){\line(1,0){100.00}}
+\put(-1.00,47.00){$\bullet$}
+\put(-13.00,50.00){$0$}
+\put(0.00,50.00){\line(1,1){50.00}}
+\put(50.00,112.00){$1$}
+\put(45.00,97.00){$\bullet$}
+\put(100.00,50.00){\line(-1,1){50.00}}
+\put(105.00,50.00){$2$}
+\put(95.00,47.00){$\bullet$}
+\put(100.00,50.00){\line(0,-1){50.00}}
+\put(105.00,0.00){$3$}
+\put(95.00,-3.00){$\bullet$}
 
-\put(0.00,0.00){\line(1,0){100.00}} 
-\put(-15.00,0.00){$4$} 
-\put(-4.00,-4.00){$\circ$} 
+\put(0.00,0.00){\line(1,0){100.00}}
+\put(-15.00,0.00){$4$}
+\put(-4.00,-4.00){$\circ$}
 
 \end{picture}
 \caption{A graph with $5$ vertices.}
@@ -1198,7 +1198,7 @@ Consider again the graph
 This graph has incidence matrix
 
 \[
-D = 
+D =
 \left(
 \begin{array}{ccccc}
 -1 & -1 & 0 & 0 & 0 \\
@@ -1212,7 +1212,7 @@ D =
 and Laplacian
 
 \[
-L = D\cdot \, ^tD = 
+L = D\cdot \, ^tD =
 \left(
 \begin{array}{ccccc}
 2 & -1 & 0-1 & 0 & 0 \\
@@ -1223,8 +1223,8 @@ L = D\cdot \, ^tD =
 \end{array}
 \right).
 \]
-Suppose the initial configuration is 
-$s = (3,1,0,1,-5)$, i.e., 
+Suppose the initial configuration is
+$s = (3,1,0,1,-5)$, i.e.,
 
 \begin{itemize}
 \item
@@ -1241,7 +1241,7 @@ player $4$ is the source vertex $q$.
 The legal sequence $(0,1,0,2,1,0,3,2,1,0)$ leads to
 the stable configuration $(0,1,2,1,-4)$. If $q$ is fired
 then the configuration $(0,1,2,2,-5)$ is achieved.
-This is recurrent since it is contained in the 
+This is recurrent since it is contained in the
 cyclic legal sequence
 
 \[
@@ -1254,7 +1254,7 @@ cyclic legal sequence
 \overset{q}{\to} (0,1,2,2,-5).
 \end{array}
 \]
-In particular, the configuration $(0,1,2,1,-4)$ is 
+In particular, the configuration $(0,1,2,1,-4)$ is
 also recurrent. Since it is both stable and recurrent, it
 is critical.
 }
@@ -1268,7 +1268,7 @@ on this topic in one form or another.
 {\rm
 If $s$ is an configuration and $G$ is connected
 then there is a unique critical configuration $s'$
-which can be obtained by a sequence of legal firings 
+which can be obtained by a sequence of legal firings
 for starting at $s$.
 }
 \end{theorem}
@@ -1280,7 +1280,7 @@ denoted
 \gamma :C^0(G,{\mathbb{R}})\to K(G).
 \]
 Another way to define multiplication $\bullet$ on
-on $K(G)$ is 
+on $K(G)$ is
 
 \[
 \gamma(s_1)\bullet \gamma(s_2)
@@ -1295,11 +1295,11 @@ following isomorphism:
 \[
 K(G)\cong {\mathbb{Z}}^{m-1}/{\mathcal{L}},
 \]
-where ${\mathcal{L}}$ is the integer lattice 
+where ${\mathcal{L}}$ is the integer lattice
 generated by the columns of the reduced
 Laplacian matrix\footnote{The {\it reduced Laplacian} matrix
-is obtained from the Laplacian matrix by removing 
-the row and column associated to the source 
+is obtained from the Laplacian matrix by removing
+the row and column associated to the source
 vertex.}.
 \index{reduced Laplacian}
 \index{Laplacian!reduced}
