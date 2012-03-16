@@ -1289,18 +1289,17 @@ the problem of allocating satellites to radio stations.
 
 \begin{example}
 \label{eg:introduction:franklin_graph_example}
-The Franklin graph, shown in Figure 
-\ref{fig:introduction:franklin_graph_example}, 
-is a 3-regular graph with 12 vertices and 18 edges named after
-Philip Franklin.It is bipartite, Hamiltonian and has 
-radius 3, diameter 3 and girth 4. It is also a
-3-vertex-connected 
-and 3-edge-connected perfect graph.
-
-
+\rm
+The Franklin graph, shown in
+Figure~\ref{fig:introduction:franklin_graph_example}, is named after
+Philip Franklin.  It is a 3-regular graph with 12 vertices and 18
+edges.  It is bipartite, Hamiltonian and has radius 3, diameter 3 and
+girth 4. It is also a 3-vertex-connected and 3-edge-connected perfect
+graph.\qed 
+\end{example}
 
 \begin{lstlisting}
-sage: G = graphs.LCFGraph(12, [5,-5], 6) 
+sage: G = graphs.LCFGraph(12, [5,-5], 6)
 sage: G.show(dpi=300)
 sage: G.is_bipartite()
 True
@@ -1320,8 +1319,6 @@ sage: G.coloring()
 [[1, 3, 5, 7, 9, 11], [0, 2, 4, 6, 8, 10]]
 \end{lstlisting}
 
-
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!Franklin}
@@ -1330,28 +1327,24 @@ sage: G.coloring()
 \label{fig:introduction:franklin_graph_example}
 \end{figure}
 
-
-\end{example}
-
-
-
 \begin{example}
 \label{example:introduction:foster-graph-example}
-The Foster graph, shown in Figure 
-\ref{fig:introduction:foster-graph-example}, 
-is a 3-regular graph with 90 vertices and 135 edges.
-This is a bipartite, Hamiltonian graph
-which has radius 8, diameter 8 and girth 10. It is also a
-3-vertex-connected and 3-edge-connected graph.
+\rm
+The Foster graph, shown in
+Figure~\ref{fig:introduction:foster-graph-example}, is a 3-regular
+graph with 90 vertices and 135 edges.  This is a bipartite,
+Hamiltonian graph that has radius 8, diameter 8 and girth 10.  It is
+also a 3-vertex-connected and 3-edge-connected graph.\qed
+\end{example}
 
 \begin{lstlisting}
-sage: G = graphs.LCFGraph(90, [17,-9,37,-37,9,-17], 15)  
+sage: G = graphs.LCFGraph(90, [17,-9,37,-37,9,-17], 15)
 sage: G.plot(vertex_labels=False, vertex_size=0, graph_border=True).show(dpi=300)
 sage: G.is_vertex_transitive()
 True
-sage: G.is_hamiltonian()      
+sage: G.is_hamiltonian()
 True
-sage: G.girth()         
+sage: G.girth()
 10
 sage: G.is_bipartite()
 True
@@ -1361,8 +1354,6 @@ sage: len(G.edges())
 135
 \end{lstlisting}
 
-
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!Foster}
@@ -1370,9 +1361,6 @@ sage: len(G.edges())
 \caption{Foster graph example.}
 \label{fig:introduction:foster-graph-example}
 \end{figure}
-
-\end{example}
-
 
 \begin{theorem}
 A graph is bipartite if and only if it has no odd cycles.
@@ -1417,17 +1405,16 @@ $G$ is bipartite.
 
 \begin{example}
 \label{example:introduction:gray-graph-example}
-
-The Gray graph, shown in Figure \ref{fig:introduction:gray-graph-example},
-is an undirected bipartite graph with 54 vertices and 81
- edges. It is a $3$-regular graph discovered by Marion C. Gray in 1932.
-
-The Gray graph has chromatic number 2, chromatic index 3, radius 6 and
-diameter 6. It is also a 3-vertex-connected and 3-edge-connected
-non-planar graph.
-
+\rm
+The Gray graph, shown in
+Figure~\ref{fig:introduction:gray-graph-example}, is an undirected
+bipartite graph with 54 vertices and 81  edges.  It is a $3$-regular
+graph discovered by Marion C. Gray in 1932.  The Gray graph has
+chromatic number 2, chromatic index 3, radius 6, and diameter 6.  It
+is also a 3-vertex-connected and 3-edge-connected non-planar graph.
 The Gray graph is an example of a graph which is edge-transitive but
-not vertex-transitive.
+not vertex-transitive.\qed
+\end{example}
 
 \begin{lstlisting}
 sage: G = graphs.LCFGraph(54, [-25,7,-7,13,-13,25], 9)
@@ -1438,10 +1425,9 @@ sage: G.is_vertex_transitive()
 False
 sage: G.is_hamiltonian()
 True
-sage: G.diameter()      
+sage: G.diameter()
 6
 \end{lstlisting}
-
 
 \begin{figure}[!htbp]
 \centering
@@ -1450,11 +1436,6 @@ sage: G.diameter()
 \caption{Gray graph example.}
 \label{fig:introduction:gray-graph-example}
 \end{figure}
-
-\end{example}
-
-
-
 
 The \emph{complete bipartite}\index{bipartite graph!complete} graph
 $K_{m,n}$\index{$K_{m,n}$} is the bipartite graph whose vertex set is
@@ -1791,7 +1772,7 @@ way to describe a graph using a matrix.
 Let $G$ be a digraph with edge set $E = \{ e_1, \dots, e_m \}$ and
 vertex set $V = \{ v_1, \dots, v_n \}$. The
 \emph{incidence matrix}
-\index{incidence!matrix} 
+\index{incidence!matrix}
 of $G$ is the
 $n \times m$ matrix $B = [b_{ij}]$ defined by
 %%
@@ -1827,13 +1808,13 @@ b_{ij}
 \end{cases}
 \]
 An \emph{orientation}\index{orientation} of an undirected graph $G$ is
-an assignment of direction to each edge of $G$. 
-In other words, each edge has a distinguished vertex called a 
-{\it head}. In this case, the letter $D=D(G)$ is sometimes used 
+an assignment of direction to each edge of $G$.
+In other words, each edge has a distinguished vertex called a
+{\it head}. In this case, the letter $D=D(G)$ is sometimes used
 instead of $B$ for the incidence matrix of a digraph
 or an oriented graph. The
 \emph{oriented incidence matrix}
-\index{incidence matrix!oriented} 
+\index{incidence matrix!oriented}
 $D$ of
 $G$ is defined similarly to the case where $G$ is a digraph: it is the
 incidence matrix of any orientation of $G$. For each column of $D$, we
@@ -1845,12 +1826,6 @@ at $v_i$.
 Sage allows you to compute the incidence matrix of a
 graph:
 
-\begin{example}
-
-\begin{center}
-\fontsize{9pt}{9pt}
-\selectfont
-\tt
 \begin{lstlisting}
 sage: G = Graph({1: [2, 4], 2: [1, 3], 3: [2, 6], 4: [1, 5], 5: [4, 6], 6: [3, 5]})
 sage: G.incidence_matrix()
@@ -1861,12 +1836,9 @@ sage: G.incidence_matrix()
  [ 0  0  0  0  1 -1]
  [ 0  0  0  1  0  1]
 \end{lstlisting}
-\end{center}
-
-\end{example}
 
 The {\it integral cycle space} of a graph is equal to the kernel of an
-oriented incidence matrix, viewed as a matrix over ${\mathbb{Q}}$. 
+oriented incidence matrix, viewed as a matrix over ${\mathbb{Q}}$.
 The {\it binary cycle space} is the kernel of
 its oriented or unoriented incidence matrix, viewed as a matrix over
 $GF(2)$.
@@ -1875,7 +1847,7 @@ $GF(2)$.
 
 
 \begin{theorem}
-The incidence matrix of an undirected graph $G$ is 
+The incidence matrix of an undirected graph $G$ is
 related to the adjacency matrix
 of its line graph $L(G)$ by the following theorem:
 
@@ -1886,37 +1858,39 @@ where $A(L(G))$ is the adjacency matrix of the line graph of $G$.
 \end{theorem}
 
 \begin{proof}
+Let $D_i$ denote the $i$th column of $D$.
 
-Let $D_i$ denote the $i$th column of $D$. 
-
-Consider the dot product of $D_i$ and $D_j$, $i\not= j$. The terms 
-contributing to this expression are associated to the vertices which 
+Consider the dot product of $D_i$ and $D_j$, $i\not= j$. The terms
+contributing to this expression are associated to the vertices which
 are incident to the $i$th edge and also to the $j$th edge.
-In other words, 
-there is such a vertex (and only one such vertex) if and only if 
-this dot product is equal to $1$ if and only if 
+In other words,
+there is such a vertex (and only one such vertex) if and only if
+this dot product is equal to $1$ if and only if
 $i$th edge is incident to the $j$th edge in $G$ if and only if
 the vertex in $L(G)$ associated to the $i$th edge in $G$ is
 adjacent to the vertex in $L(G)$ associated to the $j$th edge in $G$.
-But this is exactly the condition that the corresponding entry of 
+But this is exactly the condition that the corresponding entry of
 $A(L(G))$ is equal to $1$.
 
-Consider the dot product of $D_i$ with itself. The terms 
-contributing to this expression are associated to the vertices which 
-are incident to the $i$th edge. There are $2$ such vertices so 
-this dot product is equal to $2$. Subtracting, the $2$ in 
+Consider the dot product of $D_i$ with itself. The terms
+contributing to this expression are associated to the vertices which
+are incident to the $i$th edge. There are $2$ such vertices so
+this dot product is equal to $2$. Subtracting, the $2$ in
 $2I_n$, gives $0$, as expect for the diagonal entries of $A(L(G))$.
 \end{proof}
 
-For a directed graph, the result in the above theorem 
+For a directed graph, the result in the above theorem
 does not hold in general
 (except in characteristic $2$), as the following example shows.
 
 \begin{example}
-Consider the graph shown in Figure
-\ref{fig:introduction:digraph-example-5vertices-8edges},
-whose line graph is shown in 
-Figure \ref{fig:introduction:linegraph-of-digraph-example-5vertices-8edges}.
+\rm
+Consider the graph shown in
+Figure~\ref{fig:introduction:digraph-example-5vertices-8edges}, whose
+line graph is shown in 
+Figure~\ref{fig:introduction:linegraph-of-digraph-example-5vertices-8edges}.
+\qed
+\end{example}
 
 \begin{lstlisting}
 sage: G1 = DiGraph({0:[1,2,4], 1:[2,3,4], 2:[3,4]})
@@ -1942,7 +1916,7 @@ sage: D = G.incidence_matrix(); D
 [ 0  1  0  0  0  1 -1 -1]
 [ 0  0  0  0  1  0  0  1]
 [ 1  0  0  1  0  0  1  0]
-sage: D.transpose()*D       
+sage: D.transpose()*D
 [ 2  1  1  1  0  0  1  0]
 [ 1  2  1  0  0  1 -1 -1]
 [ 1  1  2 -1 -1 -1  0  0]
@@ -1951,7 +1925,7 @@ sage: D.transpose()*D
 [ 0  1 -1  1  1  2 -1 -1]
 [ 1 -1  0  1  0 -1  2  1]
 [ 0 -1  0  0  1 -1  1  2]
-sage: D*D.transpose() 
+sage: D*D.transpose()
 [ 3 -1 -1  0 -1]
 [-1  4 -1 -1 -1]
 [-1 -1  4 -1 -1]
@@ -1977,7 +1951,7 @@ sage: D.transpose()*D - 2*I8
 [ 0  1 -1  1  1  0 -1 -1]
 [ 1 -1  0  1  0 -1  0  1]
 [ 0 -1  0  0  1 -1  1  0]
-sage: LG = G.line_graph()  
+sage: LG = G.line_graph()
 sage: ALG = LG.adjacency_matrix()
 sage: ALG
 [0 1 1 1 1 1 0 0]
@@ -2001,8 +1975,6 @@ sage: G3.adjacency_matrix()
 [0 1 0 0 1 1 0 0]
 \end{lstlisting}
 
-
-
 \begin{figure}[!htbp]
 \centering
 \index{matrix!incidence}
@@ -2010,8 +1982,6 @@ sage: G3.adjacency_matrix()
 \caption{A digraph example having 5 vertices and 8 edges.}
 \label{fig:introduction:digraph-example-5vertices-8edges}
 \end{figure}
-
-
 
 \begin{figure}[!htbp]
 \centering
@@ -2021,13 +1991,10 @@ sage: G3.adjacency_matrix()
 \label{fig:introduction:linegraph-of-digraph-example-5vertices-8edges}
 \end{figure}
 
-\end{example}
-
-
 \begin{theorem}
 \label{thrm:rank-of-incident-matrix}
-The rank (over ${\mathbb{Q}}$) of the incidence 
-matrix of a directed connected 
+The rank (over ${\mathbb{Q}}$) of the incidence
+matrix of a directed connected
 simple graph having $n$ vertices is $n-1$.
 \end{theorem}
 
@@ -2037,7 +2004,7 @@ vertices.
 \begin{proof}
 Consider the column of $D$ coresponding to $e\in E$.
 The number of entries equal to $+1$ is one (corresponding to the vertex
-at the ``head'' of $e$) and the number of entries equal to $-1$ is 
+at the ``head'' of $e$) and the number of entries equal to $-1$ is
 also one (corresponding to the vertex at the ``tail'' of $e$).
 All other entries are equal to $0$. Therefore, the sum of all the rows
 in $D$ is the zero vector. This implies
@@ -2045,11 +2012,11 @@ in $D$ is the zero vector. This implies
 \[
 {\rm rank}_{\mathbb{Q}}(D)\leq n-1.
 \]
-To show that equality is attained, we exhibit 
-$n-1$ linearly independent columns of $D$. 
+To show that equality is attained, we exhibit
+$n-1$ linearly independent columns of $D$.
 Let $T$ be a spanning tree for $G$.
 This tree has $n-1$ edges and, if you reindex the vertices of $G$
-suitably, the columns of $D$ associated to the edges in $T$ 
+suitably, the columns of $D$ associated to the edges in $T$
 are of the form $w_k=(0,\dots, 0,1,-1,0,\dots, 0)\in {\mathbb{Q}}^n$,
 where the $k$th entry is a $1$ and the $(k+1)$st entry is $-1$
 ($1\leq k\leq n-1$). These are
