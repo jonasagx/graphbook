@@ -84,6 +84,7 @@ It is Hamiltonian with 120 distinct Hamiltonian cycles. It has
 chromatic number 2 (in other words, is bipartite),
 chromatic index 3, radius 5, diameter 5 and girth
 6. It is also a 3-vertex-connected and a 3-edge-connected graph.
+\end{example}
 
 \begin{lstlisting}
 sage: G = graphs.LCFGraph(32, [5,-5,13,-13], 8)
@@ -96,7 +97,6 @@ sage: G.is_vertex_transitive()
 True
 \end{lstlisting}
 
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!Dyck}
@@ -104,9 +104,6 @@ True
 \caption{A Dyck graph example.}
 \label{fig:graph_coloring:dyck_graph_example}
 \end{figure}
-
-\end{example}
-
 
 A {\it clique} in $G$ is a subset of the vertex set $S \subset V$, such that
 for every two vertices in $S$, there exists an edge connecting the two.
@@ -201,8 +198,7 @@ The Frucht graph has no nontrivial symmetries.
 It has chromatic number 3, chromatic index 3, radius 3, diameter 4 and
 girth 3.
 It is3-vertex-connected and 3-edge-connected graph.
-
-
+\end{example}
 
 \begin{lstlisting}
 sage: G = graphs.FruchtGraph()
@@ -216,8 +212,6 @@ sage: G.automorphism_group().order()
 1
 \end{lstlisting}
 
-
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!Frucht}
@@ -225,10 +219,6 @@ sage: G.automorphism_group().order()
 \caption{Frucht graph vertex-coloring example.}
 \label{fig:graph_coloring:frucht_graph_vertex_coloring_example}
 \end{figure}
-
-\end{example}
-
-
 
 \begin{itemize}
 \item Brook's Theorem
@@ -284,6 +274,7 @@ projective linear group $PGL2(7)$, a group of order $336$. It acts
 transitively on the vertices and on the edges of the
 graph. Therefore, this graph is vertex-transitive.
 \index{Heawood graph}
+\end{example}
 
 \begin{lstlisting}
 sage: G = graphs.HeawoodGraph()
@@ -294,14 +285,12 @@ sage: G.line_graph().chromatic_number()  # chromatic index
 3
 \end{lstlisting}
 
-
 \begin{figure}[!htbp]
 \centering
 \includegraphics[scale=0.7]{image/graph-coloring/heawood-graph-edge-coloring-example}
 \caption{The Heawood graph and an edge-coloring example.}
 \label{fig:graph-coloring:heawood-graph-edge-coloring-example}
 \end{figure}
-
 
 \begin{lstlisting}
 sage: G = graphs.HeawoodGraph()
@@ -314,7 +303,6 @@ sage: G.chromatic_number()
 2
 \end{lstlisting}
 
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!Heawood}
@@ -322,10 +310,6 @@ sage: G.chromatic_number()
 \caption{The Heawood graph and an vertex-coloring example.}
 \label{fig:graph-coloring:heawood-graph-vertex-coloring-example}
 \end{figure}
-
-
-\end{example}
-
 
 \begin{example}
 \label{example:graph-coloring:icosahedral-graph-vertex-coloring-example}
@@ -338,6 +322,7 @@ An edge-coloring is shown in Figure
 \ref{fig:graph-coloring:icosahedral-graph-edge-coloring-example}.
 A vertex-coloring is shown in Figure
 \ref{fig:graph-coloring:icosahedral-graph-vertex-coloring-example}.
+\end{example}
 
 \begin{lstlisting}
 sage: G = graphs.IcosahedralGraph()
@@ -372,7 +357,6 @@ sage: G.is_bipartite()
 False
 \end{lstlisting}
 
-
 \begin{lstlisting}
 sage: G.line_graph().chromatic_number()
 5
@@ -381,7 +365,6 @@ sage: d = {'blue':ec[0], 'red':ec[1], 'green':ec[2],'orange':ec[3],'yellow':ec[4
 sage: G.show(edge_colors = d)
 \end{lstlisting}
 
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!icosahedral}
@@ -389,9 +372,6 @@ sage: G.show(edge_colors = d)
 \caption{An icosahedral graph edge-coloring example.}
 \label{fig:graph-coloring:icosahedral-graph-edge-coloring-example}
 \end{figure}
-
-\end{example}
-
 
 As in the case of vertex-coloring, the edge-coloring decision problem is
 still NP-complete. However, it is much better understood through
@@ -430,6 +410,7 @@ The Pappus graph, shown in Figure
 The Pappus graph has girth 6, diameter 4, radius 4, chromatic number
 2 (i.e., is bipartite),
 chromatic index 3 and is both 3-vertex-connected and 3-edge-connected.
+\end{example}
 
 \begin{lstlisting}
 sage: G = graphs.PappusGraph()
@@ -466,10 +447,6 @@ sage: G.plot(edge_colors = d).show()
 \caption{A Pappas graph edge-coloring example.}
 \label{fig:graph-coloring:pappas-graph-edge-coloring-example}
 \end{figure}
-
-\end{example}
-
-
 
 \begin{itemize}
 \item algorithm for edge coloring by maximum matching
@@ -651,6 +628,7 @@ If we let $0$=Calculus, $1$=Chemistry, $2$=English,
 $3$=History, $4$=Physics, then the corresponding graph can be
 constructed and drawn in Sage using the following commands
 (see Figure \ref{fig:graph-coloring-scheduling}).
+\end{example}
 
 \begin{lstlisting}
 sage: G = Graph({0:[1,2,4], 1:[2,3,4], 2:[3,4]})
@@ -659,7 +637,6 @@ sage: G.coloring()
 [[2], [4], [0, 3], [1]]
 \end{lstlisting}
 
-
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[height=4cm,width=5cm]{image/graph-coloring/graph-coloring-scheduling}
@@ -667,8 +644,6 @@ sage: G.coloring()
 \caption{An application of graph coloring to scheduling.}
 \label{fig:graph-coloring-scheduling}
 \end{figure}
-\end{example}
-
 
 \begin{theorem}
 The minimum number of hours required for the schedule of meetings in
