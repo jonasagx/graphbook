@@ -1832,11 +1832,11 @@ $Q$ given by the $S_v$'s.
 
 
 \begin{example}
+\rm
 To construct the example, we will make use of the 
 following Python function.
 
-\begin{verbatim}
-
+\begin{lstlisting}
 def edge_cutset_matrix(G):
     """
     Returns the edge cutset matrix of the connected graph $G$.
@@ -1852,21 +1852,17 @@ def edge_cutset_matrix(G):
                 rows.append([char_S(e) for e in E])
     Q = matrix(rows)
     return Q
-
-\end{verbatim}
+\end{lstlisting}
 
 We use the function above in the examples below.
 
-For the cube graph in three dimensions 
-(shown in Figure
-\ref{fig:trees-forests:cube3-graph-example}), and for the 
-Desargues graph (shown in Figure
-\ref{fig:trees-forests:desargues-graph-example}), the undirected
-analog of Theorem \ref{thrm:rank-cutset_matrix}
-does hold.
-
-\begin{verbatim}
- 
+For the cube graph in three dimensions~(see
+Figure~\ref{fig:trees-forests:cube3-graph-example}) and for the
+Desargues graph~(see
+Figure~\ref{fig:trees-forests:desargues-graph-example}), the
+undirected analog of Theorem \ref{thrm:rank-cutset_matrix} does hold.
+%%
+\begin{lstlisting}
 sage: G = graphs.CubeGraph(3) 
 sage: G
 3-Cube: Graph on 8 vertices
@@ -1878,8 +1874,19 @@ sage: G
 Desargues Graph: Graph on 20 vertices
 sage: edge_cutset_matrix(G).rank()
 19
-
-\end{verbatim}
+\end{lstlisting}
+%%
+On the other hand, for the Frucht graph~(see
+Figure~\ref{fig:trees-forests:frucht-graph-example}):
+%%
+\begin{lstlisting}
+sage: G = graphs.FruchtGraph()
+sage: G
+Frucht graph: Graph on 12 vertices
+sage: edge_cutset_matrix(G).rank()
+12
+\end{lstlisting}\qed
+\end{example}
 
 \begin{figure}[!htbp]
 \centering
@@ -1898,20 +1905,6 @@ sage: edge_cutset_matrix(G).rank()
 \label{fig:trees-forests:desargues-graph-example}
 \end{figure}
 
-On the other hand, for the Frucht graph
-(shown in Figure
-\ref{fig:trees-forests:frucht-graph-example}),
-
-\begin{verbatim}
-
-sage: G = graphs.FruchtGraph()
-sage: G
-Frucht graph: Graph on 12 vertices
-sage: edge_cutset_matrix(G).rank()
-12
-
-\end{verbatim}
-
 \begin{figure}[!htbp]
 \centering
 \index{graph!Desargues}
@@ -1919,9 +1912,6 @@ sage: edge_cutset_matrix(G).rank()
 \caption{The Frucht graph.}
 \label{fig:trees-forests:frucht-graph-example}
 \end{figure}
-
-\end{example}
-
 
 These shall be discussed further in \S \ref{section:flows-cuts}.
 
