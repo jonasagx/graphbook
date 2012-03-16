@@ -1299,8 +1299,7 @@ and 3-edge-connected perfect graph.
 
 
 
-\begin{verbatim}
-
+\begin{lstlisting}
 sage: G = graphs.LCFGraph(12, [5,-5], 6) 
 sage: G.show(dpi=300)
 sage: G.is_bipartite()
@@ -1319,8 +1318,7 @@ sage: G.is_regular()
 True
 sage: G.coloring()
 [[1, 3, 5, 7, 9, 11], [0, 2, 4, 6, 8, 10]]
-
-\end{verbatim}
+\end{lstlisting}
 
 
 
@@ -1346,8 +1344,7 @@ This is a bipartite, Hamiltonian graph
 which has radius 8, diameter 8 and girth 10. It is also a
 3-vertex-connected and 3-edge-connected graph.
 
-\begin{verbatim}
-
+\begin{lstlisting}
 sage: G = graphs.LCFGraph(90, [17,-9,37,-37,9,-17], 15)  
 sage: G.plot(vertex_labels=False, vertex_size=0, graph_border=True).show(dpi=300)
 sage: G.is_vertex_transitive()
@@ -1362,8 +1359,7 @@ sage: len(G.vertices())
 90
 sage: len(G.edges())
 135
-
-\end{verbatim}
+\end{lstlisting}
 
 
 
@@ -1433,8 +1429,7 @@ non-planar graph.
 The Gray graph is an example of a graph which is edge-transitive but
 not vertex-transitive.
 
-\begin{verbatim}
-
+\begin{lstlisting}
 sage: G = graphs.LCFGraph(54, [-25,7,-7,13,-13,25], 9)
 sage: G.plot(vertex_labels=False, vertex_size=0, graph_border=True)
 sage: G.is_bipartite()
@@ -1445,8 +1440,7 @@ sage: G.is_hamiltonian()
 True
 sage: G.diameter()      
 6
-
-\end{verbatim}
+\end{lstlisting}
 
 
 \begin{figure}[!htbp]
@@ -1924,8 +1918,7 @@ Consider the graph shown in Figure
 whose line graph is shown in 
 Figure \ref{fig:introduction:linegraph-of-digraph-example-5vertices-8edges}.
 
-\begin{verbatim}
-
+\begin{lstlisting}
 sage: G1 = DiGraph({0:[1,2,4], 1:[2,3,4], 2:[3,4]})
 sage: G1.show()
 sage: D1 = G1.incidence_matrix(); D1
@@ -2006,8 +1999,7 @@ sage: G3.adjacency_matrix()
 [0 1 1 0 1 0 0 1]
 [1 1 0 0 0 0 0 0]
 [0 1 0 0 1 1 0 0]
-
-\end{verbatim}
+\end{lstlisting}
 
 
 
