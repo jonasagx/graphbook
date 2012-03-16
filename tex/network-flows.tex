@@ -19,6 +19,7 @@ Yellen~\cite{GrossYellen1999}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Flows and cuts}
+\label{section:flows-cuts}
 
 \begin{itemize}
 \item single source-single sink networks
@@ -604,6 +605,75 @@ $4,5$ with the bond $4,6$ then you get the subgraph foormed by the
 edges $5,6$ and that is not a disconnecting cut of $G$.
 }
 \end{example}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Electrical networks}
+
+We present, as an application of 
+circuit matrices and incidence matrices, and
+abstract definition of an electrical network.
+
+We define an electrical network abstractly as follows.
+Let $G=(V,E)$ be a simple connected directed graph having $n$ 
+vertices and $m$ edges. We have a {\it current} function
+
+\[
+i:E\to {\mathbb{R}},
+\]
+and a {\it voltage} function 
+
+\[
+v:E\to {\mathbb{R}},
+\]
+subject to three conditions. If we index the edges, say as
+$E=\{e_1,\dots ,e_m\}$, then these functions may (and sometimes will)
+be regarded as column vectors in ${\mathbb{R}}^m$. 
+\index{current}
+\index{voltage}
+\index{electrical network}
+
+The conditions satisfied by the current function
+are the following.
+
+\begin{itemize}
+\item
+{\it Kirchhoff's current law},
+
+\begin{equation}
+\label{eqn:node-law}
+Ai = \vec{0},
+\end{equation}
+where $A$ is the incidence matrix and $i$ is regarded as 
+a column vector.
+\index{Kirchhoff's current law}
+This equation comes from the fact that the algebraic sum of the
+currents going into a node is zero.
+
+\item
+{\it Kirchhoff's voltage law},
+\begin{equation}
+\label{eqn:voltage-law}
+Cv = \vec{0},
+\end{equation}
+where $C$ is the circuit matrix and $v$ is regarded as 
+a column vector.
+\index{Kirchhoff's voltage law}
+This equation comes from the fact that the algebraic sum of the
+voltage drops around a closed loop is zero.
+
+\item
+In a network with resistors but no inductors or capacitors, there is a 
+relationship between $i$ and $v$ given by 
+
+\[
+Ri=v+b,
+\]
+where $b$ is a vector of external ``battery'' sources
+and $R$ is a ``resistor matrix.''
+
+\end{itemize}
 
 
 
