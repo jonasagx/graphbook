@@ -4,45 +4,40 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Positive integer $n$ denoting the number of vertices. Positive
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n$ denoting the number of vertices. Positive
   even integer $k$ for the degree of each vertex, where
   $n \gg k \gg \ln n \gg 1$. In particular, $k$ should satisfy
-  $0 < k < n/2$. Rewiring probability $0 < p \leq 1$.}
-%%
-%% output
-\KwOut{A Watts-Strogatz network on $n$ vertices.}
-\BlankLine
+  $0 < k < n/2$. Rewiring probability $0 < p \leq 1$.
+\Ensure A Watts-Strogatz network on $n$ vertices.
 %%
 %% algorithm body
-$M \assign nk$\tcc*[f]{sum of all vertex degrees = twice number of edges}\;
-$r \assign$ draw uniformly at random from interval $(0,1)$\;
-$v \assign 1 + \lfloor \ln(1 - r) / \ln(1 - p) \rfloor$\;
-$E \assign$ contiguous edge list of $k$-circulant graph on $n$ vertices\;
-\While{$v \leq M$}{
-  $u \assign$ draw uniformly at random from $[0, 1, \dots, n-1]$\;
-  \If{\rm $v-1$ is even\nllabel{alg:Watts_Strogatz:even_index}}{
-    \While{\rm $E[v] = u$ or $(u, E[v]) \in E$}{
-      $u \assign$ draw uniformly at random from $[0, 1, \dots, n-1]$\;
-    }
-  }
-  \Else{
-    \While{\rm $E[v-2] = u$ or $(E[v-2], u) \in E$}{
-      $u \assign$ draw uniformly at random from $[0, 1, \dots, n-1]$\nllabel{alg:Watts_Strogatz:choose_vertex_odd_index}\;
-    }
-  }
-  $E[v-1] \assign u$\;
-  $r \assign$ draw uniformly at random from interval $(0,1)$\;
-  $v \assign v + 1 + \lfloor \ln(1 - r) / \ln(1 - p) \rfloor$\;
-}
-$G \assign \overline{K_n}$\;
-add edges in $E$ to $G$\;
-\Return $G$\;
+\State $M \gets nk$\Comment{sum of all vertex degrees = twice number of edges}
+\State $r \gets$ draw uniformly at random from interval $(0,1)$
+\State $v \gets 1 + \lfloor \ln(1 - r) / \ln(1 - p) \rfloor$
+\State $E \gets$ contiguous edge list of $k$-circulant graph on $n$ vertices
+\While{$v \leq M$}
+  \State $u \gets$ draw uniformly at random from $[0, 1, \dots, n-1]$
+  \If{\rm $v-1$ is even\label{alg:Watts_Strogatz:even_index}}
+    \While{\rm $E[v] = u$ or $(u, E[v]) \in E$}
+      \State $u \gets$ draw uniformly at random from $[0, 1, \dots, n-1]$
+    \EndWhile
+  \Else
+    \While{\rm $E[v-2] = u$ or $(E[v-2], u) \in E$}
+      \State $u \gets$ draw uniformly at random from $[0, 1, \dots, n-1]$\label{alg:Watts_Strogatz:choose_vertex_odd_index}
+    \EndWhile
+  \EndIf
+  \State $E[v-1] \gets u$
+  \State $r \gets$ draw uniformly at random from interval $(0,1)$
+  \State $v \gets v + 1 + \lfloor \ln(1 - r) / \ln(1 - p) \rfloor$
+\EndWhile
+\State $G \gets \overline{K_n}$
+\State add edges in $E$ to $G$
+\State \Return $G$
+\end{algorithmic}

@@ -4,51 +4,46 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{An ordered tree $T$ on $n > 0$ vertices.}
-%%
-%% output
-\KwOut{A list of the vertices of $T$ in bottom-up order.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require An ordered tree $T$ on $n > 0$ vertices.
+\Ensure A list of the vertices of $T$ in bottom-up order.
 %%
 %% algorithm body
-$Q \assign$ empty queue\;
-$r \assign$ root of $T$\;
-$C \assign [0, 0, \dots, 0]$\nllabel{alg:bottom_up_traversal:children_count}\tcc*[f]{$n$ copies of $0$}\;
-\For{\rm each edge $(u,v) \in E(T)$}{
-  $C[u] \assign C[u] + 1$\nllabel{alg:bottom_up_traversal:children_count_end}\;
-}
-$R \assign$ empty queue\nllabel{alg:bottom_up_traversal:empty_queue_R}\;
-$\enqueue(R, r)$\;
-\While{$\length(R) > 0$}{
-  $v \assign \dequeue(R)$\;
-  \For{\rm each $w \in \children(v)$}{
-    \If{$C[w] = 0$}{
-      $\enqueue(Q, w)$\;
-    }
-    \Else{
-      $\enqueue(R, w)$\nllabel{alg:bottom_up_traversal:enqueue_R_w}\;
-    }
-  }
-}
-$L \assign [\,]$\nllabel{alg:bottom_up_traversal:empty_list_L}\;
-\While{$\length(Q) > 0$}{
-  $v \assign \dequeue(Q)$\;
-  $\append(L, v)$\;
-  \If{$v \neq r$}{
-    $C[\parent(v)] \assign C[\parent(v)] - 1$\;
-    \If{$C[\parent(v)] = 0$}{
-      $u \assign \parent(v)$\;
-      $\enqueue(Q, u)$\nllabel{alg:bottom_up_traversal:enqueue_Q_u}\;
-    }
-  }
-}
-\Return $L$\;
+\State $Q \gets$ empty queue
+\State $r \gets$ root of $T$
+\State $C \gets [0, 0, \dots, 0]$\label{alg:bottom_up_traversal:children_count}\Comment{$n$ copies of $0$}
+\For{\rm each edge $(u,v) \in E(T)$}
+  \State $C[u] \gets C[u] + 1$\label{alg:bottom_up_traversal:children_count_end}
+\EndFor
+\State $R \gets$ empty queue\label{alg:bottom_up_traversal:empty_queue_R}
+\State $\enqueue(R, r)$
+\While{$\length(R) > 0$}
+  \State $v \gets \dequeue(R)$
+  \For{\rm each $w \in \children(v)$}
+    \If{$C[w] = 0$}
+      \State $\enqueue(Q, w)$
+    \Else
+      \State $\enqueue(R, w)$\label{alg:bottom_up_traversal:enqueue_R_w}
+    \EndIf
+  \EndFor
+\EndWhile
+\State $L \gets [\,]$\label{alg:bottom_up_traversal:empty_list_L}
+\While{$\length(Q) > 0$}
+  \State $v \gets \dequeue(Q)$
+  \State $\append(L, v)$
+  \If{$v \neq r$}
+    \State $C[\parent(v)] \gets C[\parent(v)] - 1$
+    \If{$C[\parent(v)] = 0$}
+      \State $u \gets \parent(v)$
+      \State $\enqueue(Q, u)$\label{alg:bottom_up_traversal:enqueue_Q_u}
+    \EndIf
+  \EndIf
+\EndWhile
+\State \Return $L$
+\end{algorithmic}

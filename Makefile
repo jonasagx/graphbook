@@ -65,6 +65,8 @@ pdf-plot:
 clean:
 	rm -rfv *#
 	rm -rfv *~
+	rm -rfv style/*~
+	rm -rfv tex/*~
 	rm -rfv *.aux
 	rm -rfv *.auxlock
 	rm -rfv *.bak

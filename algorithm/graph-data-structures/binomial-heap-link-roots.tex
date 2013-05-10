@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require Two copies of $B_{k-1}$, one rooted at $u$ and the other at $v$.
+\Ensure The respective roots of two copies of $B_{k-1}$ linked, with
+  one root becoming the parent of the other.
+%%
+%% algorithm body
+\State $\parent[u] \gets v$
+\State $\sibling[u] \gets \child[v]$
+\State $\child[v] \gets u$
+\State $\degree[v] \gets \degree[v] + 1$
+\end{algorithmic}

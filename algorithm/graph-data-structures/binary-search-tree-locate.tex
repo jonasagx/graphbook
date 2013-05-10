@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A binary search tree $T$ and a target key $k$.
+\Ensure A vertex in $T$ with key $k$. If no such vertex exists, return \MyNull.
+%%
+%% algorithm body
+\State $v \gets \rootElem[T]$
+\While{\rm $v \neq \MyNull$ and $k \neq \kappa_v$}
+  \If{$k < \kappa_v$}
+    \State $v \gets \leftChild[v]$
+  \Else
+    \State $v \gets \rightChild[v]$
+  \EndIf
+\EndWhile
+\State \Return $v$
+\end{algorithmic}

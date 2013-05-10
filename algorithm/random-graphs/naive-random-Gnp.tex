@@ -4,29 +4,25 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Positive integer $n$ and a probability $0 < p < 1$.}
-%%
-%% output
-\KwOut{A random graph from $G(n,p)$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n$ and a probability $0 < p < 1$.
+\Ensure A random graph from $G(n,p)$.
 %%
 %% algorithm body
-$G \assign \overline{K_n}$\;
-$V \assign \{0, 1, \dots, n - 1\}$\;
-$E \assign$ $\{2$-combinations of $V\}$\;
-\For{\rm each $e \in E$}{
-  $r \assign$ draw uniformly at random from interval $(0,1)$\;
-  \If{$r < p$}{
-    add edge $e$ to $G$\;
-  }
-}
-\Return $G$\;
+\State $G \gets \overline{K_n}$
+\State $V \gets \{0, 1, \dots, n - 1\}$
+\State $E \gets$ $\{2$-combinations of $V\}$
+\For{\rm each $e \in E$}
+  \State $r \gets$ draw uniformly at random from interval $(0,1)$
+  \If{$r < p$}
+    \State add edge $e$ to $G$
+  \EndIf
+\EndFor
+\State \Return $G$
+\end{algorithmic}

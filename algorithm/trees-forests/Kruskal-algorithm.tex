@@ -4,31 +4,26 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
+\begin{algorithmic}[1]
 %% input
-\KwIn{A connected weighted graph $G = (V,E)$ with weight function $w$.}
-%%
-%% output
-\KwOut{A minimum spanning tree of $G$.}
-\BlankLine
+\Require A connected weighted graph $G = (V,E)$ with weight function $w$.
+\Ensure A minimum spanning tree of $G$.
 %%
 %% algorithm body
-$m \assign |V|$\;
-$T \assign \emptyset$\;
-sort $E = \{e_1, e_2, \dots, e_n\}$ by weights so that
-$w(e_1) \leq w(w_2) \leq \cdots \leq w(e_n)$\;
-\For{$i \assign 1, 2, \dots, n$}{
-  \If{\rm $e_i \notin E(T)$ and $T \cup \{e_i\}$ is acyclic\nllabel{alg:Kruskal:edge_not_in_T_acyclic}}{
-    $T \assign T \cup \{e_i\}$\;
-  }
-  \If{$|T| = m - 1$}{
-    \Return $T$\;
-  }
-}
+\State $m \gets |V|$
+\State $T \gets \emptyset$
+\State sort $E = \{e_1, e_2, \dots, e_n\}$ by weights so that $w(e_1) \leq w(w_2) \leq \cdots \leq w(e_n)$
+\For{$i \gets 1, 2, \dots, n$}
+  \If{\rm $e_i \notin E(T)$ and $T \cup \{e_i\}$ is acyclic\label{alg:Kruskal:edge_not_in_T_acyclic}}
+    \State $T \gets T \cup \{e_i\}$
+  \EndIf
+  \If{$|T| = m - 1$}
+    \State \Return $T$
+  \EndIf
+\EndFor
+\end{algorithmic}

@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A binary tree $T$, given in sequence representation, having
+  $n > 1$ internal vertices.
+\Ensure The binary tree $T$ heapified so that it satisfies the
+  heap-order property.
+%%
+%% algorithm body
+\For{$i \gets \lfloor n/2 \rfloor - 1, \dots, 0$}
+  \State $v \gets T[i]$
+  \State $j \gets 0$
+  \While{$\MyTrue$}
+    \State $\MyLeft \gets 2i + 1$
+    \State $\MyRight \gets 2i + 2$
+    \If{\rm $\MyLeft < n$ and $\kappa_{T[\MyLeft]} \leq \kappa_v$}
+      \If{\rm $\MyRight < n$ and $\kappa_{T[\MyRight]} \leq \kappa_{T[\MyLeft]}$}
+        \State $j \gets \MyRight$
+      \Else
+        \State $j \gets \MyLeft$
+      \EndIf
+    \ElsIf{\rm $\MyRight < n$ and $\kappa_{T[\MyRight]} \leq \kappa_v$}
+      \State $j \gets \MyRight$
+    \Else
+      \State $T[i] \gets v$
+      \State exit the while loop
+    \EndIf
+    \State $T[i] \gets T[j]$
+    \State $i \gets j$
+  \EndWhile
+\EndFor
+\State \Return $T$
+\end{algorithmic}

@@ -4,53 +4,41 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data
-\SetKwData{NULL}{\footnotesize{NULL}}
-%%
-%% input
-\KwIn{A Polish stack $P$ containing an arithmetic expression in
-  reverse Polish notation.}
-%%
-%% output
-\KwOut{An evaluation of the arithmetic expression represented by $P$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A Polish stack $P$ containing an arithmetic expression in
+  reverse Polish notation.
+\Ensure An evaluation of the arithmetic expression represented by $P$.
 %%
 %% algorithm body
-$E \assign$ empty stack\;
-$v \assign \NULL$\;
-\While{\rm $P$ is not empty}{
-  $x \assign \pop(P)$\;
-  \If{\rm $x$ is an operator}{
-    $b \assign \pop(E)$\;
-    $a \assign \pop(E)$\;
-    \If{\rm $x$ is addition operator}{
-      $v \assign a + b$\;
-    }
-    \ElseIf{\rm $x$ is subtraction operator}{
-      $v \assign a - b$\;
-    }
-    \ElseIf{\rm $x$ is multiplication operator}{
-      $v \assign a \times b$\;
-    }
-    \ElseIf{\rm $x$ is division operator}{
-      $v \assign a / b$\;
-    }
-    \Else{
-      exit algorithm with error\;
-    }
-    $\push(E, v)$\;
-  }
-  \Else{
-    $\push(E, x)$\;
-  }
-}
-$v \assign \pop(E)$\;
-\Return $v$\;
+\State $E \gets$ empty stack
+\State $v \gets \MyNull$
+\While{\rm $P$ is not empty}
+  \State $x \gets \pop(P)$
+  \If{\rm $x$ is an operator}
+    \State $b \gets \pop(E)$
+    \State $a \gets \pop(E)$
+    \If{\rm $x$ is addition operator}
+      \State $v \gets a + b$
+    \ElsIf{\rm $x$ is subtraction operator}
+      \State $v \gets a - b$
+    \ElsIf{\rm $x$ is multiplication operator}
+      \State $v \gets a \times b$
+    \ElsIf{\rm $x$ is division operator}
+      \State $v \gets a / b$
+    \Else
+      \State exit algorithm with error
+    \EndIf
+    \State $\push(E, v)$
+  \Else
+    \State $\push(E, x)$
+  \EndIf
+\EndWhile
+\State $v \gets \pop(E)$
+\State \Return $v$
+\end{algorithmic}

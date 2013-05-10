@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require Two binomial heaps $H_1$ and $H_2$.
+\Ensure A binomial heap $H$ that results from merging the $H_i$.
+%%
+%% algorithm body
+\State $H \gets$ empty binomial heap
+\State $\headElem[H] \gets$ merge sort the root lists of $H_1$ and $H_2$
+\If{\rm $\headElem[H] = \MyNull$}
+  \State \Return $H$
+\EndIf
+\State $\MyPrevV \gets \MyNull$
+\State $v \gets \headElem[H]$
+\State $\MyNextV \gets \sibling[v]$
+\While{\rm $\MyNextV \neq \MyNull$}
+  \If{\rm $\degree[v] \neq \degree[\MyNextV]$ or ($\sibling[\MyNextV] \neq \MyNull$ and $\degree[\sibling[\MyNextV]] = \degree[v]$)}
+    \State $\MyPrevV \gets v$
+    \State $v \gets \MyNextV$
+  \ElsIf{$\kappa_v \leq \kappa_{\MyNextV}$}
+    \State $\sibling[v] \gets \sibling[\MyNextV]$
+    \State link the roots $\MyNextV$ and $v$ as per Algorithm~\ref{alg:tree_data_structures:link_roots}
+  \Else
+    \If{\rm $\MyPrevV = \MyNull$}
+      \State $\headElem[H] \gets \MyNextV$
+    \Else
+      \State $\sibling[\MyPrevV] \gets \MyNextV$
+    \EndIf
+    \State link the roots $v$ and $\MyNextV$ as per Algorithm~\ref{alg:tree_data_structures:link_roots}
+    \State $v \gets \MyNextV$
+  \EndIf
+  \State $\MyNextV \gets \sibling[v]$
+\EndWhile
+\State \Return $H$
+\end{algorithmic}

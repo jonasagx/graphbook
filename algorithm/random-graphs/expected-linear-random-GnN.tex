@@ -4,28 +4,25 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Positive integer $n$ and integer $N$ with $0 \leq N \leq \binom{n}{2}$.}
-%%
-%% output
-\KwOut{A random graph from $G(n,N)$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n$ and integer $N$ with 
+  $0 \leq N \leq \binom{n}{2}$.
+\Ensure A random graph from $G(n,N)$.
 %%
 %% algorithm body
-\If{$N \leq \binom{n}{2} / 2$}{
-  \Return result of Algorithm~\ref{alg:random_graphs:linear_generate_random_GnN}\;
-}
-$G \assign K_n$\;
-\For{$i \assign 1, 2, \dots, \binom{n}{2} - N$}{
-  $e \assign$ draw uniformly at random from $E(G)$\;
-  remove edge $e$ from $G$\;
-}
-\Return $G$\;
+\If{$N \leq \binom{n}{2} / 2$}
+  \State \Return result of Algorithm~\ref{alg:random_graphs:linear_generate_random_GnN}
+\EndIf
+\State $G \gets K_n$
+\For{$i \gets 1, 2, \dots, \binom{n}{2} - N$}
+  \State $e \gets$ draw uniformly at random from $E(G)$
+  \State remove edge $e$ from $G$
+\EndFor
+\State \Return $G$
+\end{algorithmic}

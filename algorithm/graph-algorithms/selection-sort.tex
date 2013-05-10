@@ -4,33 +4,26 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{Min}{min}
-%%
-%% input
-\KwIn{A list $L$ of $n > 1$ elements that can be ordered using the
-  relation ``$\leq$''.}
-%%
-%% output
-\KwOut{The same list as $L$, but sorted in nondecreasing order.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A list $L$ of $n > 1$ elements that can be ordered using the
+  relation ``$\leq$''.
+\Ensure The same list as $L$, but sorted in nondecreasing order.
 %%
 %% algorithm body
-\For{$i \assign 1, 2, \dots, n-1$}{
-  $\Min \assign i$\;
-  \For{$j \assign i+1, i+2, \dots, n$}{
-    \If{$L[j] < L[\Min]$}{
-      $\Min \assign j$\;
-    }
-  }
-  swap the values of $L[\Min]$ and $L[i]$\nllabel{alg:selection_sort:swap_values}\;
-}
-\Return $L$\;
+\For{$i \gets 1, 2, \dots, n-1$}
+  \State $\MyMin \gets i$
+  \For{$j \gets i+1, i+2, \dots, n$}
+    \If{$L[j] < L[\MyMin]$}
+      \State $\MyMin \gets j$
+    \EndIf
+  \EndFor
+  \State swap the values of $L[\MyMin]$ and $L[i]$\label{alg:selection_sort:swap_values}
+\EndFor
+\State \Return $L$
+\end{algorithmic}

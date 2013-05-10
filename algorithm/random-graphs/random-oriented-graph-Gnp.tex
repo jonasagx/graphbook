@@ -4,36 +4,28 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyCutOff}{cutoff}
-%%
-%% input
-\KwIn{Positive integer $n$ and probability $0 < p < 1$.}
-%%
-%% output
-\KwOut{A random oriented graph on $n$ vertices.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n$ and probability $0 < p < 1$.
+\Ensure A random oriented graph on $n$ vertices.
 %%
 %% algorithm body
-$G \assign$ random graph in $G(n,p)$ as per Algorithm~\ref{alg:random_graphs:linear_generate_random_sparse_Gnp}\;
-$E \assign$ edge set of $G$\;
-$G \assign$ directed version of $G$\;
-$\MyCutOff \assign$ draw uniformly at random from interval $(0,1)$\;
-\For{\rm each edge $uv \in E$}{
-  $r \assign$ draw uniformly at random from interval $(0,1)$\;
-  \If{$r < \MyCutOff$}{
-    remove $uv$ from $G$\;
-  }
-  \Else{
-    remove $vu$ from $G$\;
-  }
-}
-\Return $G$\;
+\State $G \gets$ random graph in $G(n,p)$ as per Algorithm~\ref{alg:random_graphs:linear_generate_random_sparse_Gnp}
+\State $E \gets$ edge set of $G$
+\State $G \gets$ directed version of $G$
+\State $\MyCutOff \gets$ draw uniformly at random from interval $(0,1)$
+\For{\rm each edge $uv \in E$}
+  \State $r \gets$ draw uniformly at random from interval $(0,1)$
+  \If{$r < \MyCutOff$}
+    \State remove $uv$ from $G$
+  \Else
+    \State remove $vu$ from $G$
+  \EndIf
+\EndFor
+\State \Return $G$
+\end{algorithmic}

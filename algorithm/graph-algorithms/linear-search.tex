@@ -4,30 +4,22 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyFalse}{False}
-\SetKwData{MyTrue}{True}
-%%
+\begin{algorithmic}[1]
 %% input
-\KwIn{A nonempty list $L$ of vertices or edges. An object $E$ for
-  which we want to search in $L$.}
-%%
-%% output
-\KwOut{\MyTrue if $E$ is in $L$; \MyFalse otherwise.}
-\BlankLine
+\Require A nonempty list $L$ of vertices or edges. An object $E$ for
+  which we want to search in $L$.
+\Ensure \MyTrue if $E$ is in $L$; \MyFalse otherwise.
 %%
 %% algorithm body
-\For{\rm each $e \in L$}{
-  \If{$E = e$}{
-    \Return \MyTrue\;
-  }
-}
-\Return \MyFalse\;
+\For{\rm each $e \in L$}
+  \If{$E = e$}
+    \State \Return \MyTrue
+  \EndIf
+\EndFor
+\State \Return \MyFalse
+\end{algorithmic}

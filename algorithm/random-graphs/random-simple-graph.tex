@@ -4,53 +4,44 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyFalse}{False}
-\SetKwData{MyMax}{max}
-\SetKwData{MyTrue}{True}
-%%
-%% input
-\KwIn{Positive integers $n$ and $m$ specifying the order and size,
-  respectively, of the output graph.}
-%%
-%% output
-\KwOut{A random simple undirected graph with $n$ vertices and $m$
-  edges. If $m$ exceeds the size of $K_n$, then $K_n$ is returned.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integers $n$ and $m$ specifying the order and size,
+  respectively, of the output graph.
+\Ensure A random simple undirected graph with $n$ vertices and $m$
+  edges. If $m$ exceeds the size of $K_n$, then $K_n$ is returned.
 %%
 %% algorithm body
-\If{$n = 1$}{
-  \Return $K_1$\;
-}
-$\MyMax \assign n(n - 1) / 2$\;
-\If{$m > \MyMax$}{
-  \Return $K_n$\;
-}
-$G \assign$ null graph\;
-$A \assign n \times n$ adjacency matrix with entries $a_{ij}$\;
-$a_{ij} \assign \MyFalse$ for $0 \leq i,j < n$\;
-$i \assign 0$\;
-\While{$i < m$}{
-  $u \assign$ draw uniformly at random from $\{0, 1, \dots, n-1\}$\;
-  $v \assign$ draw uniformly at random from $\{0, 1, \dots, n-1\}$\;
-  \If{$u = v$}{
-    continue with next iteration of loop\;
-  }
-  \If{$u > v$}{
-    swap values of $u$ and $v$\;
-  }
-  \If{$a_{uv} = \MyFalse$}{
-    add edge $uv$ to $G$\;
-    $a_{uv} \assign \MyTrue$\;
-    $i \assign i + 1$\;
-  }
-}
-\Return $G$\;
+\If{$n = 1$}
+  \State \Return $K_1$
+\EndIf
+\State $\MyMax \gets n(n - 1) / 2$
+\If{$m > \MyMax$}
+  \State \Return $K_n$
+\EndIf
+\State $G \gets$ null graph
+\State $A \gets n \times n$ adjacency matrix with entries $a_{ij}$
+\State $a_{ij} \gets \MyFalse$ for $0 \leq i,j < n$
+\State $i \gets 0$
+\While{$i < m$}
+  \State $u \gets$ draw uniformly at random from $\{0, 1, \dots, n-1\}$
+  \State $v \gets$ draw uniformly at random from $\{0, 1, \dots, n-1\}$
+  \If{$u = v$}
+    \State continue with next iteration of loop
+  \EndIf
+  \If{$u > v$}
+    \State swap values of $u$ and $v$
+  \EndIf
+  \If{$a_{uv} = \MyFalse$}
+    \State add edge $uv$ to $G$
+    \State $a_{uv} \gets \MyTrue$
+    \State $i \gets i + 1$
+  \EndIf
+\EndWhile
+\State \Return $G$
+\end{algorithmic}

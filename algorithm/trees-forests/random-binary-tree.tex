@@ -4,38 +4,31 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{Parent}{parent}
-%%
-%% input
-\KwIn{Positive integer $n$.}
-%%
-%% output
-\KwOut{A random binary tree on $n$ vertices.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n$.
+\Ensure A random binary tree on $n$ vertices.
 %%
 %% algorithm body
-\If{$n = 1$}{
-  \Return $K_1$\;
-}
-$v \assign 0$\;
-$T \assign$ null graph\;
-add $v$ to $T$\;
-$\Parent \assign [(v,0)]$\;
-\For{$i \assign 1, 2, \dots, n-1$}{
-  $(v,k) \assign$ remove random element from \Parent\;
-  \If{$k < 1$}{
-    add $(v, k+1)$ to \Parent\;
-  }
-  add edge $(v, i)$ to $T$\;
-  add $(i, 0)$ to \Parent\;
-}
-\Return $T$\;
+\If{$n = 1$}
+  \State \Return $K_1$
+\EndIf
+\State $v \gets 0$
+\State $T \gets$ null graph
+\State add $v$ to $T$
+\State $\MyParent \gets [(v,0)]$
+\For{$i \gets 1, 2, \dots, n-1$}
+  \State $(v,k) \gets$ remove random element from \MyParent
+  \If{$k < 1$}
+    \State add $(v, k+1)$ to \MyParent
+  \EndIf
+  \State add edge $(v, i)$ to $T$
+  \State add $(i, 0)$ to \MyParent
+\EndFor
+\State \Return $T$
+\end{algorithmic}

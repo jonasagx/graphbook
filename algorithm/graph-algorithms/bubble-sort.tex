@@ -4,28 +4,24 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{A list $L$ of $n > 1$ elements that can be ordered using the
-  ``less than or equal to'' relation ``$\leq$''.}
-%%
-%% output
-\KwOut{The same list as $L$, but sorted in nondecreasing order.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A list $L$ of $n > 1$ elements that can be ordered using the
+  ``less than or equal to'' relation ``$\leq$''.
+\Ensure The same list as $L$, but sorted in nondecreasing order.
 %%
 %% algorithm body
-\For{$i \assign n, n - 1, \dots, 2$}{
-  \For{$j \assign 2, 3, \dots, i$}{
-    \If{$L[j-1] > L[j]$}{
-      swap the values of $L[j-1]$ and $L[j]$\nllabel{alg:bubble_sort:swap_values}\;
-    }
-  }
-}
-\Return $L$\;
+\For{$i \gets n, n - 1, \dots, 2$}
+  \For{$j \gets 2, 3, \dots, i$}
+    \If{$L[j-1] > L[j]$}
+      \State swap the values of $L[j-1]$ and $L[j]$\label{alg:bubble_sort:swap_values}
+    \EndIf
+  \EndFor
+\EndFor
+\State \Return $L$
+\end{algorithmic}

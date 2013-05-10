@@ -4,30 +4,26 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{A positive integer $n$ representing the order of $K_n$, with
-  vertex set $V = \{0, 1, \dots, n-1\}$.}
-%%
-%% output
-\KwOut{A random spanning tree of $K_n$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A positive integer $n$ representing the order of $K_n$, with
+  vertex set $V = \{0, 1, \dots, n-1\}$.
+\Ensure A random spanning tree of $K_n$.
 %%
 %% algorithm body
-\If{$n = 1$}{
-  \Return $K_1$\;
-}
-$P \assign$ random permutation of $V$\;
-$T \assign$ null tree\;
-\For{$i \assign 1, 2, \dots, n-1$}{
-  $j \assign$ random element from $\{0, 1, \dots, i-1\}$\;
-  add edge $(P[j],\, P[i])$ to $T$\;
-}
-\Return $T$\;
+\If{$n = 1$}
+  \State \Return $K_1$
+\EndIf
+\State $P \gets$ random permutation of $V$
+\State $T \gets$ null tree
+\For{$i \gets 1, 2, \dots, n-1$}
+  \State $j \gets$ random element from $\{0, 1, \dots, i-1\}$
+  \State add edge $(P[j],\, P[i])$ to $T$
+\EndFor
+\State \Return $T$
+\end{algorithmic}

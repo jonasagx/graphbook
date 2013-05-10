@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A nonempty binary search tree $T$.
+\Ensure A vertex of $T$ with minimum key.
+%%
+%% algorithm body
+\State $v \gets$ root of $T$
+\While{$\leftChild[v] \neq \MyNull$}
+  \State $v \gets \leftChild[v]$
+\EndWhile
+\State \Return $v$
+\end{algorithmic}

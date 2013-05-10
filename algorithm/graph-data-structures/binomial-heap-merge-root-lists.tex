@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require Two root lists $L_1$ and $L_2$, each containing the roots of
+  binomial trees in the binomial heaps $H_1$ and $H_2$,
+  respectively. Each root list $L_i$ is sorted in increasing order of
+  vertex degree.
+\Ensure A single list $L$ that merges the root lists $L_i$ and sorted
+  in nondecreasing order of degree.
+%%
+%% algorithm body
+\State $i \gets 1$
+\State $j \gets 1$
+\State $L \gets [\,]$
+\State $n \gets |L_1| + |L_2| - 1$
+\State $\append(L_1,\, \infty)$
+\State $\append(L_2,\, \infty)$
+\For{$k \gets 0, 1, \dots, n$}
+  \If{$\deg(L_1[i]) \leq \deg(L_2[j])$}
+    \State $\append(L,\, L_1[i])$
+    \State $i \gets i + 1$
+  \Else
+    \State $\append(L,\, L_2[j])$
+    \State $j \gets j + 1$
+  \EndIf
+\EndFor
+\State \Return $L$
+\end{algorithmic}

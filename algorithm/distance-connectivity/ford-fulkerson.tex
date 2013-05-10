@@ -4,28 +4,23 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Graph $G=(V,E)$ with flow capacity $c$, source $s$, and sink $t$.}
-%%
-%% output
-\KwOut{A flow $f$ from $s$ to $t$ which is a maximum for all edges in $E$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Graph $G=(V,E)$ with flow capacity $c$, source $s$, and sink $t$.
+\Ensure A flow $f$ from $s$ to $t$ which is a maximum for all edges in $E$.
 %%
 %% algorithm body
-$f(u,v) \assign 0$ for each edge $uv \in E$\;
-\While{\rm there is an $s$-$t$ path $p$ in $G_f$ such that $c_f(e) >
-0$ for each edge $e \in E$}{
-  find $c_f(p) = \min\{ c_f(u,v)\ |\ (u,v) \in p\}$\;
-  \For{\rm each edge $uv \in $}{
-     $f(u,v) = f(u,v) + c_f(p)$\;
-     $f(v,u) = f(v,u) - c_f(p)$\;
-  }
-}
+\State $f(u,v) \gets 0$ for each edge $uv \in E$
+\While{\rm there is an $s$-$t$ path $p$ in $G_f$ such that $c_f(e) > 0$ for each edge $e \in E$}
+  \State find $c_f(p) = \min\{ c_f(u,v)\ |\ (u,v) \in p\}$
+  \For{\rm each edge $uv \in $}
+     \State $f(u,v) = f(u,v) + c_f(p)$
+     \State $f(v,u) = f(v,u) - c_f(p)$
+  \EndFor
+\EndWhile
+\end{algorithmic}

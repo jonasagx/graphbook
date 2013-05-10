@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 ###########################################################################
-# Copyright (c) 2011--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+# Copyright (c) 2011--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ def is_blacklisted(f):
 
     True if f is blacklisted; False otherwise.
     """
-    blacklist = (".hgignore", ".hgtags", ".jpg", ".pdf", ".png",
+    blacklist = (".gitignore", ".hgignore", ".hgtags", ".jpg", ".pdf", ".png",
                  "bibliography.bst", "bin/copyright.py", "changelog.txt",
                  "data/random-graphs/power-grid/power-grid.gml",
                  "data/random-graphs/power-grid/power-grid.txt",
@@ -52,6 +52,8 @@ def is_blacklisted(f):
                  "LICENSE", "style/context", "style/generic", "style/latex",
                  "style/plain", "style/tex", "style/tkz-arith.tex",
                  "tex/license-gfdl.tex", "tex/version.tex", "TODO")
+    if ".git/" in f:
+        return True
     if ".hg/" in f:
         return True
     if f.endswith(".sty") and not f.endswith("mystyle.sty"):
@@ -164,6 +166,8 @@ if __name__ == "__main__":
     for root, _, files in os.walk(BOOK_ROOT):
         # ignore anything under .hg/
         if ".hg" in root:
+            continue
+        if ".git" in root:
             continue
         for f in files:
             p = os.path.join(root, f)

@@ -4,43 +4,35 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyFalse}{False}
-\SetKwData{MyTrue}{True}
-%%
-%% input
-\KwIn{A nonincreasing sequence $S = (d_1, d_2, \dots, d_n)$
-  of nonnegative integers, where $n \geq 2$.}
-%%
-%% output
-\KwOut{\MyTrue if $S$ is realizable by a simple graph; \MyFalse otherwise.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A nonincreasing sequence $S = (d_1, d_2, \dots, d_n)$ of
+  nonnegative integers, where $n \geq 2$.
+\Ensure \MyTrue if $S$ is realizable by a simple graph; \MyFalse otherwise.
 %%
 %% algorithm body
-\If{\rm $\sum_i d_i$ is odd\nllabel{alg:Havel_Hakimi:handshaking_lemma}}{
-  \Return \MyFalse\;
-}
-\While{\MyTrue}{
-  \If{$\min(S) < 0$\nllabel{alg:Havel_Hakimi:non_negative}}{
-    \Return \MyFalse\;
-  }
-  \If{$\max(S) = 0$\nllabel{alg:Havel_Hakimi:all_zeros}}{
-    \Return \MyTrue\;
-  }
-  \If{$\max(S) > \length(S) - 1$\nllabel{alg:Havel_Hakimi:degree_less_than_order}}{
-    \Return \MyFalse\;
-  }
-  $S
-  \assign
+\If{\rm $\sum_i d_i$ is odd\label{alg:Havel_Hakimi:handshaking_lemma}}
+  \State \Return \MyFalse
+\EndIf
+\While{\MyTrue}
+  \If{$\min(S) < 0$\label{alg:Havel_Hakimi:non_negative}}
+    \State \Return \MyFalse
+  \EndIf
+  \If{$\max(S) = 0$\label{alg:Havel_Hakimi:all_zeros}}
+    \State \Return \MyTrue
+  \EndIf
+  \If{$\max(S) > \length(S) - 1$\label{alg:Havel_Hakimi:degree_less_than_order}}
+    \State \Return \MyFalse
+  \EndIf
+  \State $S
+  \gets
   (d_2-1,\, d_3-1, \dots, d_{d_1+1}-1,\, d_{d_1+2}, \dots, d_{\length(S)})$
-  \nllabel{alg:Havel_Hakimi:reduce_S_to_S_prime}\;
-  sort $S$ in nonincreasing order\;
-}
+  \label{alg:Havel_Hakimi:reduce_S_to_S_prime}
+  \State sort $S$ in nonincreasing order
+\EndWhile
+\end{algorithmic}

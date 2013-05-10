@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input
+\Require{A finite list $L$ of $n > 0$ elements on which a total order is
+  defined.}
+%%
+%% output
+\Ensure{The same list $L$ sorted by the total order defined on its
+  elements.}
+%%
+%% algorithm body
+\State $Q \assign \emptylist$
+\For{$i \assign 1, 2, \dots, n$}
+  \State $e \assign \extractMin(L)$
+  \State $\enqueue(Q, e)$
+\EndFor
+\State \Return $Q$
+\end{algorithmic}

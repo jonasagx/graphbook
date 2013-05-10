@@ -27,12 +27,22 @@
 \usepackage{xspace}
 
 %% For typesetting algorithms and pseudocode
-\usepackage[algochapter,linesnumbered,noend,ruled]{algorithm2e}
-\IncMargin{1em}
-\DecMargin{1em}
-\SetNlSty{}{}{}  %% don't bold the line numbers
-\SetAlCapFnt{\normalfont}  %% don't bold the text ``Algorithm'' in the caption
-\SetAlCapSkip{5pt}
+%% \usepackage[algochapter,linesnumbered,noend,ruled]{algorithm2e}
+%% \IncMargin{1em}
+%% \DecMargin{1em}
+%% \SetNlSty{}{}{}  %% don't bold the line numbers
+%% \SetAlCapFnt{\normalfont}  %% don't bold the text ``Algorithm'' in the caption
+%% \SetAlCapSkip{5pt}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\algnotext{EndFor}
+\algnotext{EndFunction}
+\algnotext{EndIf}
+\algnotext{EndWhile}
+\algrenewcommand\algorithmicrequire{\textbf{Input}}
+\algrenewcommand\algorithmicensure{\textbf{Output}}
+\renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}}
 
 %% Package for drawing figures
 \usepackage{tikz}
@@ -49,7 +59,7 @@
 \usepackage{pgfplots}
 \usepackage{skak}
 \usepackage{subfigure}
-\usepackage{tkz-berge}  %% for drawing combinatorial graphs
+%% \usepackage{tkz-berge}  %% for drawing combinatorial graphs
 
 %% For typesetting code listings
 \usepackage{listings}
@@ -103,6 +113,7 @@
 \newtheorem{conjecture}[theorem]{Conjecture}
 
 %% Custom commands and shortcuts
+\newcommand{\emptylist}{[\;]}
 \newcommand{\AND}{\texttt{AND}}  %% logical AND
 \newcommand{\assign}{\leftarrow}  %% assignment operator
 \newcommand{\B}{\mathbb{B}}  %% binary alphabet
@@ -110,6 +121,24 @@
 \newcommand{\documentEdition}{\input{tex/version}}
 \newcommand{\E}{{\rm E}}  %% expectation
 \newcommand{\graphsix}{\texttt{graph6}\xspace}  %% typewriter font for graph6
+\newcommand{\MyCutOff}{\texttt{cutoff}\xspace}
+\newcommand{\MyFalse}{\texttt{false}\xspace}
+\newcommand{\MyHigh}{\texttt{high}\xspace}
+\newcommand{\MyLeft}{\texttt{left}\xspace}
+\newcommand{\MyLow}{\texttt{low}\xspace}
+\newcommand{\MyMax}{\texttt{max}\xspace}
+\newcommand{\MyMid}{\texttt{mid}\xspace}
+\newcommand{\MyMin}{\texttt{min}\xspace}
+\newcommand{\MyNextV}{\texttt{nextv}\xspace}
+\newcommand{\MyPrevV}{\texttt{prevv}\xspace}
+\newcommand{\MyNull}{\texttt{Null}\xspace}
+\newcommand{\MyOne}{\texttt{1}\xspace}
+\newcommand{\MyParent}{\texttt{parent}\xspace}
+\newcommand{\MyRight}{\texttt{right}\xspace}
+\newcommand{\MyTreeRoot}{\texttt{root}\xspace}
+\newcommand{\MyTrue}{\texttt{true}\xspace}
+\newcommand{\MyUpdated}{\texttt{updated}\xspace}
+\newcommand{\MyZero}{\texttt{0}\xspace}
 \newcommand{\OR}{\texttt{OR}}  %% logical OR
 \newcommand{\R}{\mathbf{R}}  %% set of real numbers
 \newcommand{\SAGE}{{\sf SAGE}\xspace}
@@ -229,8 +258,8 @@
 \makeindex
 \usepackage{hyperref}
 \hypersetup{
-  pdftitle={Algorithmic Graph Theory},%
-  pdfauthor={David Joyner, Minh Van Nguyen, Nathann Cohen},%
+  pdftitle={Algorithmic Graph Theory and Sage},%
+  pdfauthor={David Joyner, Minh Van Nguyen, David Phillips},%
   pdfsubject={mathematics},%
   pdfkeywords={algorithm, data structure, graph theory},%
   colorlinks=true,%

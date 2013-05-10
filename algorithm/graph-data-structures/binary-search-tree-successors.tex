@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A nonempty binary search tree $T$ and a vertex $v$ that is not
+  a maximum of $T$.
+\Ensure The successor of $v$.
+%%
+%% algorithm body
+\If{$\rightChild[v] \neq \MyNull$}
+  \State \Return minimum vertex of $v$'s right subtree as per Algorithm~\ref{alg:tree_data_structures:binary_search_tree_minimum_key}
+\EndIf
+\State $u \gets \parent(v)$
+\While{\rm $u \neq \MyNull$ and $v = \rightChild[u]$}
+  \State $v \gets u$
+  \State $u \gets \parent(u)$
+\EndWhile
+\State \Return $u$
+\end{algorithmic}

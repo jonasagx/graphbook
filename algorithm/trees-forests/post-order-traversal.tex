@@ -4,37 +4,32 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{An ordered tree $T$ on $n > 0$ vertices.}
-%%
-%% output
-\KwOut{A list of the vertices of $T$ in post-order.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require An ordered tree $T$ on $n > 0$ vertices.
+\Ensure A list of the vertices of $T$ in post-order.
 %%
 %% algorithm body
-$L \assign [\,]$\;
-$S \assign$ empty stack\;
-$r \assign$ root of $T$\;
-$\push(S, r)$\;
-\While{$\length(S) > 0$}{
-  \If{\rm $\Top(S)$ is unmarked}{
-    mark $\Top(S)$\;
-    $[u_1, u_2, \dots, u_k] \assign$ ordering of children of $\Top(S)$\;
-    \For{$i \assign k, k-1, \dots, 1$}{
-      $\push(S, u_i)$\;
-    }
-  }
-  \Else{
-    $v \assign \pop(S)$\;
-    $\append(L, v)$\;
-  }
-}
-\Return $L$\;
+\State $L \gets [\,]$
+\State $S \gets$ empty stack
+\State $r \gets$ root of $T$
+\State $\push(S, r)$
+\While{$\length(S) > 0$}
+  \If{\rm $\Top(S)$ is unmarked}
+    \State mark $\Top(S)$
+    \State $[u_1, u_2, \dots, u_k] \gets$ ordering of children of $\Top(S)$
+    \For{$i \gets k, k-1, \dots, 1$}
+      \State $\push(S, u_i)$
+    \EndFor
+  \Else
+    \State $v \gets \pop(S)$
+    \State $\append(L, v)$
+  \EndIf
+\EndWhile
+\State \Return $L$
+\end{algorithmic}

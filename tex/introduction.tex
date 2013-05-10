@@ -1484,7 +1484,7 @@ the resulting graph is $K_{3,3}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Representing graphs as matrices}
+\section{Representing graphs in a computer}
 \label{sec:introduction:matrix_representation}
 
 \begin{quote}
@@ -2098,6 +2098,11 @@ better understand the ``connectivity'' of a graph. Distance and
 connectivity will be discussed in more detail in
 Chapters~\ref{chap:distance_connectivity}
 and~\ref{chap:random_graphs}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Graph transformations}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3296,671 +3301,671 @@ list. We shall see examples of this in Chapter~\ref{chap:planar_graphs}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Common applications}
-\label{sec:introduction:common_applications}
-\index{graph!applications}
+%% \section{Common applications}
+%% \label{sec:introduction:common_applications}
+%% \index{graph!applications}
 
-\begin{figure}[!htbp]
-\centering
-\index{molecular graph}
-\subfigure[2,4,4-trimethylheptane]{
-  \includegraphics{image/introduction/molecular-graphs_trimethylheptane}
-}
-\qquad
-\subfigure[naphthalene]{
-  \includegraphics{image/introduction/molecular-graphs_naphthalene}
-}
-\caption{Two molecular graphs.}
-\label{fig:introduction:molecular_graphs}
-\end{figure}
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{molecular graph}
+%% \subfigure[2,4,4-trimethylheptane]{
+%%   \includegraphics{image/introduction/molecular-graphs_trimethylheptane}
+%% }
+%% \qquad
+%% \subfigure[naphthalene]{
+%%   \includegraphics{image/introduction/molecular-graphs_naphthalene}
+%% }
+%% \caption{Two molecular graphs.}
+%% \label{fig:introduction:molecular_graphs}
+%% \end{figure}
 
-\noindent
-Graph theory, and especially undirected graphs, is used in chemistry
-to study the structure of molecules. The graph theoretical
-representation of the structure of a molecule is called a
-\emph{molecular graph}\index{molecular graph}; two such examples are
-illustrated in Figure~\ref{fig:introduction:molecular_graphs}. Below
-we list a few common problems arising in applications of graph
-theory. See Foulds\index{Foulds, L. R.}~\cite{Foulds1992} and
-Walther\index{Walther, Hansjoachim}~\cite{Walther1984} for surveys of
-applications of graph theory in science, engineering, social sciences,
-economics, and operation research.
+%% \noindent
+%% Graph theory, and especially undirected graphs, is used in chemistry
+%% to study the structure of molecules. The graph theoretical
+%% representation of the structure of a molecule is called a
+%% \emph{molecular graph}\index{molecular graph}; two such examples are
+%% illustrated in Figure~\ref{fig:introduction:molecular_graphs}. Below
+%% we list a few common problems arising in applications of graph
+%% theory. See Foulds\index{Foulds, L. R.}~\cite{Foulds1992} and
+%% Walther\index{Walther, Hansjoachim}~\cite{Walther1984} for surveys of
+%% applications of graph theory in science, engineering, social sciences,
+%% economics, and operation research.
 
-\begin{itemize}
-\item If the edge weights are all nonnegative, find a ``cheapest''
-  closed path which contains all the vertices. This is related to the
-  famous traveling\index{traveling salesman problem} salesman problem
-  and is further discussed in Chapters~\ref{chap:graph_algorithms}
-  and~\ref{chap:optimal_traversals}.
+%% \begin{itemize}
+%% \item If the edge weights are all nonnegative, find a ``cheapest''
+%%   closed path which contains all the vertices. This is related to the
+%%   famous traveling\index{traveling salesman problem} salesman problem
+%%   and is further discussed in Chapters~\ref{chap:graph_algorithms}
+%%   and~\ref{chap:optimal_traversals}.
 
-\item Find a walk that visits each vertex, but contains as few edges
-  as possible and contains no cycles. This type of problem is related
-  to \emph{spanning trees}\index{spanning tree} and is discussed in
-  further details in Chapter~\ref{chap:trees_forests}.
+%% \item Find a walk that visits each vertex, but contains as few edges
+%%   as possible and contains no cycles. This type of problem is related
+%%   to \emph{spanning trees}\index{spanning tree} and is discussed in
+%%   further details in Chapter~\ref{chap:trees_forests}.
 
-\item Determine which vertices are ``more central'' than others. This
-  is connected with various applications to
-  \emph{social network analysis}\index{social network analysis} and is
-  covered in more details in Chapters~\ref{chap:distance_connectivity}
-  and~\ref{chap:random_graphs}. An example of a social network is shown
-  in Figure~\ref{fig:introduction:marriage_ties_Renaissance}, which
-  illustrates the marriage\index{marriage ties} ties among
-  Renaissance\index{Renaissance} Florentine\index{Florentine families}
-  families~\cite{Borgatti2005}. Note that one family has been removed
-  because its inclusion would create a disconnected graph.
+%% \item Determine which vertices are ``more central'' than others. This
+%%   is connected with various applications to
+%%   \emph{social network analysis}\index{social network analysis} and is
+%%   covered in more details in Chapters~\ref{chap:distance_connectivity}
+%%   and~\ref{chap:random_graphs}. An example of a social network is shown
+%%   in Figure~\ref{fig:introduction:marriage_ties_Renaissance}, which
+%%   illustrates the marriage\index{marriage ties} ties among
+%%   Renaissance\index{Renaissance} Florentine\index{Florentine families}
+%%   families~\cite{Borgatti2005}. Note that one family has been removed
+%%   because its inclusion would create a disconnected graph.
 
-\begin{figure}[!htbp]
-\centering
-\index{Florentine families}
-\index{marriage ties}
-\includegraphics{image/introduction/marriage-ties-Renaissance}
-\caption{Marriage ties among Renaissance Florentine families.}
-\label{fig:introduction:marriage_ties_Renaissance}
-\end{figure}
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{Florentine families}
+%% \index{marriage ties}
+%% \includegraphics{image/introduction/marriage-ties-Renaissance}
+%% \caption{Marriage ties among Renaissance Florentine families.}
+%% \label{fig:introduction:marriage_ties_Renaissance}
+%% \end{figure}
 
-\item A \emph{planar graph}\index{planar graph} is a graph that can be
-  drawn on the plane in such a way that its edges intersect only at
-  their endpoints. Can a graph be drawn entirely in the plane, with no
-  crossing edges? In other words, is a given graph planar? This
-  problem is important for designing computer chips and wiring
-  diagrams. Further discussion is contained in
-  Chapter~\ref{chap:planar_graphs}.
+%% \item A \emph{planar graph}\index{planar graph} is a graph that can be
+%%   drawn on the plane in such a way that its edges intersect only at
+%%   their endpoints. Can a graph be drawn entirely in the plane, with no
+%%   crossing edges? In other words, is a given graph planar? This
+%%   problem is important for designing computer chips and wiring
+%%   diagrams. Further discussion is contained in
+%%   Chapter~\ref{chap:planar_graphs}.
 
-\item Can you label or color all the vertices of a graph in such a
-  way that no adjacent vertices have the same color? If so, this is
-  called a \emph{vertex coloring}\index{coloring!vertex}. Can you
-  label or color all the edges of a graph in such a way that no
-  incident edges have the same color? If so, this is called an
-  \emph{edge coloring}\index{coloring!edge}.
-  Figure~\ref{fig:vertex_coloring:wheel_graph_W_4} shows a vertex
-  coloring of the wheel\index{wheel graph} graph $W_4$ using two
-  colors; Figure~\ref{fig:vertex_coloring:Petersen_graph} shows a
-  vertex coloring of the Petersen graph\index{Petersen!graph} using
-  three colors. Graph coloring has several remarkable applications,
-  one of which is to scheduling of jobs relying on a shared
-  resource. This is discussed further in
-  Chapter~\ref{chap:graph_coloring}.
+%% \item Can you label or color all the vertices of a graph in such a
+%%   way that no adjacent vertices have the same color? If so, this is
+%%   called a \emph{vertex coloring}\index{coloring!vertex}. Can you
+%%   label or color all the edges of a graph in such a way that no
+%%   incident edges have the same color? If so, this is called an
+%%   \emph{edge coloring}\index{coloring!edge}.
+%%   Figure~\ref{fig:vertex_coloring:wheel_graph_W_4} shows a vertex
+%%   coloring of the wheel\index{wheel graph} graph $W_4$ using two
+%%   colors; Figure~\ref{fig:vertex_coloring:Petersen_graph} shows a
+%%   vertex coloring of the Petersen graph\index{Petersen!graph} using
+%%   three colors. Graph coloring has several remarkable applications,
+%%   one of which is to scheduling of jobs relying on a shared
+%%   resource. This is discussed further in
+%%   Chapter~\ref{chap:graph_coloring}.
 
-\begin{figure}[!htbp]
-\centering
-\index{coloring!vertex}
-\index{Petersen!graph}
-\subfigure[]{
-  \label{fig:vertex_coloring:wheel_graph_W_4}
-  \includegraphics{image/introduction/vertex-coloring_square}
-}
-\qquad
-\subfigure[]{
-  \label{fig:vertex_coloring:Petersen_graph}
-  \includegraphics{image/introduction/vertex-coloring_pentagon}
-}
-\caption{Vertex coloring with two and three colors.}
-\label{fig:introduction:vertex_coloring}
-\end{figure}
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{coloring!vertex}
+%% \index{Petersen!graph}
+%% \subfigure[]{
+%%   \label{fig:vertex_coloring:wheel_graph_W_4}
+%%   \includegraphics{image/introduction/vertex-coloring_square}
+%% }
+%% \qquad
+%% \subfigure[]{
+%%   \label{fig:vertex_coloring:Petersen_graph}
+%%   \includegraphics{image/introduction/vertex-coloring_pentagon}
+%% }
+%% \caption{Vertex coloring with two and three colors.}
+%% \label{fig:introduction:vertex_coloring}
+%% \end{figure}
 
-\item In some fields, such as operations\index{operations research}
-  research, a directed graph with nonnegative edge weights is called
-  a \emph{network}\index{network}, the vertices are called
-  \emph{nodes}, the edges are called \emph{arcs}, and the weight on an
-  edge is called its \emph{capacity}. A
-  \emph{network flow}\index{network!flow} must satisfy the restriction
-  that the amount of flow into a node equals the amount of flow out of
-  it, except when it is a \emph{source node}, which has more outgoing
-  flow, or a \emph{sink node}, which has more incoming flow. The flow
-  along an edge must not exceed the capacity. What is the maximum flow
-  on a network and how to you find it? This problem, which has many
-  industrial applications, is discussed in
-  Chapter~\ref{chap:network_flows}.
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Application: finite automata}
-\index{automata theory}
-\index{finite automaton}
-
-In theoretical computer\index{computer science} science, automata are
-used as idealized mathematical models of computation. The studies of
-computability~(i.e. what can be computed) and complexity~(i.e. the
-time and space requirements of a computation) are based on automata
-theory to provide precise mathematical models of computers. For an
-intuitive appreciation of automata, consider a
-vending machine\index{vending machine} that dispenses food or
-beverages. We insert a fixed amount of money into the vending machine
-and make our choice of food or beverage by pressing buttons that
-correspond to our choice. If the amount of money inserted is
-sufficient to cover the cost of our choice of food or beverage, the
-machine dispenses the item of our choice. Otherwise we need to insert
-more money until the required amount is reached and then make our
-selection again. Embodied in the above vending machine example are
-notions of input~(money), machine states~(has a selection been made?
-has sufficient money been inserted?), state transition~(move from
-money insertion state to food/beverage selection state), and
-output~(dispense item of choice).
-
-In the above vending\index{vending machine} machine example, we should
-note that the vending machine only accepts a finite number of objects
-as legitimate input. The vending machine can accept dollar bills and
-coins of a fixed variety of denominations and belonging to a specific
-locale, e.g. Australia. Thus we say that the vending machine has
-finite input and the automaton that models the vending machine is
-referred to as a finite automaton having a finite alphabet.
+%% \item In some fields, such as operations\index{operations research}
+%%   research, a directed graph with nonnegative edge weights is called
+%%   a \emph{network}\index{network}, the vertices are called
+%%   \emph{nodes}, the edges are called \emph{arcs}, and the weight on an
+%%   edge is called its \emph{capacity}. A
+%%   \emph{network flow}\index{network!flow} must satisfy the restriction
+%%   that the amount of flow into a node equals the amount of flow out of
+%%   it, except when it is a \emph{source node}, which has more outgoing
+%%   flow, or a \emph{sink node}, which has more incoming flow. The flow
+%%   along an edge must not exceed the capacity. What is the maximum flow
+%%   on a network and how to you find it? This problem, which has many
+%%   industrial applications, is discussed in
+%%   Chapter~\ref{chap:network_flows}.
+%% \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Automaton and language}
+%% \section{Application: finite automata}
+%% \index{automata theory}
+%% \index{finite automaton}
 
-Before presenting a precise definition of finite automata, we take a
-detour to describe notations associated with valid input to finite
-automata. Let $\Sigma$ be a nonempty finite
-alphabet\index{alphabet}. By $\Sigma^\ast$ we mean the set of all
-finite strings\index{string} over $\Sigma$. Each element of
-$\Sigma^\ast$ is a string or word\index{word} of finite length whose
-components are elements of $\Sigma$. That is, if $w \in \Sigma^\ast$
-then $w = w_1 w_2 \cdots w_n$ for some integer $n \geq 0$ and each
-$w_i \in \Sigma$. It follows that $\Sigma \subseteq \Sigma^{\ast}$.
-We also consider the empty string $\varepsilon$ as a valid string over
-$\Sigma$. The string $\varepsilon$ is sometimes called the null string.
+%% In theoretical computer\index{computer science} science, automata are
+%% used as idealized mathematical models of computation. The studies of
+%% computability~(i.e. what can be computed) and complexity~(i.e. the
+%% time and space requirements of a computation) are based on automata
+%% theory to provide precise mathematical models of computers. For an
+%% intuitive appreciation of automata, consider a
+%% vending machine\index{vending machine} that dispenses food or
+%% beverages. We insert a fixed amount of money into the vending machine
+%% and make our choice of food or beverage by pressing buttons that
+%% correspond to our choice. If the amount of money inserted is
+%% sufficient to cover the cost of our choice of food or beverage, the
+%% machine dispenses the item of our choice. Otherwise we need to insert
+%% more money until the required amount is reached and then make our
+%% selection again. Embodied in the above vending machine example are
+%% notions of input~(money), machine states~(has a selection been made?
+%% has sufficient money been inserted?), state transition~(move from
+%% money insertion state to food/beverage selection state), and
+%% output~(dispense item of choice).
 
-\begin{definition}
-\textbf{Finite automata.}\index{finite automaton}
-Let $Q$ and $\Sigma$ be nonempty finite sets.  A
-\emph{finite automaton} is a $5$-tuple
-$\cA = (Q, \Sigma, \delta, q_0, F)$ where
-%%
-\begin{enumerate} \parskip=0.0in
-  \item $Q$ is a finite set of states\index{state}.
-
-  \item $\Sigma$ is a finite set of input alphabet\index{alphabet}.
-
-  \item $\delta : Q \times \Sigma \to Q$ is the
-    transition\index{transition!function} function.
-
-  \item $q_0 \in Q$ is the start or initial\index{state!initial} state.
-
-  \item $F \subseteq Q$ is the set of accepting\index{state!accepting}
-    or final\index{state!final} states.
-\end{enumerate}
-\end{definition}
-
-For each possible combination of state and input symbol, the
-transition function $\delta$ specifies exactly one subsequent or next
-state. The finite automaton $\cA$ must have at least one initial
-state, but this lower bound does not necessarily apply to its set of
-final states. It is possible that the set of final states be empty, in
-which case $\cA$ has no accepting states.
-
-\begin{example}
-\rm
-Figure~\ref{fig:introduction:vending_machine_state_diagram}
-illustrates a finite-automaton representation of a basic vending
-machine. The initial state is depicted as a circle with an arrow
-pointing to it, with no other state at the tail of the arrow. The
-final state is shown as a circle with two concentric rings. We can
-consider the visual representation in
-Figure~\ref{fig:introduction:vending_machine_state_diagram}, also
-called a \emph{state diagram}\index{state!diagram}, as a
-multidigraph\index{multidigraph} where each vertex is a state and each
-directed edge is a transition from one state to another. The state
-diagram can also be represented in tabular form as shown in
-Table~\ref{tab:introduction:vending_machine_transition_table}. \qed
-\end{example}
-
-\begin{figure}[!htbp]
-\centering
-\index{state!diagram}
-\index{vending machine}
-\includegraphics{image/introduction/vending-machine-state-diagram}
-\caption{State diagram of a simple vending machine.}
-\label{fig:introduction:vending_machine_state_diagram}
-\end{figure}
-
-\begin{table}
-\centering
-\index{vending machine}
-\index{transition!table}
-\input{data/introduction/vending-machine-transition.tex}
-\caption{Transition table of a simple vending machine.}
-\label{tab:introduction:vending_machine_transition_table}
-\end{table}
-
-Let $q_1, q_2 \in Q$. The finite-state automaton $\cA$ is said to be a
-\emph{deterministic finite-state automaton}~(DFA)\index{DFA}
-if\index{finite automaton!deterministic} for all
-$(q,a) \in Q \times \Sigma$, the mappings $(q,a) \mapsto q_1$ and
-$(q,a) \mapsto q_2$ imply that $q_1 = q_2$. Furthermore, for each
-state $q \in Q$ and each input symbol $a \in \Sigma$, we have
-$(q,a) \mapsto q^\prime$ for some $q^\prime \in Q$. In other words
-$|\delta(q,a)| = 1$.
-
-\begin{definition}
-\textbf{Nondeterministic finite-state automata.}
-A \emph{nondeterministic finite-state automaton}~(NFA)\index{NFA} is a
-$5$-tuple\index{finite automaton!nondeterministic}
-$\cA = (Q, \Sigma, \delta, Q_0, F)$ where
-%%
-\begin{enumerate} \parskip=0.0in
-  \item $Q$ is a finite set of states\index{state}.
-
-  \item $\Sigma$ is a finite set of input alphabet\index{alphabet}.
-
-  \item $\delta$ is a transition\index{transition!function} function
-    defined by $\delta: Q \times \Sigma \to 2^Q$, where $2^Q$ is the
-    power set of $Q$.
-
-  \item $Q_0 \subseteq Q$ is a set of initial\index{state!initial}
-    states.
-
-  \item $F \subseteq Q$ is a set of accepting\index{state!accepting}
-    or final\index{state!final} states.
-\end{enumerate}
-\end{definition}
-
-Intuitively, $\cA$ is said to be an NFA if there exist some
-$(q,a) \in Q \times \Sigma$ and $q_1, q_2 \in Q$ such that the
-transitions $(q,a) \mapsto q_1$ and $(q,a) \mapsto q_2$ imply
-$q_1 \neq q_2$. That is, corresponding to each state/input pair is a
-multitude of subsequent states. Note the contrast to DFA, where it is
-required that each state/input pair has at most one subsequent state.
-
-\begin{example}
-\label{eg:introduction:deterministic_finite_automaton}
-\rm
-Let $\mathcal{A} = (Q, \Sigma, \delta, q_0, F)$ be defined by $Q =
-\{ 1, 2 \}$, $\Sigma = \{ a, b \}$, $q_0 = 1$, $F = \{ 2 \}$
-and the transition function $\delta$ given by
-\[
-\delta(1,a) = 1,\quad
-\delta(1,b) = 2,\quad
-\delta(2,a) = 2,\quad
-\delta(2,b) = 2.
-\]
-Figure~\ref{fig:introduction:deterministic_finite_state_automaton}
-shows a digraph representation of $\cA$. It is easily verifiable by
-definition that $\cA$ is indeed a DFA\index{DFA}. \qed
-\end{example}
-
-\begin{figure}[!htbp]
-\centering
-\index{finite automaton!deterministic}
-\includegraphics{image/introduction/example-deterministic-finite-automaton}
-\caption{A deterministic finite-state automaton.}
-\label{fig:introduction:deterministic_finite_state_automaton}
-\end{figure}
+%% In the above vending\index{vending machine} machine example, we should
+%% note that the vending machine only accepts a finite number of objects
+%% as legitimate input. The vending machine can accept dollar bills and
+%% coins of a fixed variety of denominations and belonging to a specific
+%% locale, e.g. Australia. Thus we say that the vending machine has
+%% finite input and the automaton that models the vending machine is
+%% referred to as a finite automaton having a finite alphabet.
 
 
-\begin{example}
-\rm
-Let $\cA = (Q, \Sigma, \delta, Q_0, F)$ be defined by
-$Q = \{1, 2\}$, $\Sigma = \{a, b\}$, $Q_0 = \{1\}$,
-$F = \{2\}$, and the transition function $\delta$ given by
-\[
-\delta(1,a) = 1,\quad
-\delta(1,a) = 2,\quad
-\delta(2,a) = 2,\quad
-\delta(2,b) = 2.
-\]
-Figure~\ref{fig:introduction:nondeterministic_finite_state_automaton}
-shows a digraph representation of $\cA$. Note that $\delta(1,a) = 1$
-and $\delta(1,a) = 2$. It follows by definition that $\cA$ is an
-NFA\index{NFA}. \qed
-\end{example}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[!htbp]
-\centering
-\index{finite automaton!nondeterministic}
-\includegraphics{image/introduction/example-nondeterministic-finite-automaton}
-\caption{A nondeterministic finite-state automaton.}
-\label{fig:introduction:nondeterministic_finite_state_automaton}
-\end{figure}
+%% \subsection{Automaton and language}
 
-We can inductively define a transition function $\hat{\delta}$ of a
-DFA $\cA = (Q, \Sigma, \delta, q_0, F)$ operating on finite strings
-over $\Sigma$. That is,
-%%
-\begin{equation}
-\hat{\delta} : Q \times \Sigma^\ast \to Q.
-\end{equation}
-%%
-Let $q \in Q$ and let $s = s_1 s_2 \cdots s_n \in \Sigma^\ast$. In the
-case of the empty string, define
-$\hat{\delta} (q, \varepsilon) = q$. When $i = 1$, we have
-$\hat{\delta}(q, s_1) = \delta(q, s_1)$. For $1 < i \leq n$, define
-\[
-\hat{\delta}(q,\, s_1 s_2 \cdots s_i)
-=
-\hat{\delta}
-\left(
-  \hat{\delta}(q,\, s_1 s_2 \cdots s_{i-1}),\, s_i
-\right).
-\]
-For convenience, we write $\delta(q,s)$ instead of
-$\hat{\delta}(q,s)$. Where $\delta(q_0,s) \in F$, we say that the
-string $s$ is \emph{accepted}\index{string!accepted} by $\cA$. Any
-subset of $\Sigma^\ast$ is said to be a
-\emph{language}\index{language} over $\Sigma$. The language
-$\cL$\index{$\cL$} of $\cA$ is the set of all finite strings accepted
-by $\cA$, i.e.
-\[
-\cL(\cA)
-=
-\left\{
-  s \in \Sigma^\ast \;\left|\right.\; \delta(q_0,s) \in F
-\right\}.
-\]
-The special language $\cL(\cA)$ is also referred to as a
-\emph{regular language}\index{language!regular}. Referring back to
-example~\ref{eg:introduction:deterministic_finite_automaton}, any
-string accepted by $\cA$ has zero or more $a$, followed by exactly
-one $b$, and finally zero or more occurrences of $a$ or $b$. We can
-describe this language using the regular\index{regular expression}
-expression $a^\ast b (a|b)^\ast$.
+%% Before presenting a precise definition of finite automata, we take a
+%% detour to describe notations associated with valid input to finite
+%% automata. Let $\Sigma$ be a nonempty finite
+%% alphabet\index{alphabet}. By $\Sigma^\ast$ we mean the set of all
+%% finite strings\index{string} over $\Sigma$. Each element of
+%% $\Sigma^\ast$ is a string or word\index{word} of finite length whose
+%% components are elements of $\Sigma$. That is, if $w \in \Sigma^\ast$
+%% then $w = w_1 w_2 \cdots w_n$ for some integer $n \geq 0$ and each
+%% $w_i \in \Sigma$. It follows that $\Sigma \subseteq \Sigma^{\ast}$.
+%% We also consider the empty string $\varepsilon$ as a valid string over
+%% $\Sigma$. The string $\varepsilon$ is sometimes called the null string.
 
-For NFAs, we can similarly define a transition function operating on
-finite strings. Each input is a string over $\Sigma$ and the
-transition function $\hat{\delta}$ returns a subset of $Q$. Formally,
-our transition function for NFAs operating on finite strings is the
-map
-\[
-\hat{\delta} : Q \times \Sigma^\ast \to 2^Q.
-\]
-Let $q \in Q$ and let $w = xa$, where $x \in \Sigma^\ast$ and
-$a \in \Sigma$. The input symbol $a$ can be interpreted as being the
-very last symbol in the string $w$. Then $x$ is interpreted as being the
-substring of $w$ excluding the symbol $a$. In the case of the empty
-string, we have $\hat{\delta}(q, \varepsilon) = \{q\}$. For the
-inductive case, assume that
-$\hat{\delta}(q, x) = \{p_1, p_2, \dots, p_k\}$ where each
-$p_i \in Q$. Then $\hat{\delta}(q, w)$ is defined by
-%%
-\begin{align*}
-\hat{\delta}(q,w)
-&=
-\hat{\delta} \left( \hat{\delta}(q,x),\, a \right) \\[4pt]
-&=
-\hat{\delta} \left( \{p_1, p_2, \dots, p_k\}, a \right) \\[4pt]
-&=
-\bigcup_{i=1}^k \delta (p_i, a).
-\end{align*}
-%%
-It may happen that for some state $p_i$, there are no transitions from
-$p_i$ with input $a$. We cater for this possibility by writing
-$\delta(p_i, a) = \emptyset$.
+%% \begin{definition}
+%% \textbf{Finite automata.}\index{finite automaton}
+%% Let $Q$ and $\Sigma$ be nonempty finite sets.  A
+%% \emph{finite automaton} is a $5$-tuple
+%% $\cA = (Q, \Sigma, \delta, q_0, F)$ where
+%% %%
+%% \begin{enumerate} \parskip=0.0in
+%%   \item $Q$ is a finite set of states\index{state}.
+
+%%   \item $\Sigma$ is a finite set of input alphabet\index{alphabet}.
+
+%%   \item $\delta : Q \times \Sigma \to Q$ is the
+%%     transition\index{transition!function} function.
+
+%%   \item $q_0 \in Q$ is the start or initial\index{state!initial} state.
+
+%%   \item $F \subseteq Q$ is the set of accepting\index{state!accepting}
+%%     or final\index{state!final} states.
+%% \end{enumerate}
+%% \end{definition}
+
+%% For each possible combination of state and input symbol, the
+%% transition function $\delta$ specifies exactly one subsequent or next
+%% state. The finite automaton $\cA$ must have at least one initial
+%% state, but this lower bound does not necessarily apply to its set of
+%% final states. It is possible that the set of final states be empty, in
+%% which case $\cA$ has no accepting states.
+
+%% \begin{example}
+%% \rm
+%% Figure~\ref{fig:introduction:vending_machine_state_diagram}
+%% illustrates a finite-automaton representation of a basic vending
+%% machine. The initial state is depicted as a circle with an arrow
+%% pointing to it, with no other state at the tail of the arrow. The
+%% final state is shown as a circle with two concentric rings. We can
+%% consider the visual representation in
+%% Figure~\ref{fig:introduction:vending_machine_state_diagram}, also
+%% called a \emph{state diagram}\index{state!diagram}, as a
+%% multidigraph\index{multidigraph} where each vertex is a state and each
+%% directed edge is a transition from one state to another. The state
+%% diagram can also be represented in tabular form as shown in
+%% Table~\ref{tab:introduction:vending_machine_transition_table}. \qed
+%% \end{example}
+
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{state!diagram}
+%% \index{vending machine}
+%% \includegraphics{image/introduction/vending-machine-state-diagram}
+%% \caption{State diagram of a simple vending machine.}
+%% \label{fig:introduction:vending_machine_state_diagram}
+%% \end{figure}
+
+%% \begin{table}
+%% \centering
+%% \index{vending machine}
+%% \index{transition!table}
+%% \input{data/introduction/vending-machine-transition.tex}
+%% \caption{Transition table of a simple vending machine.}
+%% \label{tab:introduction:vending_machine_transition_table}
+%% \end{table}
+
+%% Let $q_1, q_2 \in Q$. The finite-state automaton $\cA$ is said to be a
+%% \emph{deterministic finite-state automaton}~(DFA)\index{DFA}
+%% if\index{finite automaton!deterministic} for all
+%% $(q,a) \in Q \times \Sigma$, the mappings $(q,a) \mapsto q_1$ and
+%% $(q,a) \mapsto q_2$ imply that $q_1 = q_2$. Furthermore, for each
+%% state $q \in Q$ and each input symbol $a \in \Sigma$, we have
+%% $(q,a) \mapsto q^\prime$ for some $q^\prime \in Q$. In other words
+%% $|\delta(q,a)| = 1$.
+
+%% \begin{definition}
+%% \textbf{Nondeterministic finite-state automata.}
+%% A \emph{nondeterministic finite-state automaton}~(NFA)\index{NFA} is a
+%% $5$-tuple\index{finite automaton!nondeterministic}
+%% $\cA = (Q, \Sigma, \delta, Q_0, F)$ where
+%% %%
+%% \begin{enumerate} \parskip=0.0in
+%%   \item $Q$ is a finite set of states\index{state}.
+
+%%   \item $\Sigma$ is a finite set of input alphabet\index{alphabet}.
+
+%%   \item $\delta$ is a transition\index{transition!function} function
+%%     defined by $\delta: Q \times \Sigma \to 2^Q$, where $2^Q$ is the
+%%     power set of $Q$.
+
+%%   \item $Q_0 \subseteq Q$ is a set of initial\index{state!initial}
+%%     states.
+
+%%   \item $F \subseteq Q$ is a set of accepting\index{state!accepting}
+%%     or final\index{state!final} states.
+%% \end{enumerate}
+%% \end{definition}
+
+%% Intuitively, $\cA$ is said to be an NFA if there exist some
+%% $(q,a) \in Q \times \Sigma$ and $q_1, q_2 \in Q$ such that the
+%% transitions $(q,a) \mapsto q_1$ and $(q,a) \mapsto q_2$ imply
+%% $q_1 \neq q_2$. That is, corresponding to each state/input pair is a
+%% multitude of subsequent states. Note the contrast to DFA, where it is
+%% required that each state/input pair has at most one subsequent state.
+
+%% \begin{example}
+%% \label{eg:introduction:deterministic_finite_automaton}
+%% \rm
+%% Let $\mathcal{A} = (Q, \Sigma, \delta, q_0, F)$ be defined by $Q =
+%% \{ 1, 2 \}$, $\Sigma = \{ a, b \}$, $q_0 = 1$, $F = \{ 2 \}$
+%% and the transition function $\delta$ given by
+%% \[
+%% \delta(1,a) = 1,\quad
+%% \delta(1,b) = 2,\quad
+%% \delta(2,a) = 2,\quad
+%% \delta(2,b) = 2.
+%% \]
+%% Figure~\ref{fig:introduction:deterministic_finite_state_automaton}
+%% shows a digraph representation of $\cA$. It is easily verifiable by
+%% definition that $\cA$ is indeed a DFA\index{DFA}. \qed
+%% \end{example}
+
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{finite automaton!deterministic}
+%% \includegraphics{image/introduction/example-deterministic-finite-automaton}
+%% \caption{A deterministic finite-state automaton.}
+%% \label{fig:introduction:deterministic_finite_state_automaton}
+%% \end{figure}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \begin{example}
+%% \rm
+%% Let $\cA = (Q, \Sigma, \delta, Q_0, F)$ be defined by
+%% $Q = \{1, 2\}$, $\Sigma = \{a, b\}$, $Q_0 = \{1\}$,
+%% $F = \{2\}$, and the transition function $\delta$ given by
+%% \[
+%% \delta(1,a) = 1,\quad
+%% \delta(1,a) = 2,\quad
+%% \delta(2,a) = 2,\quad
+%% \delta(2,b) = 2.
+%% \]
+%% Figure~\ref{fig:introduction:nondeterministic_finite_state_automaton}
+%% shows a digraph representation of $\cA$. Note that $\delta(1,a) = 1$
+%% and $\delta(1,a) = 2$. It follows by definition that $\cA$ is an
+%% NFA\index{NFA}. \qed
+%% \end{example}
 
-\subsection{Simulating NFAs using DFAs}
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{finite automaton!nondeterministic}
+%% \includegraphics{image/introduction/example-nondeterministic-finite-automaton}
+%% \caption{A nondeterministic finite-state automaton.}
+%% \label{fig:introduction:nondeterministic_finite_state_automaton}
+%% \end{figure}
 
-Any NFA can be simulated by a DFA. One way of accomplishing this is to
-allow the DFA to keep track of all the states that the NFA can be in
-after reading an input symbol. The formal proof depends on this
-construction of an equivalent DFA and then showing that the language
-of the DFA is the same as that of the NFA.
+%% We can inductively define a transition function $\hat{\delta}$ of a
+%% DFA $\cA = (Q, \Sigma, \delta, q_0, F)$ operating on finite strings
+%% over $\Sigma$. That is,
+%% %%
+%% \begin{equation}
+%% \hat{\delta} : Q \times \Sigma^\ast \to Q.
+%% \end{equation}
+%% %%
+%% Let $q \in Q$ and let $s = s_1 s_2 \cdots s_n \in \Sigma^\ast$. In the
+%% case of the empty string, define
+%% $\hat{\delta} (q, \varepsilon) = q$. When $i = 1$, we have
+%% $\hat{\delta}(q, s_1) = \delta(q, s_1)$. For $1 < i \leq n$, define
+%% \[
+%% \hat{\delta}(q,\, s_1 s_2 \cdots s_i)
+%% =
+%% \hat{\delta}
+%% \left(
+%%   \hat{\delta}(q,\, s_1 s_2 \cdots s_{i-1}),\, s_i
+%% \right).
+%% \]
+%% For convenience, we write $\delta(q,s)$ instead of
+%% $\hat{\delta}(q,s)$. Where $\delta(q_0,s) \in F$, we say that the
+%% string $s$ is \emph{accepted}\index{string!accepted} by $\cA$. Any
+%% subset of $\Sigma^\ast$ is said to be a
+%% \emph{language}\index{language} over $\Sigma$. The language
+%% $\cL$\index{$\cL$} of $\cA$ is the set of all finite strings accepted
+%% by $\cA$, i.e.
+%% \[
+%% \cL(\cA)
+%% =
+%% \left\{
+%%   s \in \Sigma^\ast \;\left|\right.\; \delta(q_0,s) \in F
+%% \right\}.
+%% \]
+%% The special language $\cL(\cA)$ is also referred to as a
+%% \emph{regular language}\index{language!regular}. Referring back to
+%% example~\ref{eg:introduction:deterministic_finite_automaton}, any
+%% string accepted by $\cA$ has zero or more $a$, followed by exactly
+%% one $b$, and finally zero or more occurrences of $a$ or $b$. We can
+%% describe this language using the regular\index{regular expression}
+%% expression $a^\ast b (a|b)^\ast$.
 
-\begin{theorem}
-\label{thm:introduction:determinize_NFA}
-\textbf{Determinize an NFA.}
-If $\cA$ is a nondeterministic finite-state automaton, then there
-exists a deterministic finite-state automaton $\cA^\prime$ such that
-$\cL(\cA) = \cL(\cA^\prime)$.
-\end{theorem}
+%% For NFAs, we can similarly define a transition function operating on
+%% finite strings. Each input is a string over $\Sigma$ and the
+%% transition function $\hat{\delta}$ returns a subset of $Q$. Formally,
+%% our transition function for NFAs operating on finite strings is the
+%% map
+%% \[
+%% \hat{\delta} : Q \times \Sigma^\ast \to 2^Q.
+%% \]
+%% Let $q \in Q$ and let $w = xa$, where $x \in \Sigma^\ast$ and
+%% $a \in \Sigma$. The input symbol $a$ can be interpreted as being the
+%% very last symbol in the string $w$. Then $x$ is interpreted as being the
+%% substring of $w$ excluding the symbol $a$. In the case of the empty
+%% string, we have $\hat{\delta}(q, \varepsilon) = \{q\}$. For the
+%% inductive case, assume that
+%% $\hat{\delta}(q, x) = \{p_1, p_2, \dots, p_k\}$ where each
+%% $p_i \in Q$. Then $\hat{\delta}(q, w)$ is defined by
+%% %%
+%% \begin{align*}
+%% \hat{\delta}(q,w)
+%% &=
+%% \hat{\delta} \left( \hat{\delta}(q,x),\, a \right) \\[4pt]
+%% &=
+%% \hat{\delta} \left( \{p_1, p_2, \dots, p_k\}, a \right) \\[4pt]
+%% &=
+%% \bigcup_{i=1}^k \delta (p_i, a).
+%% \end{align*}
+%% %%
+%% It may happen that for some state $p_i$, there are no transitions from
+%% $p_i$ with input $a$. We cater for this possibility by writing
+%% $\delta(p_i, a) = \emptyset$.
 
-\begin{proof}
-Let the NFA $\cA$ be defined by $\cA = (Q, \Sigma, \delta, Q_0, F)$
-and define a DFA
-$\cA^\prime = (Q^\prime, \Sigma, \delta^\prime, q_0^\prime, F^\prime)$
-as follows. The state space of $\cA^\prime$ is the power set of $Q$,
-i.e. $Q^\prime = 2^Q$. The accepting state space $F^\prime$ of
-$\cA^\prime$ is a subset of $Q^\prime$, where each $f \in F^\prime$
-is a set containing at least an accepting state of $\cA$. In symbols,
-we write $F^\prime \subseteq Q^\prime$ where
-\[
-F^\prime
-=
-\left\{
-  q \in Q^\prime
-  \,\left|\right.\,
-  p \in F \text{ for some } p \in q
-\right\}.
-\]
-Denote each element $q \in Q^\prime$ by $q = [q_1, q_2, \dots, q_i]$
-where $q_1, q_2, \dots, q_i \in Q$. Thus the initial state of
-$\cA^\prime$ is $q_0^\prime = [Q_0]$. Now define the transition
-function $\delta^\prime$ by
-%%
-\begin{equation}
-\label{eqn:introduction:determinize_automata_delta_maps}
-\begin{array}{r@{\quad}l}
-& \delta^\prime \left( [q_1, q_2, \dots, q_i], s \right)
-=
-[p_1, p_2, \dots, p_j] \\[4pt]
-\Longleftrightarrow
-& \delta \left( \{q_1, q_2, \dots, q_i\}, s \right)
-=
-\displaystyle{\bigcup_{k=1}^i} \delta(q_k,s)
-=
-\{p_1, p_2, \dots, p_j\}.
-\end{array}
-\end{equation}
-%%
-For any input string $w$, we now show by induction on the length of
-$w$ that
-%%
-\begin{equation}
-\label{eqn:introduction:determinize_automata_equivalent_delta_maps}
-\begin{array}{r@{\quad}l}
-& \delta^\prime (q_0^\prime, w)
-=
-[q_1, q_2, \dots, q_i] \\[4pt]
-\Longleftrightarrow
-& \delta(Q_0, w)
-=
-\{q_1, q_2, \dots, q_i\}.
-\end{array}
-\end{equation}
-%%
-For the basis step, let $|w| = 0$ so that $w = \varepsilon$. Then it
-is clear that
-%%
-\begin{align*}
-&\quad \delta^\prime (q_0^\prime, w)
-=
-\delta^\prime (q_0^\prime, \varepsilon)
-=
-[q_0^\prime] \\
-\Longleftrightarrow
-&\quad \delta (Q_0, w)
-=
-\delta(Q_0, \varepsilon)
-=
-Q_0.
-\end{align*}
-%%
-Next, assume for induction that
-statement~\eqref{eqn:introduction:determinize_automata_equivalent_delta_maps}
-holds for all strings of length less than or equal to $m > 0$. Let $w$
-be a string of length $m$ and let $a \in \Sigma$ so that
-$|wa| = m + 1$. Then
-$
-\delta^\prime (q_0^\prime, wa)
-=
-\delta^\prime \big( \delta^\prime (q_0^\prime, w),\, a \big)
-$. By our inductive hypothesis, we have
-%%
-\begin{align*}
-&\quad \delta^\prime (q_0^\prime, w)
-=
-[p_1, p_2, \dots, p_j] \\
-\Longleftrightarrow
-&\quad \delta(Q_0, w)
-=
-\{p_1, p_2, \dots, p_j\}
-\end{align*}
-%%
-and
-applying~\eqref{eqn:introduction:determinize_automata_equivalent_delta_maps}
-we get
-%%
-\begin{align*}
-&\quad \delta^\prime \left( [p_1, p_2, \dots, p_j], a \right)
-=
-[r_1, r_2, \dots, r_k] \\
-\Longleftrightarrow
-&\quad \delta \left( \{p_1, p_2, \dots, p_j\}, a \right)
-=
-\{r_1, r_2, \dots, r_k\}.
-\end{align*}
-%%
-Hence
-%%
-\begin{align*}
-&\quad \delta^\prime (q_0^\prime, wa)
-=
-[r_1, r_2, \dots, r_k] \\
-\Longleftrightarrow
-&\quad \delta (Q_0, wa)
-=
-\{r_1, r_2, \dots, r_k\}
-\end{align*}
-%%
-which establishes that
-statement~(\ref{eqn:introduction:determinize_automata_equivalent_delta_maps})
-holds for all finite strings over $\Sigma$. Finally,
-$\delta^\prime (q_0^\prime, w) \in F^\prime$ if and only if there is
-some $p \in \delta(Q_0, w)$ such that $p \in F$. Therefore
-$\cL(\cA) = \cL (\cA^\prime)$.
-\end{proof}
 
-Theorem~\ref{thm:introduction:determinize_NFA} tells us that any NFA
-corresponds to some DFA that accepts the same language. For this
-reason, the theorem is said to provide us with a procedure for
-\emph{determinizing} NFAs. The actual procedure itself is contained in
-the proof of the theorem, although it must be noted that the procedure
-is inefficient since it potentially yields transitions from states that are
-unreachable from the initial state. If $q \in Q^\prime$ is a state of
-$\cA^\prime$ that is unreachable from $q_0^\prime$, then there are no
-input strings $w$ such that $\delta^\prime (q_0^\prime, w) = q$. Such
-unreachable states are redundant insofar as they do not affect
-$\cL(\cA^\prime)$.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Another inefficiency of the procedure in the proof of
-Theorem~\ref{thm:introduction:determinize_NFA} is the problem of state
-space explosion. As $Q^\prime = 2^Q$ is the power set of $Q$, the
-resulting DFA can potentially have exponentially more states than the
-NFA it is simulating. In the worse case, each element of $Q^\prime$ is
-a state of the resulting DFA that is reachable from
-$q_0^\prime = [Q_0]$. The best-case scenario is when each state of the
-DFA is a singleton, hence the DFA has the same number of states as its
-corresponding NFA. However, according to the procedure in the proof of
-Theorem~\ref{thm:introduction:determinize_NFA}, we generate all the
-possible $2^n$ states of the DFA, where $n = |Q|$. After considering
-all the transitions whose starting states are singletons, we then
-consider all transitions starting from each of the remaining
-$2^n - n$ elements in $Q^\prime$. In the best-case, none of those
-remaining $2^n - n$ states are reachable from $q_0^\prime$, hence it
-is redundant to generate transitions starting at each of those
-$2^n - n$ states.
-Example~\ref{eg:introduction:determinize_NFA_3_states_3_input_symbols}
-concretizes our discussion.
+%% \subsection{Simulating NFAs using DFAs}
 
-\begin{example}
-\label{eg:introduction:determinize_NFA_3_states_3_input_symbols}
-Use the procedure in Theorem~\ref{thm:introduction:determinize_NFA} to
-determinize the NFA in
-Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.
-\end{example}
+%% Any NFA can be simulated by a DFA. One way of accomplishing this is to
+%% allow the DFA to keep track of all the states that the NFA can be in
+%% after reading an input symbol. The formal proof depends on this
+%% construction of an equivalent DFA and then showing that the language
+%% of the DFA is the same as that of the NFA.
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics{image/introduction/NFA-3-states-3-input-symbols}
-\caption{An NFA with $3$ states and $3$ input symbols.}
-\label{fig:introduction:NFA_3_states_3_input_symbols}
-\end{figure}
+%% \begin{theorem}
+%% \label{thm:introduction:determinize_NFA}
+%% \textbf{Determinize an NFA.}
+%% If $\cA$ is a nondeterministic finite-state automaton, then there
+%% exists a deterministic finite-state automaton $\cA^\prime$ such that
+%% $\cL(\cA) = \cL(\cA^\prime)$.
+%% \end{theorem}
 
-\begin{proof}[Solution]
-The NFA $\cA = (Q, \Sigma, \delta, q_0, F)$ in
-Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols} has the
-states $Q = \{1, 2, 3\}$, the initial state $q_0 = 1$, the final state
-set $F = \{3\}$, and the input alphabet $\Sigma = \{a, b, c\}$. Its
-transitions are contained in
-Table~\ref{tab:introduction:NFA_3_states_3_input_symbols}.
-%%
-\begin{table}[!htbp]
-\centering
-\input{data/introduction/NFA-3-states-3-input-symbols.tex}
-\caption{Transition table for the NFA in
-  Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.}
-\label{tab:introduction:NFA_3_states_3_input_symbols}
-\end{table}
-%%
-To determinize $\cA$, we construct a DFA
-$
-\cA^\prime
-=
-(Q^\prime, \Sigma, \delta^\prime, q_0^\prime, F^\prime)
-$. As $Q^\prime$ is the power set of $Q$, then all the possible states
-of $\cA^\prime$ are contained in
-$
-Q^\prime
-=
-\left\{
-  \emptyset, [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]
-\right\}$.
-The alphabet of $\cA^\prime$ is the same as the alphabet of $\cA$,
-namely $\Sigma$. The initial state of
-$\cA^\prime$ is $q_0^\prime = [q_0] = [1]$. All the possible accepting
-states of $\cA^\prime$ are contained in
-$F^\prime = \{[3], [1,3], [2,3], [1,2,3]\}$. Next, we
-apply~\eqref{eqn:introduction:determinize_automata_delta_maps} to
-construct all the possible transitions of $\cA^\prime$. These
-transitions are contained in
-Table~\ref{tab:introduction:DFA_version_of_NFA_3_states_3_input_symbols}.
-Using those transitions, we obtain the digraph representation in
-Figure~\ref{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols},
-from which
-%%
-\begin{table}[!htbp]
-\centering
-\input{data/introduction/DFA-version-NFA-3-states-3-input-symbols.tex}
-\caption{Transition table of a deterministic version of the
-  NFA in Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.}
-\label{tab:introduction:DFA_version_of_NFA_3_states_3_input_symbols}
-\end{table}
-%%
-it is clear that the states $[1]$, $[2]$, $[3]$, and $[1,2]$ are the
-only states reachable from the initial state $q_0^\prime = [1]$. The
-remaining states $[1,3]$, $[2,3]$, and $[1,2,3]$ are not reachable from
-$q_0^\prime = [1]$. In other words, starting at
-$q_0^\prime = [1]$ there are no input strings that would result in a
-transition to any of $[1,3]$, $[2,3]$, and $[1,2,3]$. Therefore these
-states, and the transitions starting from them, can be deleted from
-Figure~\ref{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
-without affecting the language of $\cA^\prime$.
-Figure~\ref{fig:introduction:another_DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
-shows an equivalent DFA with redundant states removed.
-\end{proof}
+%% \begin{proof}
+%% Let the NFA $\cA$ be defined by $\cA = (Q, \Sigma, \delta, Q_0, F)$
+%% and define a DFA
+%% $\cA^\prime = (Q^\prime, \Sigma, \delta^\prime, q_0^\prime, F^\prime)$
+%% as follows. The state space of $\cA^\prime$ is the power set of $Q$,
+%% i.e. $Q^\prime = 2^Q$. The accepting state space $F^\prime$ of
+%% $\cA^\prime$ is a subset of $Q^\prime$, where each $f \in F^\prime$
+%% is a set containing at least an accepting state of $\cA$. In symbols,
+%% we write $F^\prime \subseteq Q^\prime$ where
+%% \[
+%% F^\prime
+%% =
+%% \left\{
+%%   q \in Q^\prime
+%%   \,\left|\right.\,
+%%   p \in F \text{ for some } p \in q
+%% \right\}.
+%% \]
+%% Denote each element $q \in Q^\prime$ by $q = [q_1, q_2, \dots, q_i]$
+%% where $q_1, q_2, \dots, q_i \in Q$. Thus the initial state of
+%% $\cA^\prime$ is $q_0^\prime = [Q_0]$. Now define the transition
+%% function $\delta^\prime$ by
+%% %%
+%% \begin{equation}
+%% \label{eqn:introduction:determinize_automata_delta_maps}
+%% \begin{array}{r@{\quad}l}
+%% & \delta^\prime \left( [q_1, q_2, \dots, q_i], s \right)
+%% =
+%% [p_1, p_2, \dots, p_j] \\[4pt]
+%% \Longleftrightarrow
+%% & \delta \left( \{q_1, q_2, \dots, q_i\}, s \right)
+%% =
+%% \displaystyle{\bigcup_{k=1}^i} \delta(q_k,s)
+%% =
+%% \{p_1, p_2, \dots, p_j\}.
+%% \end{array}
+%% \end{equation}
+%% %%
+%% For any input string $w$, we now show by induction on the length of
+%% $w$ that
+%% %%
+%% \begin{equation}
+%% \label{eqn:introduction:determinize_automata_equivalent_delta_maps}
+%% \begin{array}{r@{\quad}l}
+%% & \delta^\prime (q_0^\prime, w)
+%% =
+%% [q_1, q_2, \dots, q_i] \\[4pt]
+%% \Longleftrightarrow
+%% & \delta(Q_0, w)
+%% =
+%% \{q_1, q_2, \dots, q_i\}.
+%% \end{array}
+%% \end{equation}
+%% %%
+%% For the basis step, let $|w| = 0$ so that $w = \varepsilon$. Then it
+%% is clear that
+%% %%
+%% \begin{align*}
+%% &\quad \delta^\prime (q_0^\prime, w)
+%% =
+%% \delta^\prime (q_0^\prime, \varepsilon)
+%% =
+%% [q_0^\prime] \\
+%% \Longleftrightarrow
+%% &\quad \delta (Q_0, w)
+%% =
+%% \delta(Q_0, \varepsilon)
+%% =
+%% Q_0.
+%% \end{align*}
+%% %%
+%% Next, assume for induction that
+%% statement~\eqref{eqn:introduction:determinize_automata_equivalent_delta_maps}
+%% holds for all strings of length less than or equal to $m > 0$. Let $w$
+%% be a string of length $m$ and let $a \in \Sigma$ so that
+%% $|wa| = m + 1$. Then
+%% $
+%% \delta^\prime (q_0^\prime, wa)
+%% =
+%% \delta^\prime \big( \delta^\prime (q_0^\prime, w),\, a \big)
+%% $. By our inductive hypothesis, we have
+%% %%
+%% \begin{align*}
+%% &\quad \delta^\prime (q_0^\prime, w)
+%% =
+%% [p_1, p_2, \dots, p_j] \\
+%% \Longleftrightarrow
+%% &\quad \delta(Q_0, w)
+%% =
+%% \{p_1, p_2, \dots, p_j\}
+%% \end{align*}
+%% %%
+%% and
+%% applying~\eqref{eqn:introduction:determinize_automata_equivalent_delta_maps}
+%% we get
+%% %%
+%% \begin{align*}
+%% &\quad \delta^\prime \left( [p_1, p_2, \dots, p_j], a \right)
+%% =
+%% [r_1, r_2, \dots, r_k] \\
+%% \Longleftrightarrow
+%% &\quad \delta \left( \{p_1, p_2, \dots, p_j\}, a \right)
+%% =
+%% \{r_1, r_2, \dots, r_k\}.
+%% \end{align*}
+%% %%
+%% Hence
+%% %%
+%% \begin{align*}
+%% &\quad \delta^\prime (q_0^\prime, wa)
+%% =
+%% [r_1, r_2, \dots, r_k] \\
+%% \Longleftrightarrow
+%% &\quad \delta (Q_0, wa)
+%% =
+%% \{r_1, r_2, \dots, r_k\}
+%% \end{align*}
+%% %%
+%% which establishes that
+%% statement~(\ref{eqn:introduction:determinize_automata_equivalent_delta_maps})
+%% holds for all finite strings over $\Sigma$. Finally,
+%% $\delta^\prime (q_0^\prime, w) \in F^\prime$ if and only if there is
+%% some $p \in \delta(Q_0, w)$ such that $p \in F$. Therefore
+%% $\cL(\cA) = \cL (\cA^\prime)$.
+%% \end{proof}
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics{image/introduction/DFA-accepting-same-language-as-NFA}
-\caption{A DFA accepting the same language as the NFA in
-  Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.}
-\label{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
-\end{figure}
+%% Theorem~\ref{thm:introduction:determinize_NFA} tells us that any NFA
+%% corresponds to some DFA that accepts the same language. For this
+%% reason, the theorem is said to provide us with a procedure for
+%% \emph{determinizing} NFAs. The actual procedure itself is contained in
+%% the proof of the theorem, although it must be noted that the procedure
+%% is inefficient since it potentially yields transitions from states that are
+%% unreachable from the initial state. If $q \in Q^\prime$ is a state of
+%% $\cA^\prime$ that is unreachable from $q_0^\prime$, then there are no
+%% input strings $w$ such that $\delta^\prime (q_0^\prime, w) = q$. Such
+%% unreachable states are redundant insofar as they do not affect
+%% $\cL(\cA^\prime)$.
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics{image/introduction/another-DFA-accepting-same-language-as-NFA}
-\caption{A DFA equivalent to that in
-  Figure~\ref{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols},
-  with redundant states removed.}
-\label{fig:introduction:another_DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
-\end{figure}
+%% Another inefficiency of the procedure in the proof of
+%% Theorem~\ref{thm:introduction:determinize_NFA} is the problem of state
+%% space explosion. As $Q^\prime = 2^Q$ is the power set of $Q$, the
+%% resulting DFA can potentially have exponentially more states than the
+%% NFA it is simulating. In the worse case, each element of $Q^\prime$ is
+%% a state of the resulting DFA that is reachable from
+%% $q_0^\prime = [Q_0]$. The best-case scenario is when each state of the
+%% DFA is a singleton, hence the DFA has the same number of states as its
+%% corresponding NFA. However, according to the procedure in the proof of
+%% Theorem~\ref{thm:introduction:determinize_NFA}, we generate all the
+%% possible $2^n$ states of the DFA, where $n = |Q|$. After considering
+%% all the transitions whose starting states are singletons, we then
+%% consider all transitions starting from each of the remaining
+%% $2^n - n$ elements in $Q^\prime$. In the best-case, none of those
+%% remaining $2^n - n$ states are reachable from $q_0^\prime$, hence it
+%% is redundant to generate transitions starting at each of those
+%% $2^n - n$ states.
+%% Example~\ref{eg:introduction:determinize_NFA_3_states_3_input_symbols}
+%% concretizes our discussion.
 
-\newpage
+%% \begin{example}
+%% \label{eg:introduction:determinize_NFA_3_states_3_input_symbols}
+%% Use the procedure in Theorem~\ref{thm:introduction:determinize_NFA} to
+%% determinize the NFA in
+%% Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.
+%% \end{example}
+
+%% \begin{figure}[!htbp]
+%% \centering
+%% \includegraphics{image/introduction/NFA-3-states-3-input-symbols}
+%% \caption{An NFA with $3$ states and $3$ input symbols.}
+%% \label{fig:introduction:NFA_3_states_3_input_symbols}
+%% \end{figure}
+
+%% \begin{proof}[Solution]
+%% The NFA $\cA = (Q, \Sigma, \delta, q_0, F)$ in
+%% Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols} has the
+%% states $Q = \{1, 2, 3\}$, the initial state $q_0 = 1$, the final state
+%% set $F = \{3\}$, and the input alphabet $\Sigma = \{a, b, c\}$. Its
+%% transitions are contained in
+%% Table~\ref{tab:introduction:NFA_3_states_3_input_symbols}.
+%% %%
+%% \begin{table}[!htbp]
+%% \centering
+%% \input{data/introduction/NFA-3-states-3-input-symbols.tex}
+%% \caption{Transition table for the NFA in
+%%   Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.}
+%% \label{tab:introduction:NFA_3_states_3_input_symbols}
+%% \end{table}
+%% %%
+%% To determinize $\cA$, we construct a DFA
+%% $
+%% \cA^\prime
+%% =
+%% (Q^\prime, \Sigma, \delta^\prime, q_0^\prime, F^\prime)
+%% $. As $Q^\prime$ is the power set of $Q$, then all the possible states
+%% of $\cA^\prime$ are contained in
+%% $
+%% Q^\prime
+%% =
+%% \left\{
+%%   \emptyset, [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]
+%% \right\}$.
+%% The alphabet of $\cA^\prime$ is the same as the alphabet of $\cA$,
+%% namely $\Sigma$. The initial state of
+%% $\cA^\prime$ is $q_0^\prime = [q_0] = [1]$. All the possible accepting
+%% states of $\cA^\prime$ are contained in
+%% $F^\prime = \{[3], [1,3], [2,3], [1,2,3]\}$. Next, we
+%% apply~\eqref{eqn:introduction:determinize_automata_delta_maps} to
+%% construct all the possible transitions of $\cA^\prime$. These
+%% transitions are contained in
+%% Table~\ref{tab:introduction:DFA_version_of_NFA_3_states_3_input_symbols}.
+%% Using those transitions, we obtain the digraph representation in
+%% Figure~\ref{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols},
+%% from which
+%% %%
+%% \begin{table}[!htbp]
+%% \centering
+%% \input{data/introduction/DFA-version-NFA-3-states-3-input-symbols.tex}
+%% \caption{Transition table of a deterministic version of the
+%%   NFA in Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.}
+%% \label{tab:introduction:DFA_version_of_NFA_3_states_3_input_symbols}
+%% \end{table}
+%% %%
+%% it is clear that the states $[1]$, $[2]$, $[3]$, and $[1,2]$ are the
+%% only states reachable from the initial state $q_0^\prime = [1]$. The
+%% remaining states $[1,3]$, $[2,3]$, and $[1,2,3]$ are not reachable from
+%% $q_0^\prime = [1]$. In other words, starting at
+%% $q_0^\prime = [1]$ there are no input strings that would result in a
+%% transition to any of $[1,3]$, $[2,3]$, and $[1,2,3]$. Therefore these
+%% states, and the transitions starting from them, can be deleted from
+%% Figure~\ref{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
+%% without affecting the language of $\cA^\prime$.
+%% Figure~\ref{fig:introduction:another_DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
+%% shows an equivalent DFA with redundant states removed.
+%% \end{proof}
+
+%% \begin{figure}[!htbp]
+%% \centering
+%% \includegraphics{image/introduction/DFA-accepting-same-language-as-NFA}
+%% \caption{A DFA accepting the same language as the NFA in
+%%   Figure~\ref{fig:introduction:NFA_3_states_3_input_symbols}.}
+%% \label{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
+%% \end{figure}
+
+%% \begin{figure}[!htbp]
+%% \centering
+%% \includegraphics{image/introduction/another-DFA-accepting-same-language-as-NFA}
+%% \caption{A DFA equivalent to that in
+%%   Figure~\ref{fig:introduction:DFA_accepting_same_language_as_NFA_3_states_3_input_symbols},
+%%   with redundant states removed.}
+%% \label{fig:introduction:another_DFA_accepting_same_language_as_NFA_3_states_3_input_symbols}
+%% \end{figure}
+
+%% \newpage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

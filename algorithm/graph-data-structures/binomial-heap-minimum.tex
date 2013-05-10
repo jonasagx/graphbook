@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A binomial heap $H$ of order $n > 0$.
+\Ensure The minimum vertex of $H$.
+%%
+%% algorithm body
+\State $u \gets \MyNull$
+\State $v \gets \headElem[H]$
+\State $\MyMin \gets \infty$
+\While{$v \neq \MyNull$}
+  \If{$\kappa_v < \MyMin$}
+    \State $\MyMin \gets \kappa_v$
+    \State $u \gets v$
+  \EndIf
+  \State $v \gets \sibling[v]$
+\EndWhile
+\State \Return $u$
+\end{algorithmic}

@@ -4,34 +4,30 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Positive integer $n$ and a probability $0 < p < 1$.}
-%%
-%% output
-\KwOut{A random sparse graph from $G(n,p)$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n$ and a probability $0 < p < 1$.
+\Ensure A random sparse graph from $G(n,p)$.
 %%
 %% algorithm body
-$G \assign \overline{K_n}$\;
-$u \assign 1$\;
-$v \assign -1$\;
-\While{$u < n$}{
-  $r \assign$ draw uniformly at random from interval $(0,1)$\;
-  $v \assign v + 1 + \lfloor \ln(1 - r) / \ln(1 - p) \rfloor$\;
-  \While{\rm $v \geq u$ and $u < n$}{
-    $v \assign v - u$\;
-    $u \assign u + 1$\;
-  }
-  \If{$u < n$}{
-    add edge $uv$ to $G$\;
-  }
-}
-\Return $G$\;
+\State $G \gets \overline{K_n}$
+\State $u \gets 1$
+\State $v \gets -1$
+\While{$u < n$}
+  \State $r \gets$ draw uniformly at random from interval $(0,1)$
+  \State $v \gets v + 1 + \lfloor \ln(1 - r) / \ln(1 - p) \rfloor$
+  \While{\rm $v \geq u$ and $u < n$}
+    \State $v \gets v - u$
+    \State $u \gets u + 1$
+  \EndWhile
+  \If{$u < n$}
+    \State add edge $uv$ to $G$
+  \EndIf
+\EndWhile
+\State \Return $G$
+\end{algorithmic}

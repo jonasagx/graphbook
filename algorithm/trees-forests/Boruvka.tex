@@ -4,29 +4,25 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{A weighted connected graph $G = (V,E)$ with weight function
-  $w$. All the edge weights of $G$ are distinct.}
-%%
-%% output
-\KwOut{A minimum spanning tree $T$ of $G$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A weighted connected graph $G = (V,E)$ with weight function
+  $w$.  All the edge weights of $G$ are distinct.
+\Ensure A minimum spanning tree $T$ of $G$.
 %%
 %% algorithm body
-$n \assign |V|$\nllabel{alg:Boruvka:get_graph_order}\;
-$T \assign \overline{K}_n$\nllabel{alg:Boruvka:spanning_forest}\;
-\While{$|E(T)| < n - 1$\nllabel{alg:Boruvka:while_loop_start}}{
-  \For{\rm each component $T'$ of $T$\nllabel{alg:Boruvka:for_loop}}{
-    $e' \assign$ edge of minimum weight that leaves $T'$\;
-    $E(T) \assign E(T) \cup e'$\nllabel{alg:Boruvka:while_loop_end}\;
-  }
-}
-\Return $T$\;
+\State $n \gets |V|$\label{alg:Boruvka:get_graph_order}
+\State $T \gets \overline{K}_n$\label{alg:Boruvka:spanning_forest}
+\While{$|E(T)| < n - 1$\label{alg:Boruvka:while_loop_start}}
+  \For{\rm each component $T'$ of $T$\label{alg:Boruvka:for_loop}}
+    \State $e' \gets$ edge of minimum weight that leaves $T'$
+    \State $E(T) \gets E(T) \cup e'$\label{alg:Boruvka:while_loop_end}
+  \EndFor
+\EndWhile
+\State \Return $T$
+\end{algorithmic}

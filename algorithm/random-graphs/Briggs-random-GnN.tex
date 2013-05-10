@@ -4,48 +4,40 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyMax}{max}
-\SetKwData{MyTrue}{True}
-%%
-%% input
-\KwIn{Positive integers $n$ and $N$ such that $1 \leq N \leq \binom{n}{2}$.}
-%%
-%% output
-\KwOut{A random graph from $G(n,N)$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integers $n$ and $N$ such that $1 \leq N \leq \binom{n}{2}$.
+\Ensure A random graph from $G(n,N)$.
 %%
 %% algorithm body
-$\MyMax \assign \binom{n}{2}$\;
-\If{\rm $n = 1$ or $N = \MyMax$}{
-  \Return $K_n$\;
-}
-$G \assign \overline{K_n}$\;
-$u \assign 0$\;
-$v \assign 1$\;
-$t \assign 0$\tcc*[f]{number of candidates processed so far}\;
-$k \assign 0$\tcc*[f]{number of edges selected so far}\;
-\While{$\MyTrue$}{
-  $r \assign$ draw uniformly at random from $\{0, 1, \dots, \MyMax - t\}$\;
-  \If{$r < N - k$}{
-    add edge $uv$ to $G$\;
-    $k \assign k + 1$\;
-    \If{$k = N$}{
-      \Return $G$\;
-    }
-  }
-  $t \assign t + 1$\;
-  $v \assign v + 1$\;
-  \If{$v = n$}{
-    $u \assign u + 1$\;
-    $v \assign u + 1$\;
-  }
-}
+\State $\MyMax \gets \binom{n}{2}$
+\If{\rm $n = 1$ or $N = \MyMax$}
+  \State \Return $K_n$
+\EndIf
+\State $G \gets \overline{K_n}$
+\State $u \gets 0$
+\State $v \gets 1$
+\State $t \gets 0$\Comment{number of candidates processed so far}
+\State $k \gets 0$\Comment{number of edges selected so far}
+\While{$\MyTrue$}
+  \State $r \gets$ draw uniformly at random from $\{0, 1, \dots, \MyMax - t\}$
+  \If{$r < N - k$}
+    \State add edge $uv$ to $G$
+    \State $k \gets k + 1$
+    \If{$k = N$}
+      \State \Return $G$
+    \EndIf
+  \EndIf
+  \State $t \gets t + 1$
+  \State $v \gets v + 1$
+  \If{$v = n$}
+    \State $u \gets u + 1$
+    \State $v \gets u + 1$
+  \EndIf
+\EndWhile
+\end{algorithmic}

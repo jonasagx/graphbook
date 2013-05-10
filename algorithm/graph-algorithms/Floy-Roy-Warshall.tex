@@ -4,40 +4,36 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{A weighted digraph $G = (V, E)$ that has no
+\begin{algorithmic}[1]
+%% input and output
+\Require A weighted digraph $G = (V, E)$ that has no
   self-loops. Negative edge weights are allowed. The order of $G$ is
   $n > 0$. Vertices are numbered from 1 to $n$,
   i.e.~$V = \{1, 2, \dots, n\}$. The weight matrix $W = [w(i,j)]$ of
   $G$ as defined
-  in~(\ref{eqn:graph_algorithms:Floyd_Roy_Warshall_weight_matrix}).}
-%%
-%% output
-\KwOut{A matrix $P = [a_{ij}]$ of shortest paths in $G$. A matrix
+  in~(\ref{eqn:graph_algorithms:Floyd_Roy_Warshall_weight_matrix}).
+\Ensure A matrix $P = [a_{ij}]$ of shortest paths in $G$. A matrix
   $D = [a_{ij}]$ of distances where $D[i,j]$ is the weight~(or
-  distance) of a shortest $i$-$j$ path in $G$.}
-\BlankLine
+  distance) of a shortest $i$-$j$ path in $G$.
 %%
 %% algorithm body
-$n \assign |V|$\;
-$P[a_{ij}] \assign$ an $n \times n$ zero matrix\;
-$D[a_{ij}] \assign W[w(i,j)]$\;
-\For{$k \assign 1, 2, \dots, n$}{
-  \For{$i \assign 1, 2, \dots, n$}{
-    \For{$j \assign 1, 2, \dots, n$}{
-      \If{$D[i,j] > D[i,k] + D[k,j]$}{
-        $P[i,j] \assign k$\;
-        $D[i,j] \assign D[i,k] + D[k,j]$\;
-      }
-    }
-  }
-}
-\Return $(P,D)$\;
+\State $n \gets |V|$
+\State $P[a_{ij}] \gets$ an $n \times n$ zero matrix
+\State $D[a_{ij}] \gets W[w(i,j)]$
+\For{$k \gets 1, 2, \dots, n$}
+  \For{$i \gets 1, 2, \dots, n$}
+    \For{$j \gets 1, 2, \dots, n$}
+      \If{$D[i,j] > D[i,k] + D[k,j]$}
+        \State $P[i,j] \gets k$
+        \State $D[i,j] \gets D[i,k] + D[k,j]$
+      \EndIf
+    \EndFor
+  \EndFor
+\EndFor
+\State \Return $(P,D)$
+\end{algorithmic}

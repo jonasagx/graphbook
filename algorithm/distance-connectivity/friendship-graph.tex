@@ -4,34 +4,29 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{A positive integer $n$.}
-%%
-%% output
-\KwOut{The friendship graph $F_n$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A positive integer $n$.
+\Ensure The friendship graph $F_n$.
 %%
 %% algorithm body
-\If{$n = 1$}{
-  \Return $C_3$\;
-}
-$G \assign$ null graph\;
-$N \assign 2n + 1$\;
-\For{$i \assign 0, 1, \dots, N-3$}{
-  \If{\rm $i$ is odd}{
-    add edges $(i,\, i+1)$ and $(i,\, N-1)$ to $G$\;
-  }
-  \Else{
-    add edge $(i, N-1)$ to $G$\;
-  }
-}
-add edges $(N-2,\, 0)$ and $(N-2,\, N-1)$ to $G$\;
-\Return $E$\;
+\If{$n = 1$}
+  \State \Return $C_3$
+\EndIf
+\State $G \gets$ null graph
+\State $N \gets 2n + 1$
+\For{$i \gets 0, 1, \dots, N-3$}
+  \If{\rm $i$ is odd}
+    \State add edges $(i,\, i+1)$ and $(i,\, N-1)$ to $G$
+  \Else
+    \State add edge $(i, N-1)$ to $G$
+  \EndIf
+\EndFor
+\State add edges $(N-2,\, 0)$ and $(N-2,\, N-1)$ to $G$
+\State \Return $E$
+\end{algorithmic}

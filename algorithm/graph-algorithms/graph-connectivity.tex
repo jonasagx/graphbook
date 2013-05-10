@@ -4,43 +4,35 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyFalse}{False}
-\SetKwData{MyTrue}{True}
-%%
-%% input
-\KwIn{An undirected graph $G = (V, E)$ of order $n > 0$. A vertex $s$
+\begin{algorithmic}[1]
+%% input and output
+\Require An undirected graph $G = (V, E)$ of order $n > 0$. A vertex $s$
   from which to start the search. The vertices are numbered from $1$
-  to  $n = |V|$, i.e.~$V = \{1, 2, \dots, n\}$.}
-%%
-%% output
-\KwOut{$\MyTrue$ if $G$ is connected; $\MyFalse$ otherwise.}
-\BlankLine
+  to  $n = |V|$, i.e.~$V = \{1, 2, \dots, n\}$.
+\Ensure $\MyTrue$ if $G$ is connected; $\MyFalse$ otherwise.
 %%
 %% algorithm body
-$Q \assign [s]$\tcc*[f]{queue of nodes to visit}\;
-$D \assign [0, 0, \dots, 0]$\tcc*[f]{$n$ copies of $0$}\;
-$D[s] \assign 1$\;
-$c \assign 1$\;
-\While{$\length(Q) > 0$}{
-  $v \assign \dequeue(Q)$\;
-  \For{\rm each $w \in \adj(v)$}{
-    \If{$D[w] = 0$}{
-      $D[w] \assign 1$\;
-      $c \assign c + 1$\;
-      $\enqueue(Q, w)$\;
-    }
-  }
-}
-\If{$c = |V|$\nllabel{alg:BFS:connectivity_test}}{
-  \Return \MyTrue\;
-}
-\Return \MyFalse\;
+\State $Q \gets [s]$\Comment{queue of nodes to visit}
+\State $D \gets [0, 0, \dots, 0]$\Comment{$n$ copies of $0$}
+\State $D[s] \gets 1$
+\State $c \gets 1$
+\While{$\length(Q) > 0$}
+  \State $v \gets \dequeue(Q)$
+  \For{\rm each $w \in \adj(v)$}
+    \If{$D[w] = 0$}
+      \State $D[w] \gets 1$
+      \State $c \gets c + 1$
+      \State $\enqueue(Q, w)$
+    \EndIf
+  \EndFor
+\EndWhile
+\If{$c = |V|$\label{alg:BFS:connectivity_test}}
+  \State \Return \MyTrue
+\EndIf
+\State \Return \MyFalse
+\end{algorithmic}

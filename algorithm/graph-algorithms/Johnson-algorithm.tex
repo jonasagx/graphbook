@@ -4,45 +4,38 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyFalse}{False}
-%%
-%% input
-\KwIn{A sparse weighted digraph $G = (V, E)$, where the vertex set is
-  $V = \{1, 2, \dots, n\}$.}
-%%
-%% output
-\KwOut{If $G$ has negative-weight cycles, then return
+\begin{algorithmic}[1]
+%% input and output
+\Require A sparse weighted digraph $G = (V, E)$, where the vertex set is
+  $V = \{1, 2, \dots, n\}$.
+\Ensure If $G$ has negative-weight cycles, then return
   \MyFalse. Otherwise, return an $n \times n$ matrix $D$ of shortest-path
   weights and a list $P$ such that $P[v]$ is a parent list resulting
-  from running Dijkstra's algorithm on $G$ with start vertex $v$.}
-\BlankLine
+  from running Dijkstra's algorithm on $G$ with start vertex $v$.
 %%
 %% algorithm body
-$s \assign$ vertex not in $V$\;
-$V' \assign V \cup \{s\}$\;
-$E' \assign E \cup \{sv \;|\; v \in V\}$\;
-$G' \assign$ digraph $(V', E')$ with weight $w(sv) = 0$ for all $v \in V$\;
-\If{$\BellmanFord(G', w, s) = \MyFalse$}{
-  \Return \MyFalse\;
-}
-$d \assign$ distance list returned by $\BellmanFord(G', w, s)$\;
-\For{\rm each edge $uv \in E'$}{
-  $\hat{w}(uv) \assign w(uv) + d[u] - d[v]$\;
-}
-\For{\rm each $u \in V$}{
-  $(\hat{\delta}, \hat{P}) \assign$ distance and parent lists returned by $\Dijkstra(G, \hat{w}, u)$\;
-  $P[u] \assign \hat{P}$\;
-  \For{\rm each $v \in V$}{
-    $D[u,v] \assign \hat{\delta}[v] + d[v] - d[u]$\;
-  }
-}
-\Return $(D, P)$\;
+\State $s \gets$ vertex not in $V$
+\State $V' \gets V \cup \{s\}$
+\State $E' \gets E \cup \{sv | v \in V\}$
+\State $G' \gets$ digraph $(V', E')$ with weight $w(sv) = 0$ for all $v \in V$
+\If{$\BellmanFord(G', w, s) = \MyFalse$}
+  \State \Return \MyFalse
+\EndIf
+\State $d \gets$ distance list returned by $\BellmanFord(G', w, s)$
+\For{\rm each edge $uv \in E'$}
+  \State $\hat{w}(uv) \gets w(uv) + d[u] - d[v]$
+\EndFor
+\For{\rm each $u \in V$}
+  \State $(\hat{\delta}, \hat{P}) \gets$ distance and parent lists returned by $\Dijkstra(G, \hat{w}, u)$
+  \State $P[u] \gets \hat{P}$
+  \For{\rm each $v \in V$}
+    \State $D[u,v] \gets \hat{\delta}[v] + d[v] - d[u]$
+  \EndFor
+\EndFor
+\State \Return $(D, P)$
+\end{algorithmic}

@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A binary heap $T$, given in sequence representation, having
+  $n > 1$ internal vertices.
+\Ensure Extract the minimum vertex of $T$. With one vertex removed,
+  $T$ must satisfy the heap-order property.
+%%
+%% algorithm body
+\State $\MyTreeRoot \gets T[0]$
+\State $n \gets n - 1$
+\State $v \gets T[n]$
+\State $i \gets 0$
+\State $j \gets 0$
+\While{$\MyTrue$}
+  \State $\MyLeft \gets 2i + 1$
+  \State $\MyRight \gets 2i + 2$
+  \If{\rm $\MyLeft < n$ and $\kappa_{T[\MyLeft]} \leq \kappa_v$}
+    \If{\rm $\MyRight < n$ and $\kappa_{T[\MyRight]} \leq \kappa_{T[\MyLeft]}$}
+      \State $j \gets \MyRight$
+    \Else
+      \State $j \gets \MyLeft$
+    \EndIf
+  \ElsIf{\rm $\MyRight < n$ and $\kappa_{T[\MyRight]} \leq \kappa_v$}
+    \State $j \gets \MyRight$
+  \Else
+    \State $T[i] \gets v$
+    \State exit the loop
+  \EndIf
+  \State $T[i] \gets T[j]$
+  \State $i \gets j$
+\EndWhile
+\State \Return $\MyTreeRoot$
+\end{algorithmic}

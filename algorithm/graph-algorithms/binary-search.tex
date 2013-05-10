@@ -4,43 +4,31 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{High}{high}
-\SetKwData{Low}{low}
-\SetKwData{Mid}{mid}
-\SetKwData{MyFalse}{False}
-\SetKwData{MyTrue}{True}
-%%
+\begin{algorithmic}[1]
 %% input
-\KwIn{A nonempty list $L$ of positive integers. Elements of $L$ are
+\Require A nonempty list $L$ of positive integers. Elements of $L$ are
   sorted in nondecreasing order. An integer $i$ for which we want to
-  search in $L$.}
-%%
-%% output
-\KwOut{\MyTrue if $i$ is in $L$; \MyFalse otherwise.}
-\BlankLine
+  search in $L$.
+\Ensure \MyTrue if $i$ is in $L$; \MyFalse otherwise.
 %%
 %% algorithm body
-$\Low \assign 0$\;
-$\High \assign |L| - 1$\;
-\While{$\Low \leq \High$}{
-  $\Mid \assign \lfloor\frac{\Low\, +\, \High}{2}\rfloor$\nllabel{alg:binary_search:mid_floor}\;
-  \If{$i = L[\Mid]$}{
-    \Return \MyTrue\;
-  }
-  \If{$i < L[\Mid]$}{
-    $\High \assign \Mid - 1$\;
-  }
-  \Else{
-    $\Low \assign \Mid + 1$\;
-  }
-}
-\Return \MyFalse\;
+\State $\MyLow \gets 0$
+\State $\MyHigh \gets |L| - 1$
+\While{$\MyLow \leq \MyHigh$}
+  \State $\MyMid \gets \lfloor\frac{\MyLow\, +\, \MyHigh}{2}\rfloor$\label{alg:binary_search:mid_floor}
+  \If{$i = L[\MyMid]$}
+    \State \Return \MyTrue
+  \EndIf
+  \If{$i < L[\MyMid]$}
+    \State $\MyHigh \gets \MyMid - 1$
+  \Else
+    \State $\MyLow \gets \MyMid + 1$
+  \EndIf
+\EndWhile
+\State \Return \MyFalse
+\end{algorithmic}

@@ -4,32 +4,28 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{An ordered tree $T$ on $n > 0$ vertices.}
-%%
-%% output
-\KwOut{A list of the vertices of $T$ in level-order.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require An ordered tree $T$ on $n > 0$ vertices.
+\Ensure A list of the vertices of $T$ in level-order.
 %%
 %% algorithm body
-$L \assign [\,]$\;
-$Q \assign$ empty queue\;
-$r \assign$ root of $T$\;
-$\enqueue(Q, r)$\;
-\While{$\length(Q) > 0$}{
-  $v \assign \dequeue(Q)$\;
-  $\append(L, v)$\;
-  $[u_1, u_2, \dots, u_k] \assign$ ordering of children of $v$\;
-  \For{$i \assign 1, 2, \dots, k$}{
-    $\enqueue(Q, u_i)$\;
-  }
-}
-\Return $L$\;
+\State $L \gets [\,]$
+\State $Q \gets$ empty queue
+\State $r \gets$ root of $T$
+\State $\enqueue(Q, r)$
+\While{$\length(Q) > 0$}
+  \State $v \gets \dequeue(Q)$
+  \State $\append(L, v)$
+  \State $[u_1, u_2, \dots, u_k] \gets$ ordering of children of $v$
+  \For{$i \gets 1, 2, \dots, k$}
+    \State $\enqueue(Q, u_i)$
+  \EndFor
+\EndWhile
+\State \Return $L$
+\end{algorithmic}

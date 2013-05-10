@@ -4,41 +4,32 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyTrue}{True}
-\SetKwData{NULL}{\footnotesize{NULL}}
-%%
-%% input
-\KwIn{A binary tree $T$ on $n > 0$ vertices.}
-%%
-%% output
-\KwOut{A list of the vertices of $T$ in in-order.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A binary tree $T$ on $n > 0$ vertices.
+\Ensure A list of the vertices of $T$ in in-order.
 %%
 %% algorithm body
-$L \assign [\,]$\;
-$S \assign$ empty stack\;
-$v \assign$ root of $T$\;
-\While{$\MyTrue$}{
-  \If{$v \neq \NULL$}{
-    $\push(S, v)$\;
-    $v \assign$ left-child of $v$\;
-  }
-  \Else{
-    \If{$\length(S) = 0$}{
-      exit the loop\;
-    }
-    $v \assign \pop(S)$\;
-    $\append(L, v)$\;
-    $v \assign$ right-child of $v$\;
-  }
-}
-\Return $L$\;
+\State $L \gets [\,]$
+\State $S \gets$ empty stack
+\State $v \gets$ root of $T$
+\While{$\MyTrue$}
+  \If{$v \neq \MyNull$}
+    \State $\push(S, v)$
+    \State $v \gets$ left-child of $v$
+  \Else
+    \If{$\length(S) = 0$}
+      \State exit the loop
+    \EndIf
+    \State $v \gets \pop(S)$
+    \State $\append(L, v)$
+    \State $v \gets$ right-child of $v$
+  \EndIf
+\EndWhile
+\State \Return $L$
+\end{algorithmic}

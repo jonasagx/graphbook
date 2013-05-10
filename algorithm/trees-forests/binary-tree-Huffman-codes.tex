@@ -4,34 +4,30 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{An alphabet $A$ of $n$ symbols. A weight list $W$ of size $n$
-  such that $W[i]$ is the weight of $a_i \in A$.}
-%%
-%% output
-\KwOut{A binary tree $T$ representing the Huffman code of $A$ and the
-  root $r$ of $T$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require An alphabet $A$ of $n$ symbols. A weight list $W$ of size $n$
+  such that $W[i]$ is the weight of $a_i \in A$. 
+\Ensure A binary tree $T$ representing the Huffman code of $A$ and the
+  root $r$ of $T$.
 %%
 %% algorithm body
-$n \assign |A|$\;
-$Q \assign A$\nllabel{alg:Huffman_tree:initialize_priority_queue}\tcc*[f]{minimum priority queue}\;
-$T \assign$ empty tree\nllabel{alg:Huffman_tree:empty_binary_tree}\;
-\For{$i \assign 1, 2, \dots, n-1$\nllabel{alg:Huffman_tree:for_loop:start}}{
-  $a \assign \extractMin(Q)$\;
-  $b \assign \extractMin(Q)$\;
-  $z \assign$ node with left child $a$ and right child $b$\;
-  add the edges $za$ and $zb$ to $T$\;
-  $W[z] \assign W[a] + W[b]$\;
-  insert $z$ into priority queue $Q$\nllabel{alg:Huffman_tree:insert_into_queue}\;
-}
-$r \assign \extractMin(Q)$\nllabel{alg:Huffman_tree:extract_tree_root}\;
-\Return $(T, r)$\nllabel{alg:Huffman_tree:return_tree_and_root}\;
+\State $n \gets |A|$
+\State $Q \gets A$\label{alg:Huffman_tree:initialize_priority_queue}\Comment{minimum priority queue}
+\State $T \gets$ empty tree\label{alg:Huffman_tree:empty_binary_tree}
+\For{$i \gets 1, 2, \dots, n-1$\label{alg:Huffman_tree:for_loop:start}}
+  \State $a \gets \extractMin(Q)$
+  \State $b \gets \extractMin(Q)$
+  \State $z \gets$ node with left child $a$ and right child $b$
+  \State add the edges $za$ and $zb$ to $T$
+  \State $W[z] \gets W[a] + W[b]$
+  \State insert $z$ into priority queue $Q$\label{alg:Huffman_tree:insert_into_queue}
+\EndFor
+\State $r \gets \extractMin(Q)$\label{alg:Huffman_tree:extract_tree_root}
+\State \Return $(T, r)$\label{alg:Huffman_tree:return_tree_and_root}
+\end{algorithmic}

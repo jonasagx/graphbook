@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A nonempty binary heap $T$, in sequence representation, having
+  $n$ internal vertices. An element $v$ that is to be inserted as a
+  new internal vertex of $T$.
+\Ensure The binary heap $T$ augmented with the new internal vertex $v$.
+%%
+%% algorithm body
+\State $i \gets n$
+\While{$i > 0$}
+  \State $p \gets \lfloor (i - 1) / 2 \rfloor$
+  \If{$\kappa_{T[p]} \leq \kappa_{v}$}
+    \State exit the loop
+  \Else
+    \State $T[i] \gets T[p]$
+    \State $i \gets p$
+  \EndIf
+\EndWhile
+\State $T[i] \gets v$
+\State \Return $T$
+\end{algorithmic}

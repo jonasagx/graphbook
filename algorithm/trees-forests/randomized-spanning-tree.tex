@@ -4,27 +4,23 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{A connected graph $G$.}
-%%
-%% output
-\KwOut{A spanning tree of $G$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require A connected graph $G$.
+\Ensure A spanning tree of $G$.
 %%
 %% algorithm body
-$T \assign G$\;
-\While{\rm $T$ is not a tree}{
-  $e \assign$ random edge of $T$\;
-  \If{\rm $T - e$ is connected}{
-    $T \assign T - e$\;
-  }
-}
-\Return $T$\;
+\State $T \gets G$
+\While{\rm $T$ is not a tree}
+  \State $e \gets$ random edge of $T$
+  \If{\rm $T - e$ is connected}
+    \State $T \gets T - e$
+  \EndIf
+\EndWhile
+\State \Return $T$
+\end{algorithmic}

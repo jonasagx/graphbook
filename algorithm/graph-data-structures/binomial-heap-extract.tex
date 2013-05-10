@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A binomial heap $H$.
+\Ensure The minimum vertex of $H$ removed.
+%%
+%% algorithm body
+\State $v \gets$ extract minimum vertex from root list of $H$
+\State $H_2 \gets$ empty binomial heap
+\State $L \gets$ list of $v$'s children reversed
+\State $\headElem[H_2] \gets L[0]$
+\State $H \gets$ merge $H$ and $H_2$ as per Algorithm~\ref{alg:tree_data_structures:merge_binomial_heaps}
+\State \Return $v$
+\end{algorithmic}

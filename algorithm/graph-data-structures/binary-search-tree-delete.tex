@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is part of the book
+%%
+%% Algorithmic Graph Theory
+%% http://code.google.com/p/graphbook/
+%%
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
+%%
+%% See the file COPYING for copying conditions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{algorithmic}[1]
+%% input and output
+\Require A nonempty binary search tree $T$ and a vertex $x \in V(T)$ to
+  be removed from $T$.
+\Ensure The same BST $T$ but without $x$.
+%%
+%% algorithm body
+\State $u \gets \MyNull$
+\State $v \gets \MyNull$
+\If{\rm $\leftChild[x] \neq \MyNull$ or $\rightChild[x] \neq \MyNull$}
+  \State $v \gets x$
+\Else
+  \State $v \gets$ successor of $x$
+\EndIf
+\If{$\leftChild[v] \neq \MyNull$}
+  \State $u \gets \leftChild[v]$
+\Else
+  \State $u \gets \rightChild[v]$
+\EndIf
+\If{$u \neq \MyNull$}
+  \State $\parent[u] \gets \parent[v]$
+\EndIf
+\If{$\parent[v] = \MyNull$}
+  \State $\rootElem[T] \gets u$
+\Else
+  \If{$v = \leftChild[\parent[v]]$}
+    \State $\leftChild[\parent[v]] \gets u$
+  \Else
+    \State $\rightChild[\parent[v]] \gets u$
+  \EndIf
+\EndIf
+\If{$v \neq x$}
+  \State $\kappa_x \gets \kappa_v$
+  \State copy $v$'s auxilary data into $x$
+\EndIf
+\end{algorithmic}

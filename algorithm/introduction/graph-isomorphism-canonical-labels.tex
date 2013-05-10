@@ -4,33 +4,25 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% data section
-\SetKwData{MyFalse}{False}
-\SetKwData{MyTrue}{True}
-%%
-%% input
-\KwIn{Two undirected simple graphs $G_1$ and $G_2$, each having $n$
-  vertices.}
-%%
-%% output
-\KwOut{\MyTrue if $G_1 \cong G_2$; \MyFalse otherwise.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Two undirected simple graphs $G_1$ and $G_2$, each having $n$
+  vertices.
+\Ensure \MyTrue if $G_1 \cong G_2$; \MyFalse otherwise.
 %%
 %% algorithm body
-\For{$i \assign 1, 2$}{
-  $A_i \assign$ adjacency matrix of $G_i$\;
-  $p_i \assign$ permutation equivalence class of $A_i$\;
-  $A_i' \assign$ lexicographically maximal element of $p_i$\;
-}
-\If{$A_1' = A_2'$}{
-  \Return \MyTrue\;
-}
-\Return \MyFalse\;
+\For{$i \gets 1, 2$}
+  \State $A_i \gets$ adjacency matrix of $G_i$
+  \State $p_i \gets$ permutation equivalence class of $A_i$
+  \State $A_i' \gets$ lexicographically maximal element of $p_i$
+\EndFor
+\If{$A_1' = A_2'$}
+  \State \Return \MyTrue
+\EndIf
+\State \Return \MyFalse
+\end{algorithmic}

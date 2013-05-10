@@ -4,22 +4,18 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Two objects $a$ and $b$.}
-%%
-%% output
-\KwOut{The values of $a$ and $b$ swapped with each other.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Two objects $a$ and $b$.
+\Ensure The values of $a$ and $b$ swapped with each other.
 %%
 %% algorithm body
-$t \assign a$\;
-$a \assign b$\;
-$b \assign t$\;
+\State $t \gets a$
+\State $a \gets b$
+\State $b \gets t$
+\end{algorithmic}

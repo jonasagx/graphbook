@@ -4,46 +4,40 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Positive integer $n > 1$ and minimum degree $d \geq 1$.}
-%%
-%% output
-\KwOut{Bipartite scale-free multigraph. Each partition has $n$
-  vertices and each vertex has minimum degree $d$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Positive integer $n > 1$ and minimum degree $d \geq 1$.
+\Ensure Bipartite scale-free multigraph. Each partition has $n$
+  vertices and each vertex has minimum degree $d$.
 %%
 %% algorithm body
-$G \assign \overline{K_{2n}}$\tcc*[f]{vertex set is $\{0, 1, \dots, 2n-1\}$}\;
-$M_1 \assign$ list of length $2nd$\;
-$M_2 \assign$ list of length $2nd$\;
-\For{$v = 0, 1, \dots, n-1$}{
-  \For{$i = 0, 1, \dots, d-1$}{
-    $M_1[2(vd+i)] \assign v$\;
-    $M_2[2(vd+i)] \assign n + v$\;
-    $r \assign$ draw uniformly at random from $\{0, 1, \dots, 2(vd+i)\}$\;
-    \If{\rm $r$ is even}{
-      $M_1[2(vd+i) + 1] \assign M_2[r]$\;
-    }
-    \Else{
-      $M_1[2(vd+i) + 1] \assign M_1[r]$\;
-    }
-    $r \assign$ draw uniformly at random from $\{0, 1, \dots, 2(vd+i)\}$\;
-    \If{\rm $r$ is even}{
-      $M_2[2(vd+i) + 1] \assign M_1[r]$\;
-    }
-    \Else{
-      $M_2[2(vd+i) + 1] \assign M_2[r]$\;
-    }
-  }
-}
-add edges $(M_1[2i],\, M_1[2i+1])$ and $(M_2[2i],\, M_2[2i+1])$ to $G$
-for $i = 0, 1, \dots, nd-1$\;
-\Return $G$\;
+\State $G \gets \overline{K_{2n}}$\Comment{vertex set is $\{0, 1, \dots, 2n-1\}$}
+\State $M_1 \gets$ list of length $2nd$
+\State $M_2 \gets$ list of length $2nd$
+\For{$v = 0, 1, \dots, n-1$}
+  \For{$i = 0, 1, \dots, d-1$}
+    \State $M_1[2(vd+i)] \gets v$
+    \State $M_2[2(vd+i)] \gets n + v$
+    \State $r \gets$ draw uniformly at random from $\{0, 1, \dots, 2(vd+i)\}$
+    \If{\rm $r$ is even}
+      \State $M_1[2(vd+i) + 1] \gets M_2[r]$
+    \Else
+      \State $M_1[2(vd+i) + 1] \gets M_1[r]$
+    \EndIf
+    \State $r \gets$ draw uniformly at random from $\{0, 1, \dots, 2(vd+i)\}$
+    \If{\rm $r$ is even}
+      \State $M_2[2(vd+i) + 1] \gets M_1[r]$
+    \Else
+      \State $M_2[2(vd+i) + 1] \gets M_2[r]$
+    \EndIf
+  \EndFor
+\EndFor
+\State add edges $(M_1[2i],\, M_1[2i+1])$ and $(M_2[2i],\, M_2[2i+1])$ to $G$
+\State for $i = 0, 1, \dots, nd-1$
+\State \Return $G$
+\end{algorithmic}

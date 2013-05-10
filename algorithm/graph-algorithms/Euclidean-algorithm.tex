@@ -4,27 +4,23 @@
 %% Algorithmic Graph Theory
 %% http://code.google.com/p/graphbook/
 %%
-%% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
+%% Copyright (C) 2009--2013 Minh Van Nguyen <mvngu.name@gmail.com>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DontPrintSemicolon
-\SetAlgoNoLine
-%%
-%% input
-\KwIn{Two integers $a > 0$ and $b \geq 0$ with $a \geq b$.}
-%%
-%% output
-\KwOut{The greatest common divisor of $a$ and $b$.}
-\BlankLine
+\begin{algorithmic}[1]
+%% input and output
+\Require Two integers $a > 0$ and $b \geq 0$ with $a \geq b$.
+\Ensure The greatest common divisor of $a$ and $b$.
 %%
 %% algorithm body
-$x \assign a$\;
-$y \assign b$\;
-\While{$y \neq 0$}{
-  $r \assign x \bmod y$\;
-  $x \assign y$\;
-  $y \assign r$\;
-}
-\Return $x$
+\State $x \gets a$
+\State $y \gets b$
+\While{$y \neq 0$}
+  \State $r \gets x \bmod y$
+  \State $x \gets y$
+  \State $y \gets r$
+\EndWhile
+\State \Return $x$
+\end{algorithmic}
