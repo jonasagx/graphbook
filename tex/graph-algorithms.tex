@@ -2475,71 +2475,71 @@ as dumb as the next guy. \\
 \end{quote}
 
 \begin{problem}
-\item The Euclidean algorithm is one of the oldest known
-  algorithms. Given two positive integers $a$ and $b$ with $a \geq b$,
-  let $a \bmod b$ be the remainder obtained upon dividing $a$ by $b$.
-  The Euclidean algorithm determines the greatest common divisor
-  $\gcd(a,b)$ of $a$ and $b$. The procedure is summarized in
-  Algorithm~\ref{alg:graph_algorithms:Euclidean_algorithm}. Refer
-  to~\cite{Chabert1999} for a history of algorithms from ancient to
-  modern times.
-  %%
-  \begin{enumerate}[(a)]
-  \item Implement
-    Algorithm~\ref{alg:graph_algorithms:Euclidean_algorithm} in Sage
-    and use your implementation to compute the greatest common
-    divisors of various pairs of integers. Use the built-in Sage
-    command \verb!gcd! to verify your answer.
+%% \item The Euclidean algorithm is one of the oldest known
+%%   algorithms. Given two positive integers $a$ and $b$ with $a \geq b$,
+%%   let $a \bmod b$ be the remainder obtained upon dividing $a$ by $b$.
+%%   The Euclidean algorithm determines the greatest common divisor
+%%   $\gcd(a,b)$ of $a$ and $b$. The procedure is summarized in
+%%   Algorithm~\ref{alg:graph_algorithms:Euclidean_algorithm}. Refer
+%%   to~\cite{Chabert1999} for a history of algorithms from ancient to
+%%   modern times.
+%%   %%
+%%   \begin{enumerate}[(a)]
+%%   \item Implement
+%%     Algorithm~\ref{alg:graph_algorithms:Euclidean_algorithm} in Sage
+%%     and use your implementation to compute the greatest common
+%%     divisors of various pairs of integers. Use the built-in Sage
+%%     command \verb!gcd! to verify your answer.
 
-  \item Modify
-    Algorithm~\ref{alg:graph_algorithms:Euclidean_algorithm} to
-    compute the greatest common divisor of any pair of integers.
-  \end{enumerate}
+%%   \item Modify
+%%     Algorithm~\ref{alg:graph_algorithms:Euclidean_algorithm} to
+%%     compute the greatest common divisor of any pair of integers.
+%%   \end{enumerate}
 
-\begin{algorithm}[!htbp]
-\index{Euclidean algorithm}
-\input{algorithm/graph-algorithms/Euclidean-algorithm.tex}
-\caption{The Euclidean algorithm.}
-\label{alg:graph_algorithms:Euclidean_algorithm}
-\end{algorithm}
+%% \begin{algorithm}[!htbp]
+%% \index{Euclidean algorithm}
+%% \input{algorithm/graph-algorithms/Euclidean-algorithm.tex}
+%% \caption{The Euclidean algorithm.}
+%% \label{alg:graph_algorithms:Euclidean_algorithm}
+%% \end{algorithm}
 
-\item\label{prob:graph_algorithms:Horner_method} Given a polynomial
-  $p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$ of degree
-  $n$, we can use Horner's\index{Horner!W. G.}
-  method~\cite{Horner1819} to efficiently evaluate $p$ at a specific
-  value $x = x_0$. Horner's method evaluates $p(x)$ by expressing the
-  polynomial as
-  \[
-  p(x)
-  =
-  \sum_{i=0}^n a_i x^i
-  =
-  (\cdots (a_n x + a_{n-1}) x + \cdots)x + a_0
-  \]
-  to obtain Algorithm~\ref{alg:graph_algorithms:Horner_method}.
-  %%
-  \begin{enumerate}[(a)]
-  \item Compare the runtime of polynomial evaluation using
-    equation~\eqref{eqn:graph_algorithms:big_endian_binary_to_integer}
-    and Horner's method.
+%% \item\label{prob:graph_algorithms:Horner_method} Given a polynomial
+%%   $p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$ of degree
+%%   $n$, we can use Horner's\index{Horner!W. G.}
+%%   method~\cite{Horner1819} to efficiently evaluate $p$ at a specific
+%%   value $x = x_0$. Horner's method evaluates $p(x)$ by expressing the
+%%   polynomial as
+%%   \[
+%%   p(x)
+%%   =
+%%   \sum_{i=0}^n a_i x^i
+%%   =
+%%   (\cdots (a_n x + a_{n-1}) x + \cdots)x + a_0
+%%   \]
+%%   to obtain Algorithm~\ref{alg:graph_algorithms:Horner_method}.
+%%   %%
+%%   \begin{enumerate}[(a)]
+%%   \item Compare the runtime of polynomial evaluation using
+%%     equation~\eqref{eqn:graph_algorithms:big_endian_binary_to_integer}
+%%     and Horner's method.
 
-  \item Let $v$ be a bit vector read using big-endian order. Write a
-    Sage function that uses Horner's method to compute the integer
-    representation of $v$.
+%%   \item Let $v$ be a bit vector read using big-endian order. Write a
+%%     Sage function that uses Horner's method to compute the integer
+%%     representation of $v$.
 
-  \item Modify Algorithm~\ref{alg:graph_algorithms:Horner_method} to
-    evaluate the integer representation of a bit vector $v$ read using
-    little-endian order. Hence, write a Sage function to convert $v$
-    to its integer representation.
-  \end{enumerate}
+%%   \item Modify Algorithm~\ref{alg:graph_algorithms:Horner_method} to
+%%     evaluate the integer representation of a bit vector $v$ read using
+%%     little-endian order. Hence, write a Sage function to convert $v$
+%%     to its integer representation.
+%%   \end{enumerate}
 
-\begin{algorithm}[!htbp]
-\index{Horner!method}
-\index{Horner!W. G.}
-\input{algorithm/graph-algorithms/Horner-method.tex}
-\caption{Polynomial evaluation using Horner's method.}
-\label{alg:graph_algorithms:Horner_method}
-\end{algorithm}
+%% \begin{algorithm}[!htbp]
+%% \index{Horner!method}
+%% \index{Horner!W. G.}
+%% \input{algorithm/graph-algorithms/Horner-method.tex}
+%% \caption{Polynomial evaluation using Horner's method.}
+%% \label{alg:graph_algorithms:Horner_method}
+%% \end{algorithm}
 
 \item Let $G = (V, E)$ be an undirected graph, let $s \in V$, and $D$
   is the list of distances resulting from running
@@ -2658,17 +2658,17 @@ as dumb as the next guy. \\
     search still work if we use the ceiling function instead of the
     floor function?
 
-  \item An improvement on the time complexity of
-    binary\index{binary search} search is to not blindly use the
-    middle value of the interval of interest, but to guess more
-    precisely where the target falls within this interval.
-    Interpolation\index{interpolation search} search uses this
-    heuristic to improve on the runtime of binary search. Provide an
-    algorithm for interpolation\index{interpolation search} search,
-    analyze its worst-case runtime, and compare its theoretical
-    runtime efficiency with that of binary\index{binary search}
-    search~(see pages~419--420 in~\cite{Knuth1998c} and pages~201--202
-    in~\cite{Sedgewick1990}).
+  %% \item An improvement on the time complexity of
+  %%   binary\index{binary search} search is to not blindly use the
+  %%   middle value of the interval of interest, but to guess more
+  %%   precisely where the target falls within this interval.
+  %%   Interpolation\index{interpolation search} search uses this
+  %%   heuristic to improve on the runtime of binary search. Provide an
+  %%   algorithm for interpolation\index{interpolation search} search,
+  %%   analyze its worst-case runtime, and compare its theoretical
+  %%   runtime efficiency with that of binary\index{binary search}
+  %%   search~(see pages~419--420 in~\cite{Knuth1998c} and pages~201--202
+  %%   in~\cite{Sedgewick1990}).
   \end{enumerate}
 
 \item Let $G$ be a simple undirected graph having distance matrix
@@ -2785,165 +2785,165 @@ as dumb as the next guy. \\
     \]
   \end{enumerate}
 
-\item Consider the world map of major capital cities in
-  Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}.
-  %%
-  \begin{enumerate}[(a)]
-  \item Run breadth-\index{breadth-first search} and
-    depth-first\index{depth-first search} searches over the graph in
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} and
-    compare your results.
+%% \item Consider the world map of major capital cities in
+%%   Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}.
+%%   %%
+%%   \begin{enumerate}[(a)]
+%%   \item Run breadth-\index{breadth-first search} and
+%%     depth-first\index{depth-first search} searches over the graph in
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} and
+%%     compare your results.
 
-  \item Convert the graph in
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} to a
-    digraph as follows. Let $0 \leq \alpha \leq 1$ be a fixed
-    threshold\index{threshold!probability} probability and let
-    $V = \{v_1, \dots, v_n\}$ be the vertex set of the graph. For each
-    edge $v_i v_j$, let $0 \leq p \leq 1$ be its
-    orientation\index{orientation!probability} probability and define
-    the directedness\index{directedness} $\dir(v_i, v_j)$\index{$\dir$} by
-    \[
-    \dir(v_i, v_j)
-    =
-    \begin{cases}
-    v_i v_j, & \text{if $p \leq \alpha$,} \\[4pt]
-    v_j v_i, & \text{otherwise.}
-    \end{cases}
-    \]
-    That is, $\dir(v_i, v_j)$ takes the endpoints of an undirected
-    edge $v_i v_j$ and returns a directed version of this edge. The
-    result is either the directed edge $v_i v_j$ or the directed edge
-    $v_j v_i$. Use the above procedure to convert the graph of
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} to a
-    digraph, and run breadth-\index{breadth-first search} and
-    depth-first\index{depth-first search} searches over the resulting
-    digraph.
+%%   \item Convert the graph in
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} to a
+%%     digraph as follows. Let $0 \leq \alpha \leq 1$ be a fixed
+%%     threshold\index{threshold!probability} probability and let
+%%     $V = \{v_1, \dots, v_n\}$ be the vertex set of the graph. For each
+%%     edge $v_i v_j$, let $0 \leq p \leq 1$ be its
+%%     orientation\index{orientation!probability} probability and define
+%%     the directedness\index{directedness} $\dir(v_i, v_j)$\index{$\dir$} by
+%%     \[
+%%     \dir(v_i, v_j)
+%%     =
+%%     \begin{cases}
+%%     v_i v_j, & \text{if $p \leq \alpha$,} \\[4pt]
+%%     v_j v_i, & \text{otherwise.}
+%%     \end{cases}
+%%     \]
+%%     That is, $\dir(v_i, v_j)$ takes the endpoints of an undirected
+%%     edge $v_i v_j$ and returns a directed version of this edge. The
+%%     result is either the directed edge $v_i v_j$ or the directed edge
+%%     $v_j v_i$. Use the above procedure to convert the graph of
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} to a
+%%     digraph, and run breadth-\index{breadth-first search} and
+%%     depth-first\index{depth-first search} searches over the resulting
+%%     digraph.
 
-  \item Table~\ref{tab:graph_algorithms:capital_cities_distance} lists
-    distances in kilometers between the major capital cities shown in
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}. Let
-    those distances be the weights of the edges shown in
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}. Repeatedly
-    run Dijkstra's\index{Dijkstra!algorithm} algorithm over this
-    undirected, weighted graph with each city as the start vertex. Use
-    the procedure from the previous exercise to obtain a directed
-    version of the graph in
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} and
-    repeat the current exercise with the resulting weighted digraph.
+%%   \item Table~\ref{tab:graph_algorithms:capital_cities_distance} lists
+%%     distances in kilometers between the major capital cities shown in
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}. Let
+%%     those distances be the weights of the edges shown in
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}. Repeatedly
+%%     run Dijkstra's\index{Dijkstra!algorithm} algorithm over this
+%%     undirected, weighted graph with each city as the start vertex. Use
+%%     the procedure from the previous exercise to obtain a directed
+%%     version of the graph in
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities} and
+%%     repeat the current exercise with the resulting weighted digraph.
 
-  \item Repeat the previous exercise, but use the
-    Bellman-Ford\index{Bellman-Ford algorithm} algorithm instead of
-    Dijkstra's\index{Dijkstra!algorithm} algorithm. Compare the
-    results you obtain using these two different algorithms.
+%%   \item Repeat the previous exercise, but use the
+%%     Bellman-Ford\index{Bellman-Ford algorithm} algorithm instead of
+%%     Dijkstra's\index{Dijkstra!algorithm} algorithm. Compare the
+%%     results you obtain using these two different algorithms.
 
-  \item Consider a weighted digraph version of the graph in
-    Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}. Run the
-    Floyd-Roy-Warshall\index{Floyd-Roy-Warshall algorithm} and
-    Johnson's\index{Johnson!algorithm} algorithms over the weighted
-    digraph. Compare the results output by these two algorithms to the
-    results of the previous exercise.
-  \end{enumerate}
+%%   \item Consider a weighted digraph version of the graph in
+%%     Figure~\ref{fig:graph_algorithms:worldmap_capital_cities}. Run the
+%%     Floyd-Roy-Warshall\index{Floyd-Roy-Warshall algorithm} and
+%%     Johnson's\index{Johnson!algorithm} algorithms over the weighted
+%%     digraph. Compare the results output by these two algorithms to the
+%%     results of the previous exercise.
+%%   \end{enumerate}
 
-\item Consider a finite square lattice $\Lambda$ where points on
-  $\Lambda$ can connect to other points in their von~Neumann or Moore
-  neighborhoods, or other points in the lattice.  See
-  Figures~\ref{fig:von_Neumann_neighborhood}
-  and~\ref{fig:Moore_neighborhood} for illustrations of the
-  von~Neumann and Moore neighborhoods of a central node,
-  respectively.  We treat each point as a node and forbid each node
-  from connecting to itself.  The whole lattice can be considered as a
-  simple undirected graph $\Gamma$.  Let $n$ be the maximum number of
-  nodes in any connected components.  For each
-  $i \in \{1, 2, \dots, n\}$, how many connected components have
-  exactly $n$ nodes?  In other words, what is the density of connected
-  components in $\Gamma$?  For example, consider the lattice in
-  Figure~\ref{fig:component_density}.  Denote by $\kappa(i)$ the
-  number of connected components with $i$ nodes.  Then the maximum
-  number of nodes of any connected components is $n = 6$, with
-  $\kappa(1) = 2$, $\kappa(2) = 2$, $\kappa(3) = 2$, $\kappa(4) = 1$,
-  $\kappa(5) = 0$, and $\kappa(6) = 1$.
-  %%
-  \begin{figure}[!htbp]
-  \centering
-  \subfigure[Von Neumann neighborhood.]{
-    \label{fig:von_Neumann_neighborhood}
-    \includegraphics{image/graph-algorithms/von-Neumann-neighborhood}
-  }
-  \quad
-  \subfigure[Moore neighborhood.]{
-    \label{fig:Moore_neighborhood}
-    \includegraphics{image/graph-algorithms/Moore-neighborhood}
-  }
-  \quad
-  \subfigure[Square lattice with components.]{
-    \label{fig:component_density}
-    \includegraphics[scale=0.8]{image/graph-algorithms/component-density-lattice}
-  }
-  \caption{Component density in a square lattice.}
-  \label{fig:component_density_lattice}
-  \end{figure}
+%% \item Consider a finite square lattice $\Lambda$ where points on
+%%   $\Lambda$ can connect to other points in their von~Neumann or Moore
+%%   neighborhoods, or other points in the lattice.  See
+%%   Figures~\ref{fig:von_Neumann_neighborhood}
+%%   and~\ref{fig:Moore_neighborhood} for illustrations of the
+%%   von~Neumann and Moore neighborhoods of a central node,
+%%   respectively.  We treat each point as a node and forbid each node
+%%   from connecting to itself.  The whole lattice can be considered as a
+%%   simple undirected graph $\Gamma$.  Let $n$ be the maximum number of
+%%   nodes in any connected components.  For each
+%%   $i \in \{1, 2, \dots, n\}$, how many connected components have
+%%   exactly $n$ nodes?  In other words, what is the density of connected
+%%   components in $\Gamma$?  For example, consider the lattice in
+%%   Figure~\ref{fig:component_density}.  Denote by $\kappa(i)$ the
+%%   number of connected components with $i$ nodes.  Then the maximum
+%%   number of nodes of any connected components is $n = 6$, with
+%%   $\kappa(1) = 2$, $\kappa(2) = 2$, $\kappa(3) = 2$, $\kappa(4) = 1$,
+%%   $\kappa(5) = 0$, and $\kappa(6) = 1$.
+%%   %%
+%%   \begin{figure}[!htbp]
+%%   \centering
+%%   \subfigure[Von Neumann neighborhood.]{
+%%     \label{fig:von_Neumann_neighborhood}
+%%     \includegraphics{image/graph-algorithms/von-Neumann-neighborhood}
+%%   }
+%%   \quad
+%%   \subfigure[Moore neighborhood.]{
+%%     \label{fig:Moore_neighborhood}
+%%     \includegraphics{image/graph-algorithms/Moore-neighborhood}
+%%   }
+%%   \quad
+%%   \subfigure[Square lattice with components.]{
+%%     \label{fig:component_density}
+%%     \includegraphics[scale=0.8]{image/graph-algorithms/component-density-lattice}
+%%   }
+%%   \caption{Component density in a square lattice.}
+%%   \label{fig:component_density_lattice}
+%%   \end{figure}
 
-\begin{landscape}
-\begin{figure}[!htbp]
-\centering
-\index{Bangkok}\index{Thailand}
-\index{Beijing}\index{China}
-\index{Berlin}\index{Germany}
-\index{Brasilia}\index{Brazil}
-\index{Buenos Aires}\index{Argentina}
-\index{Lima}\index{Peru}
-\index{London}\index{England}
-\index{Madrid}\index{Spain}
-\index{Moscow}\index{Russia}
-\index{New Delhi}\index{India}
-\index{Ottawa}\index{Canada}
-\index{Pretoria}\index{South Africa}
-\index{Sydney}\index{Australia}
-\index{Tokyo}\index{Japan}
-\index{Washington DC}\index{USA}
-\includegraphics{image/graph-algorithms/worldmap-capital-cities}
-\caption{Major capital cities of the world.}
-\label{fig:graph_algorithms:worldmap_capital_cities}
-\end{figure}
-\end{landscape}
+%% \begin{landscape}
+%% \begin{figure}[!htbp]
+%% \centering
+%% \index{Bangkok}\index{Thailand}
+%% \index{Beijing}\index{China}
+%% \index{Berlin}\index{Germany}
+%% \index{Brasilia}\index{Brazil}
+%% \index{Buenos Aires}\index{Argentina}
+%% \index{Lima}\index{Peru}
+%% \index{London}\index{England}
+%% \index{Madrid}\index{Spain}
+%% \index{Moscow}\index{Russia}
+%% \index{New Delhi}\index{India}
+%% \index{Ottawa}\index{Canada}
+%% \index{Pretoria}\index{South Africa}
+%% \index{Sydney}\index{Australia}
+%% \index{Tokyo}\index{Japan}
+%% \index{Washington DC}\index{USA}
+%% \includegraphics{image/graph-algorithms/worldmap-capital-cities}
+%% \caption{Major capital cities of the world.}
+%% \label{fig:graph_algorithms:worldmap_capital_cities}
+%% \end{figure}
+%% \end{landscape}
 
-\begin{landscape}
-\begin{table}[!htbp]
-\centering
-\index{Bangkok}\index{Thailand}
-\index{Beijing}\index{China}
-\index{Berlin}\index{Germany}
-\index{Brasilia}\index{Brazil}
-\index{Buenos Aires}\index{Argentina}
-\index{Lima}\index{Peru}
-\index{London}\index{England}
-\index{Madrid}\index{Spain}
-\index{Moscow}\index{Russia}
-\index{New Delhi}\index{India}
-\index{Ottawa}\index{Canada}
-\index{Pretoria}\index{South Africa}
-\index{Sydney}\index{Australia}
-\index{Tokyo}\index{Japan}
-\index{Washington DC}\index{USA}
-{\tiny
-\input{data/graph-algorithms/capital-cities-distance.tex}
-}
-\caption{Distances in kilometers between major world capital cities.}
-\label{tab:graph_algorithms:capital_cities_distance}
-\end{table}
-\end{landscape}
+%% \begin{landscape}
+%% \begin{table}[!htbp]
+%% \centering
+%% \index{Bangkok}\index{Thailand}
+%% \index{Beijing}\index{China}
+%% \index{Berlin}\index{Germany}
+%% \index{Brasilia}\index{Brazil}
+%% \index{Buenos Aires}\index{Argentina}
+%% \index{Lima}\index{Peru}
+%% \index{London}\index{England}
+%% \index{Madrid}\index{Spain}
+%% \index{Moscow}\index{Russia}
+%% \index{New Delhi}\index{India}
+%% \index{Ottawa}\index{Canada}
+%% \index{Pretoria}\index{South Africa}
+%% \index{Sydney}\index{Australia}
+%% \index{Tokyo}\index{Japan}
+%% \index{Washington DC}\index{USA}
+%% {\tiny
+%% \input{data/graph-algorithms/capital-cities-distance.tex}
+%% }
+%% \caption{Distances in kilometers between major world capital cities.}
+%% \label{tab:graph_algorithms:capital_cities_distance}
+%% \end{table}
+%% \end{landscape}
 
-\item Various efficient search techniques exist that cater for special
-  situations. Some of these are covered in chapter~6
-  in~\cite{Knuth1998c} and chapters~14--18
-  in~\cite{Sedgewick1990}. Investigate an algorithm for and time
-  complexity of trie search. Hashing techniques can result in searches
-  that run in $O(1)$ time. Furthermore, hashing has important
-  applications outside of the searching problem, a case in point being
-  cryptology. Investigate how hashing can be used to speed up
-  searches. For further information on hashing and its application to
-  cryptology, see~\cite{MenezesEtAl1996, Stinson2002,
-    TrappeWashington2006}.
+%% \item Various efficient search techniques exist that cater for special
+%%   situations. Some of these are covered in chapter~6
+%%   in~\cite{Knuth1998c} and chapters~14--18
+%%   in~\cite{Sedgewick1990}. Investigate an algorithm for and time
+%%   complexity of trie search. Hashing techniques can result in searches
+%%   that run in $O(1)$ time. Furthermore, hashing has important
+%%   applications outside of the searching problem, a case in point being
+%%   cryptology. Investigate how hashing can be used to speed up
+%%   searches. For further information on hashing and its application to
+%%   cryptology, see~\cite{MenezesEtAl1996, Stinson2002,
+%%     TrappeWashington2006}.
 
 \item In addition to searching, there is the related problem of
   sorting a list according to an ordering relation. If the given list
@@ -2977,25 +2977,25 @@ as dumb as the next guy. \\
   \item Modify Algorithm~\ref{alg:graph_algorithms:bubble_sort} so
     that it sorts elements in nonincreasing order.
 
-  \item Line~\ref{alg:bubble_sort:swap_values} of
-    Algorithm~\ref{alg:graph_algorithms:bubble_sort} is where elements
-    are actually sorted. Swapping the values of two elements is such a
-    common task that sometimes we want to perform the swap as
-    efficiently as possible, i.e. using as few operations as
-    possible. A common way to swap the values of two elements $a$ and
-    $b$ is to create a temporary placeholder $t$ and realize the swap
-    as presented in
-    Algorithm~\ref{alg:graph_algorithms:swapping_using_temporary_object}.
-    Some programming languages allow for swapping the values of two
-    elements without creating a temporary placeholder for an
-    intermediary value. Investigate how to realize this swapping
-    method using a programming language of your choice.
-    %%
-    \begin{algorithm}[!htbp]
-      \input{algorithm/graph-algorithms/swapping-with-temporary.tex}
-      \caption{Swapping values using a temporary placeholder.}
-      \label{alg:graph_algorithms:swapping_using_temporary_object}
-    \end{algorithm}
+  %% \item Line~\ref{alg:bubble_sort:swap_values} of
+  %%   Algorithm~\ref{alg:graph_algorithms:bubble_sort} is where elements
+  %%   are actually sorted. Swapping the values of two elements is such a
+  %%   common task that sometimes we want to perform the swap as
+  %%   efficiently as possible, i.e. using as few operations as
+  %%   possible. A common way to swap the values of two elements $a$ and
+  %%   $b$ is to create a temporary placeholder $t$ and realize the swap
+  %%   as presented in
+  %%   Algorithm~\ref{alg:graph_algorithms:swapping_using_temporary_object}.
+  %%   Some programming languages allow for swapping the values of two
+  %%   elements without creating a temporary placeholder for an
+  %%   intermediary value. Investigate how to realize this swapping
+  %%   method using a programming language of your choice.
+  %%   %%
+  %%   \begin{algorithm}[!htbp]
+  %%     \input{algorithm/graph-algorithms/swapping-with-temporary.tex}
+  %%     \caption{Swapping values using a temporary placeholder.}
+  %%     \label{alg:graph_algorithms:swapping_using_temporary_object}
+  %%   \end{algorithm}
   \end{enumerate}
 
 \item \emph{Selection sort}\index{selection sort} is another simple
@@ -3041,33 +3041,33 @@ as dumb as the next guy. \\
 \label{alg:graph_algorithms:selection_sort}
 \end{algorithm}
 
-\item In addition to bubble\index{bubble sort} and
-  selection\index{selection sort} sort, other algorithms exist whose
-  runtime is more efficient than these two basic sorting
-  algorithms. Chapter~5 in~\cite{Knuth1998c} describes various
-  efficient sorting techniques. See also chapters~8--13
-  in~\cite{Sedgewick1990}.
-  %%
-  \begin{enumerate}[(a)]
-  \item Investigate and provide pseudocode for
-    insertion\index{insertion sort} sort and compare its runtime
-    efficiency with that of selection\index{selection sort}
-    sort. Compare the similarities and differences between insertion
-    and selection sort.
+%% \item In addition to bubble\index{bubble sort} and
+%%   selection\index{selection sort} sort, other algorithms exist whose
+%%   runtime is more efficient than these two basic sorting
+%%   algorithms. Chapter~5 in~\cite{Knuth1998c} describes various
+%%   efficient sorting techniques. See also chapters~8--13
+%%   in~\cite{Sedgewick1990}.
+%%   %%
+%%   \begin{enumerate}[(a)]
+%%   \item Investigate and provide pseudocode for
+%%     insertion\index{insertion sort} sort and compare its runtime
+%%     efficiency with that of selection\index{selection sort}
+%%     sort. Compare the similarities and differences between insertion
+%%     and selection sort.
 
-  \item Shellsort\index{shellsort} is a variation on
-    insertion\index{insertion sort} sort that can speed up the runtime
-    of insertion sort. Describe and provide pseudocode for
-    shellsort. Compare the time complexity of shellsort with that of
-    insertion sort. In what ways is shellsort different from or
-    similar to insertion sort?
+%%   \item Shellsort\index{shellsort} is a variation on
+%%     insertion\index{insertion sort} sort that can speed up the runtime
+%%     of insertion sort. Describe and provide pseudocode for
+%%     shellsort. Compare the time complexity of shellsort with that of
+%%     insertion sort. In what ways is shellsort different from or
+%%     similar to insertion sort?
 
-  \item The quicksort\index{quicksort} algorithm due to C.~A.~R.
-    Hoare\index{Hoare, C.~A.~R.}~\cite{Hoare1962}
-    was published in~1962. Describe and provide pseudocode for
-    quicksort and compare its runtime complexity with the other
-    sorting algorithms covered in this chapter.
-  \end{enumerate}
+%%   \item The quicksort\index{quicksort} algorithm due to C.~A.~R.
+%%     Hoare\index{Hoare, C.~A.~R.}~\cite{Hoare1962}
+%%     was published in~1962. Describe and provide pseudocode for
+%%     quicksort and compare its runtime complexity with the other
+%%     sorting algorithms covered in this chapter.
+%%   \end{enumerate}
 
 \item\label{prob:graph_algorithms:connectivity_with_DFS_BFS}
   Algorithm~\ref{alg:graph_algorithms:graph_connectivity} uses
