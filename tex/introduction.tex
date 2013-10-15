@@ -3296,7 +3296,7 @@ of $G_j$.
 Many classes of graphs can be characterized by
 \emph{forbidden minors}\index{forbidden minor}: a graph belongs to the
 class if and only if it does not have a minor from a certain specified
-list. We shall see examples of this in Chapter~\ref{chap:planar_graphs}.
+list. %% We shall see examples of this in Chapter~\ref{chap:planar_graphs}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4090,15 +4090,12 @@ problem with a solution---you'll hatch out dozens. \\
   \item Show that each column of $M$ sums to $0$.
   \end{enumerate}
 
-\item Let $G$ be a digraph and let $M$ be its incidence matrix. For
-  any row $r$ of $M$, let $m$ be the frequency of $-1$ in $r$, let
-  $p$ be the frequency of $1$ in $r$, and let $t$ be twice the
-  frequency of $2$ in $r$. If $v$ is the vertex corresponding to
-  $r$, show that the degree of $v$ is $\deg(v) = m + p + t$.
-%%%%
-%%%% Has ``the frequency'' been defined yet? American English
-%%%% usage of this term might be different from Australian usage?
-%%%%
+\item Let $G$ be a digraph and let $M$ be its incidence matrix.  For
+  any row $r$ of $M$, let $m$ count the number of times that $-1$
+  occur in $r$, let $p$ be the number of times that $1$ occur in $r$,
+  and let $t$ be twice the number of times that $2$ occur in $r$.  If
+  $v$ is the vertex corresponding to $r$, show that the degree of $v$
+  is $\deg(v) = m + p + t$.
 
 \item Let $G$ be an undirected graph without self-loops and let $M$
   and its oriented incidence matrix. Show that the Laplacian matrix
@@ -4329,21 +4326,21 @@ problem with a solution---you'll hatch out dozens. \\
   \item Show that $G$ has $(a^p - a) / p$ components.
   \end{enumerate}
 
-\item For the finite\index{finite automaton} automaton in
-  Figure~\ref{fig:introduction:vending_machine_state_diagram},
-  identify the following:
-  %%
-  \begin{enumerate}[(a)]
-  \item The states set $Q$.
-
-  \item The alphabet set $\Sigma$.
-
-  \item The transition function $\delta: Q \times \Sigma \to Q$.
-
-  \item The initial state $q_0 \in Q$.
-
-  \item The set of final states $F \subseteq Q$.
-  \end{enumerate}
+%% \item For the finite\index{finite automaton} automaton in
+%%   Figure~\ref{fig:introduction:vending_machine_state_diagram},
+%%   identify the following:
+%%   %%
+%%   \begin{enumerate}[(a)]
+%%   \item The states set $Q$.
+%%
+%%   \item The alphabet set $\Sigma$.
+%%
+%%   \item The transition function $\delta: Q \times \Sigma \to Q$.
+%%
+%%   \item The initial state $q_0 \in Q$.
+%%
+%%   \item The set of final states $F \subseteq Q$.
+%%   \end{enumerate}
 
 \begin{figure}[!htbp]
 \centering
