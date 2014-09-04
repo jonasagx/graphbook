@@ -7,7 +7,6 @@
 %% Copyright (C) 2010 David Joyner <wdjoyner@gmail.com>
 %% Copyright (C) 2009--2012 Minh Van Nguyen <mvngu.name@gmail.com>
 %% Copyright (C) 2010 Nathann Cohen <nathann.cohen@gmail.com>
-%% Copyright (c) 2013 David Phillips <dphillip@usna.edu>
 %%
 %% See the file COPYING for copying conditions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -94,11 +93,6 @@
 \topmargin=-30pt
 \oddsidemargin=0.0pt
 \evensidemargin=0.0pt
-
-%% Use Times Roman font.
-\renewcommand{\rmdefault}{ptm}
-\renewcommand{\ttdefault}{pcr}
-\normalfont\selectfont
 
 %% Format date in the ISO format 2007 March 12, for example.
 \usepackage{datetime}
@@ -223,12 +217,12 @@
 \DeclareMathOperator*{\headElem}{head}
 \DeclareMathOperator*{\height}{height}  %% height of a tree
 \DeclareMathOperator*{\iadj}{iadj}  %% set of in-neighbors
-\DeclareMathOperator*{\id}{id}  %% indegree of a vertex
+\DeclareMathOperator*{\id}{deg_{in}}  %% indegree of a vertex
 \DeclareMathOperator*{\insertElem}{insert}
 \DeclareMathOperator*{\leftChild}{leftchild}
 \DeclareMathOperator*{\length}{length}
 \DeclareMathOperator*{\nextElem}{next}
-\DeclareMathOperator*{\od}{od}  %% outdegree of a vertex
+\DeclareMathOperator*{\od}{deg_{out}}  %% outdegree of a vertex
 \DeclareMathOperator*{\oadj}{oadj}  %% set of out-neighbors
 \DeclareMathOperator*{\pop}{pop}  %% pop an element from a stack
 \DeclareMathOperator*{\parent}{parent}
